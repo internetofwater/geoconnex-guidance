@@ -20,21 +20,13 @@ editor: visual
 
 ## Introduction
 
-The Geoconnex project is about providing technical infrastructure and guidance to create an open, community-contribution model for a knowledge graph linking hydrologic features in the United States, published in accordance with [Spatial Data on the Web best practices](https://www.w3.org/TR/sdw-bp/) as an implementation of [Internet of Water](https://github.com/opengeospatial/SELFIE/blob/master/docs/demo/internet_of_water.md) principles.
+The Geoconnex project is about providing technical infrastructure and guidance to create an open, community-contribution model for a knowledge graph linking hydrologic features in the United States, published in accordance with [Spatial Data on the Web best practices](https://www.w3.org/TR/sdw-bp/) as an implementation of [Internet of Water](https://github.com/opengeospatial/SELFIE/blob/master/docs/demo/internet_of_water.md) principles. The development of geoconnex.us takes place on GitHub. See [here](https://github.com/internetofwater/about.geoconnex.us) for the system of repositories.
 
-Geoconnex aims to enable a [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) for water data in the United States. The value of this graph, (see \`https://graph.geoconnex.us\`) can be illustrated considering two use cases:
-
-1.  Indexing and discovering models and research from public sector, private sector, or academic projects about a particular place or environmental feature.
-
-2.  Building a federated multi-organization monitoring network in which all member-systems reference common monitored features and are discoverable through a community index.
-
-In other words, Geoconnex will allow data users to answer questions like: "What datasets are available about the portions of Colorado River upstream of Lake Mead within Nevada and Utah regarding variables discharge and total suspended solids with measurements taken at least daily with coverage between 2002 and 2007?" and be returned metadata for all relevant datasets from all participating organizations, including federal, state, private, and NGO organizations.
+Geoconnex will allow data users to answer questions like: "What datasets are available about the portions of [**Colorado River**](https://geoconnex.us/ref/mainstems/29559 "This is an HTTP identifier in the geoconnex system to unambiguously denote the Colorado River") *upstream* of [**Hoover Dam**](https://geoconnex.us/ref/dams/1080095 "This an HTTP identifier in the Geoconnex system to unambiguously identify the Hoover Dam, in particular its location along the Colorado River") *within* **Nevada** and **Utah** regarding *variables* **discharge** and **total suspended solids** with measurements taken at least **daily** with *coverage* **between 2002 and 2007**?" and be returned metadata for all relevant datasets from all participating organizations, including federal, state, private, and NGO organizations.
 
 See <https://geoconnex.us/demo> for a mockup of data discovery and access workflows that `https://geoconnex.us` aspires to enable.
 
-The development of geoconnex.us takes place on GitHub. See [here](https://github.com/internetofwater/about.geoconnex.us) for the system of repositories.
-
-This capability rests on data providers publishing metadata to the system. Thus, Geoconnex involves the publication of metadata within websites that describe water datasets and the real-world environmental features (eg rivers, wells, dams, catchments) or the cataloging features (eg government jurisdiction areas, statiscal summary reporting areas) that they are relevant to. This document provides guidance, including general principles as well as specific templates, for data providers for how to structure this metadata using the JSON-LD format.
+Geoconnex rests on data providers publishing metadata to the system. Thus, Geoconnex involves the publication of metadata within websites that describe water datasets and the real-world environmental features (eg rivers, wells, dams, catchments) or the cataloging features (eg government jurisdiction areas, statiscal summary reporting areas) that they are relevant to. This document provides guidance, including general principles as well as specific templates, for data providers for how to structure this metadata using the JSON-LD format.
 
 **Related materials, presentations, and publications**
 
@@ -44,7 +36,7 @@ This capability rests on data providers publishing metadata to the system. Thus,
 
 [Roundtable presentation including geoconnex.us](https://www.westernstateswater.org/wp-content/uploads/2020/06/CO_Roundable_IoW.pdf)
 
-\[Second Environmental Linked Features Interoperability Experiment\](https://github.com/opengeospatial/SELFIE)
+[Second Environmental Linked Features Interoperability Experiment](https://github.com/opengeospatial/SELFIE)
 
 [ESIP Sessions on Structured Data in the Web](https://2020esipsummermeeting.sched.com/event/cIvv/structured-data-on-the-web-putting-best-practice-to-work) [slides](https://docs.google.com/presentation/d/1LSXHz2_Y7hrkGZPC_sNoJWl8AIujI8AAWktl9amIR4E/edit#slide=id.g8250495469_1_30)
 
@@ -75,13 +67,15 @@ Below is an example JSON-LD document, with an explanation of its major elements.
 ```{json}
 {
   "@context": {
-    "schema": "https://schema.org/",
-    "ex": "https://example.com/schema/"
+    "@vocab": "https://schema.org/",
+    "ex": "https://example.com/schema/",
+    "locType": "https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType"
   },
   "@id": "https://example.com/well/1234",
   "@type": "schema:Place",
   "name": "Well 1234",
   "description": "Well at 1234 Place St., USA",
+  "locType": "well",
   "subjectOf": {
     "@id": "https://datasystem.org/dataset1",
     "@type": "schema:Dataset",
@@ -94,8 +88,9 @@ Below is an example JSON-LD document, with an explanation of its major elements.
 
 **`@context`** The `@context` keyword in JSON-LD sets the stage for interpreting the data by mapping terms to IRIs (Internationalized Resource Identifiers). By doing so, properties and values are clearly defined and identified. Our updated example has two contexts:
 
--   `schema`: Refers to `https://schema.org/`, which is a standard vocabulary for web-based structured data.
--   `ex`: This is a custom context representing `https://example.com/schema/`, potentially signifying specific extensions or custom data definitions specific to our website.
+-   `@vocab`: Sets the default document vocabulary to `https://schema.org/`, which is a standard vocabulary for web-based structured data. This means that in general, attributes in the document will be assumed to have `https://schema.org/` as a prefix, so JSON-LD parsers will map `name` to [https://schema.org/name](https://schema.org/name) 
+-   `ex`: This is a custom context prefix representing `https://example.com/schema/`, signifying specific extensions or custom data definitions specific to our website. The prefix can be used on other attributes so that JSON-LD parsers do the appropriate mapping. Thus, `ex:name` will be parsed as `https://example.com/schema/recordCount`.
+-   `locType`: This is a custom direct attribute mapping, specifying that this attribute exactly matches to the concept identified by this HTTP identifier [https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType](https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType). Using this direct mapping approach allows data publishers to map their arbitrary terminology to any publicly accessibly and well-identified standard term.
 
 **`@id`** The `@id` keyword furnishes a unique identifier for subjects in the JSON-LD document, enabling the subjects to be interconnected with data elsewhere. In this example:
 
@@ -109,10 +104,14 @@ Below is an example JSON-LD document, with an explanation of its major elements.
 
 **Nodes** Nodes represent entities in JSON-LD, with each entity having properties associated with it. In the example:
 
--   The main node is Well 1234, possessing properties like "name", "description", and "subjectOf".
--   subjectOf property itself is a node representing a dataset that is about Well 1234. Apart from the "name" property, the dataset now also has a property called "ex:recordCount", indicating the number of rows in the dataset.
+-   The main node is Well 1234, possessing properties like "name", "description", "locType", and "subjectOf".
+-   subjectOf property itself is a node representing a dataset that is about Well 1234. Apart from the "name" property, the dataset now also has a property called "ex:recordCount" (using the `ex:` prefix from `@context`) indicating the number of rows in the dataset.
 
 This extension showcases the flexibility and strength of JSON-LD, where you can seamlessly integrate standard vocabulary with custom definitions, ensuring rich and well-structured interconnected data representations.
+
+```{=html}
+<iframe width="780" height="500" src="https://json-ld.org/playground/" title="JSON-LD playground"></iframe>
+```
 
 ## Building Blocks
 
