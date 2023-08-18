@@ -8,9 +8,12 @@ format:
     toc-expand: 2
     toc-title: Table of Contents
     toc-location: left
-    embed-resources: true
+#    embed-resources: true
     anchor-sections: true
     link-external-newwindow: true
+    comments:
+      utterances:
+        repo: internetofwater/geoconnex-guidance
 editor: visual
 ---
 
@@ -20,21 +23,13 @@ editor: visual
 
 ## Introduction
 
-The Geoconnex project is about providing technical infrastructure and guidance to create an open, community-contribution model for a knowledge graph linking hydrologic features in the United States, published in accordance with [Spatial Data on the Web best practices](https://www.w3.org/TR/sdw-bp/) as an implementation of [Internet of Water](https://github.com/opengeospatial/SELFIE/blob/master/docs/demo/internet_of_water.md) principles.
+The Geoconnex project is about providing technical infrastructure and guidance to create an open, community-contribution model for a knowledge graph linking hydrologic features in the United States, published in accordance with [Spatial Data on the Web best practices](https://www.w3.org/TR/sdw-bp/) as an implementation of [Internet of Water](https://github.com/opengeospatial/SELFIE/blob/master/docs/demo/internet_of_water.md) principles. The development of geoconnex.us takes place on GitHub. See [here](https://github.com/internetofwater/about.geoconnex.us) for the system of repositories.
 
-Geoconnex aims to enable a [knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph) for water data in the United States. The value of this graph, (see \`https://graph.geoconnex.us\`) can be illustrated considering two use cases:
-
-1.  Indexing and discovering models and research from public sector, private sector, or academic projects about a particular place or environmental feature.
-
-2.  Building a federated multi-organization monitoring network in which all member-systems reference common monitored features and are discoverable through a community index.
-
-In other words, Geoconnex will allow data users to answer questions like: "What datasets are available about the portions of Colorado River upstream of Lake Mead within Nevada and Utah regarding variables discharge and total suspended solids with measurements taken at least daily with coverage between 2002 and 2007?" and be returned metadata for all relevant datasets from all participating organizations, including federal, state, private, and NGO organizations.
+Geoconnex will allow data users to answer questions like: "What datasets are available about the portions of [**Colorado River**](https://geoconnex.us/ref/mainstems/29559 "This is an HTTP identifier in the geoconnex system to unambiguously denote the Colorado River") *upstream* of [**Hoover Dam**](https://geoconnex.us/ref/dams/1080095 "This an HTTP identifier in the Geoconnex system to unambiguously identify the Hoover Dam, in particular its location along the Colorado River") *within* **Nevada** and **Utah** regarding *variables* **discharge** and **total suspended solids** with measurements taken at least **daily** with *coverage* **between 2002 and 2007**?" and be returned metadata for all relevant datasets from all participating organizations, including federal, state, private, and NGO organizations.
 
 See <https://geoconnex.us/demo> for a mockup of data discovery and access workflows that `https://geoconnex.us` aspires to enable.
 
-The development of geoconnex.us takes place on GitHub. See [here](https://github.com/internetofwater/about.geoconnex.us) for the system of repositories.
-
-This capability rests on data providers publishing metadata to the system. Thus, Geoconnex involves the publication of metadata within websites that describe water datasets and the real-world environmental features (eg rivers, wells, dams, catchments) or the cataloging features (eg government jurisdiction areas, statiscal summary reporting areas) that they are relevant to. This document provides guidance, including general principles as well as specific templates, for data providers for how to structure this metadata using the JSON-LD format.
+Geoconnex rests on data providers publishing metadata to the system. Thus, Geoconnex involves the publication of metadata within websites that describe water datasets and the real-world environmental features (eg rivers, wells, dams, catchments) or the cataloging features (eg government jurisdiction areas, statiscal summary reporting areas) that they are relevant to. This document provides guidance, including general principles as well as specific templates, for data providers for how to structure this metadata using the JSON-LD format.
 
 **Related materials, presentations, and publications**
 
@@ -44,7 +39,7 @@ This capability rests on data providers publishing metadata to the system. Thus,
 
 [Roundtable presentation including geoconnex.us](https://www.westernstateswater.org/wp-content/uploads/2020/06/CO_Roundable_IoW.pdf)
 
-\[Second Environmental Linked Features Interoperability Experiment\](https://github.com/opengeospatial/SELFIE)
+[Second Environmental Linked Features Interoperability Experiment](https://github.com/opengeospatial/SELFIE)
 
 [ESIP Sessions on Structured Data in the Web](https://2020esipsummermeeting.sched.com/event/cIvv/structured-data-on-the-web-putting-best-practice-to-work) [slides](https://docs.google.com/presentation/d/1LSXHz2_Y7hrkGZPC_sNoJWl8AIujI8AAWktl9amIR4E/edit#slide=id.g8250495469_1_30)
 
@@ -68,20 +63,23 @@ This Geoconnex guidance concerns how to explicitly publish metadata that describ
 
 ### JSON-LD
 
-JSON-LD is a version of JSON, the popular data exchange format used by web APIs, to express linked data. Linked Data is an approach to data publication that allows data from various sources to be easily integrated. JSON-LD accomplishes this by mapping terms from a source data system to a machine-readable definition of that term available on the web, allowing different attribute names from different data sources to be consistently interpreted together. Commonly, JSON-LD is embedded within websites, allowing search engines and applications to parse the information available from web addresses (URLs). For an in-depth exploration and multimedia resources, refer to the [JSON-LD official site](https://json-ld.org) and its [learning section](https://json-ld.org/learn.html). A brief overview of the JSON-LD format follows below.
+JSON-LD is a version of JSON, the popular data exchange format used by web APIs, to express linked data. Linked Data is an approach to data publication that allows data from various sources to be easily integrated. JSON-LD accomplishes this by mapping terms from a source data system to a machine-readable definition of that term available on the web, allowing different attribute names from different data sources to be consistently interpreted together. Commonly, JSON-LD is embedded within websites, allowing search engines and applications to parse the information available from web addresses (URLs). For an in-depth exploration and multimedia resources, refer to the [JSON-LD official site](https://json-ld.org) and its [learning section](https://json-ld.org/learn.html). JSON-LD documents should be embedded in the HTML of websites using script headers. A brief overview of the JSON-LD format follows below.
 
-Below is an example JSON-LD document, with an explanation of its major elements.
+Below is an example JSON-LD document as embedded in a `<script>` division within a `<head>` or `<body>` section of an HTML page, with an explanation of its major elements.
 
 ```{json}
+<script type="application/ld+json"> 
 {
   "@context": {
-    "schema": "https://schema.org/",
-    "ex": "https://example.com/schema/"
+    "@vocab": "https://schema.org/",
+    "ex": "https://example.com/schema/",
+    "locType": "https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType"
   },
   "@id": "https://example.com/well/1234",
   "@type": "schema:Place",
   "name": "Well 1234",
   "description": "Well at 1234 Place St., USA",
+  "locType": "well",
   "subjectOf": {
     "@id": "https://datasystem.org/dataset1",
     "@type": "schema:Dataset",
@@ -89,15 +87,18 @@ Below is an example JSON-LD document, with an explanation of its major elements.
     "ex:recordCount": 500
   }
 }
-
+<script> 
 ```
+
+**`<script type="application/ld+json">`, `<script>`** These are immutable HTML elements that tell machines to interpret everything between them as JSON-LD.
 
 **`@context`** The `@context` keyword in JSON-LD sets the stage for interpreting the data by mapping terms to IRIs (Internationalized Resource Identifiers). By doing so, properties and values are clearly defined and identified. Our updated example has two contexts:
 
--   `schema`: Refers to `https://schema.org/`, which is a standard vocabulary for web-based structured data.
--   `ex`: This is a custom context representing `https://example.com/schema/`, potentially signifying specific extensions or custom data definitions specific to our website.
+-   `@vocab`: Sets the default document vocabulary to `https://schema.org/`, which is a standard vocabulary for web-based structured data. This means that in general, attributes in the document will be assumed to have `https://schema.org/` as a prefix, so JSON-LD parsers will map `name` to <https://schema.org/name>
+-   `ex`: This is a custom context prefix representing `https://example.com/schema/`, signifying specific extensions or custom data definitions specific to our website. The prefix can be used on other attributes so that JSON-LD parsers do the appropriate mapping. Thus, `ex:name` will be parsed as `https://example.com/schema/recordCount`.
+-   `locType`: This is a custom direct attribute mapping, specifying that this attribute exactly matches to the concept identified by this HTTP identifier <https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType>. Using this direct mapping approach allows data publishers to map their arbitrary terminology to any publicly accessibly and well-identified standard term.
 
-**`@id`** The `@id` keyword furnishes a unique identifier for subjects in the JSON-LD document, enabling the subjects to be interconnected with data elsewhere. In this example:
+**`@id`** The `@id` keyword furnishes a uniform resource identifier (URI) for subjects in the JSON-LD document, enabling the subjects to be interconnected with data elsewhere. In this example:
 
 -   Well 1234 has the identifier `https://example.com/well/1234`.
 -   The dataset that it is about, "Well Locations Dataset", has its unique identifier as `https://datasystem.org/dataset1`.
@@ -109,24 +110,79 @@ Below is an example JSON-LD document, with an explanation of its major elements.
 
 **Nodes** Nodes represent entities in JSON-LD, with each entity having properties associated with it. In the example:
 
--   The main node is Well 1234, possessing properties like "name", "description", and "subjectOf".
--   subjectOf property itself is a node representing a dataset that is about Well 1234. Apart from the "name" property, the dataset now also has a property called "ex:recordCount", indicating the number of rows in the dataset.
+-   The main node is Well 1234, possessing properties like "name", "description", "locType", and "subjectOf".
+-   subjectOf property itself is a node representing a dataset that is about Well 1234. Apart from the "name" property, the dataset now also has a property called "ex:recordCount" (using the `ex:` prefix from `@context`) indicating the number of rows in the dataset. This extension showcases the flexibility and strength of JSON-LD, where you can seamlessly integrate standard vocabulary with custom definitions, ensuring rich and well-structured interconnected data representations. Below, you can see how JSON-LD tools would parse and standardize the JSON-LD in the example. 
 
-This extension showcases the flexibility and strength of JSON-LD, where you can seamlessly integrate standard vocabulary with custom definitions, ensuring rich and well-structured interconnected data representations.
+```{=html}
+<iframe width="780" height="500" src="https://tinyurl.com/29qaectm" title="JSON-LD playground"></iframe>
+```
+## Geoconnex JSON-LD elements
 
-## Building Blocks
+A Geoconnex JSON-LD document should be embedded in a human-readable website that is about either a **Location** or a **Dataset**. Documents about **Locations** should ideally include references to relevant **Hydrologic Features**, **Cataloging Features**, and **Datasets**. Documents about **Datasets** *must* include references to relevant Reference **Monitoring Locations**, **Hydrologic Features** and/or **Cataloging Features**.
 
-A Geoconnex JSON-LD document has several building blocks:
 
-#### Context
+### Context
+
+Geoconnex JSON-LD documents can have varying contexts. However, there are several vocabularies other than `schema.org` that mqy be useful, depending on the type of location and dataset being described and the level of specificity for which metadata is produced by the data provider. The example context below can serve as general-purpose starting point, although simpler contexts may be sufficient for many documents:
+
+``` json
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "qudt-units": "http://qudt.org/vocab/unit/",
+    "qudt-quantkinds": "http://qudt.org/vocab/quantitykind/",
+    "gsp": "http://www.opengis.net/ont/geosparql#",
+    "odm2var":"http://vocabulary.odm2.org/variablename/",
+    "odm2varType": "http://vocabulary.odm2.org/variabletype/",
+    "hyf": "https://www.opengis.net/def/schema/hy_features/hyf/",
+    "skos": "https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "ssn-system":  "http://www.w3.org/ns/ssn/systems/"
+  }
+```
+
+-   [`rdfs`](https://www.w3.org/TR/rdf12-schema/) is a general vocabulary for basic relationships
+
+-   [`dc`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#) is the [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) vocabulary for general information metadata attributes
+
+-   [`qudt-units`](https://www.qudt.org/doc/DOC_VOCAB-UNITS.html) provides standard identifiers for units (e.g. [cubic feet per second](https://qudt.org/vocab/unit/FT3-PER-SEC))
+
+-   [`qudt-quantkinds`](https://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html) provides ids for general phenomena (e.g. [Volume flow rate](https://qudt.org/vocab/quantitykind/VolumeFlowRate)) which may be measured in various units
+
+-   [`gsp`](http://defs.opengis.net/vocprez/object?uri=http://www.opengis.net/def/function/geosparql) provides ids for spatial relationships (e.g. intersects)
+
+-   [`odm2var`](http://vocabulary.odm2.org/variablename) is a supplement to `qudt-quantkinds`, and includes ids for many variables relevant to water science and management (e.g. [turbidity](http://vocabulary.odm2.org/variablename/turbidity/))
+
+-   [`odm2varType`](http://vocabulary.odm2.org/variabletype/) is a supplement to `odm2var` that includes ids for large groupings of variables (e.g. [Water Quality](http://vocabulary.odm2.org/variabletype/WaterQuality/))
+
+-   [`hyf`](https://www.opengis.net/def/schema/hy_features/hyf/) provides ids for surface water hydrology concepts (e.g. [streams](https://defs.opengis.net/vocprez/object?uri=https%3A//www.opengis.net/def/schema/hy_features/hyf/HY_River))
+
+-   [`skos`](https://www.w3.org/TR/swbp-skos-core-spec/) provides general properties for relating different concepts (e.g. broader, [narrower,](https://www.w3.org/2009/08/skos-reference/skos.html#narrower) exact Match)
+
+-   [`ssn`](https://www.w3.org/TR/vocab-ssn/) and `ssn-system` provide ids for aspects of observations and measurement (e.g. measurement methods)
 
 ### Reference Features
 
-#### Reference Monitoring Features
+Embedding links to URIs of Reference Features are the best way to ensure that your data can be related to other data providers' data. URIs for reference features are available from [the Geoconnex reference feature server](https://reference.geoconnex.us/collections). Reference features can be one of three types: 
 
-#### Reference Hydrologic Features
+* **Monitoring Locations** which are common locations that many organizations might have data about such as a streamgage station e.g. [https://geoconnex.us/ref/gages/1143822](https://geoconnex.us/ref/gages/1143822) 
+* **Hydrologic Features** which are common specific features of the hydrologic landscape that many organizations have data about. These could include confluence points, aquifers, stream segments and river mainstems and named tributaries, e.g. [https://geoconnex.us/ref/mainstems/29559](https://geoconnex.us/ref/mainstems/29559).
+* **Cataloging Features** which are larger area units that are commonly used to group and filter data, such as [HUCs](https://geoconnex.us/ref/hu04/0308)^[https://geoconnex.us/ref/hu04/0308], [states](https://geoconnex.us/ref/states/48)^[https://geoconnex.us/ref/states/48], [counties](https://geoconnex.us/ref/counties/37003)^[https://geoconnex.us/ref/counties/37003], PLSS grids, public agency operating districts, etc.
 
-#### Reference Cataloging Features
+
+Depending on what kind of resource i.e. (location or dataset) and the level of metadata you have available to publish, you can use different elements of the `@context` or use Reference Features in various ways. Below we will work through creating a JSON-LD document depending on your situation.
+
+There are two basic patterns to think about:
+
+1. `Location-oriented` A system of location-oriented webpages that include a catalog of datasets about the location for that page. The Monitor My Watershed Site pages published by are an example of this pattern. At [this page](https://monitormywatershed.org/sites/RH_MD/), one finds a variety of information about a specific location, such as that location's identifier and name and a map of where it is. In addition there is information about which continuous sensor and field water quality sample data are available about the location, and links to download these data.
+
+
+1. `Dataset-oriented` A system of dataset-oriented webpages that tag which locations are relevant to the dataset described at a given page. [This dataset record](https://www.hydroshare.org/resource/11dd1840fe6a48abb9a33380ecaa6e1d/) published on CUAHSI's Hydroshare platform is an example, where there is a "Related Geospatial Features" section that explicitly identifies several features that the dataset has data about.
+
+
+
+
 
 ### Organizational Monitoring Features
 
@@ -143,6 +199,10 @@ A Geoconnex JSON-LD document has several building blocks:
 #### Temporal Extent
 
 #### Temporal Resolution
+
+*discrete* timeseries \* regular \* irregular
+
+ssn-system: frequency
 
 #### Data generation process
 
