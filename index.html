@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Geoconnex Structured Metadata Guidance</h1>
+      <div class="quarto-title-block"><div><h1 class="title">Geoconnex Structured Metadata Guidance</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
                       </div>
   </div>
     
@@ -97,44 +97,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+  <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="6">
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#sec-introduction" id="toc-sec-introduction" class="nav-link active" data-scroll-target="#sec-introduction"><span class="header-section-number">1</span> Introduction</a>
   <ul>
-  <li><a href="#basic-information-model" id="toc-basic-information-model" class="nav-link" data-scroll-target="#basic-information-model">Basic Information Model</a></li>
-  <li><a href="#json-ld" id="toc-json-ld" class="nav-link" data-scroll-target="#json-ld">JSON-LD</a></li>
+  <li><a href="#sec-infomodel" id="toc-sec-infomodel" class="nav-link" data-scroll-target="#sec-infomodel"><span class="header-section-number">1.1</span> Basic Information Model</a></li>
+  <li><a href="#sec-primer" id="toc-sec-primer" class="nav-link" data-scroll-target="#sec-primer"><span class="header-section-number">1.2</span> JSON-LD Primer</a></li>
+  <li><a href="#sec-jsonldelem" id="toc-sec-jsonldelem" class="nav-link" data-scroll-target="#sec-jsonldelem"><span class="header-section-number">1.3</span> Geoconnex JSON-LD elements</a>
+  <ul>
+  <li><a href="#sec-context" id="toc-sec-context" class="nav-link" data-scroll-target="#sec-context"><span class="header-section-number">1.3.1</span> Context</a></li>
+  <li><a href="#sec-ref" id="toc-sec-ref" class="nav-link" data-scroll-target="#sec-ref"><span class="header-section-number">1.3.2</span> Reference Features</a></li>
   </ul></li>
-  <li><a href="#geoconnex-json-ld-elements" id="toc-geoconnex-json-ld-elements" class="nav-link" data-scroll-target="#geoconnex-json-ld-elements">Geoconnex JSON-LD elements</a>
+  </ul></li>
+  <li><a href="#sec-step-by-step" id="toc-sec-step-by-step" class="nav-link" data-scroll-target="#sec-step-by-step"><span class="header-section-number">2</span> Building Geoconnex Web Resources, Step-by-Step</a>
   <ul>
-  <li><a href="#context" id="toc-context" class="nav-link" data-scroll-target="#context">Context</a></li>
-  <li><a href="#reference-features" id="toc-reference-features" class="nav-link" data-scroll-target="#reference-features">Reference Features</a></li>
-  <li><a href="#organizational-monitoring-features" id="toc-organizational-monitoring-features" class="nav-link" data-scroll-target="#organizational-monitoring-features">Organizational Monitoring Features</a>
+  <li><a href="#location-or-dataset-oriented" id="toc-location-or-dataset-oriented" class="nav-link" data-scroll-target="#location-or-dataset-oriented"><span class="header-section-number">2.1</span> Location or Dataset oriented?</a>
+  <ul>
+  <li><a href="#sec-loc" id="toc-sec-loc" class="nav-link" data-scroll-target="#sec-loc"><span class="header-section-number">2.1.1</span> Location-oriented</a>
+  <ul>
+  <li><a href="#json-ld" id="toc-json-ld" class="nav-link" data-scroll-target="#json-ld"><span class="header-section-number">2.1.1.1</span> JSON-LD</a>
   <ul class="collapse">
-  <li><a href="#surface-water" id="toc-surface-water" class="nav-link" data-scroll-target="#surface-water">Surface Water</a></li>
-  <li><a href="#groundwater" id="toc-groundwater" class="nav-link" data-scroll-target="#groundwater">Groundwater</a></li>
-  <li><a href="#non-hydrological" id="toc-non-hydrological" class="nav-link" data-scroll-target="#non-hydrological">Non-hydrological</a></li>
-  </ul></li>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a>
-  <ul class="collapse">
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
-  <li><a href="#temporal-extent" id="toc-temporal-extent" class="nav-link" data-scroll-target="#temporal-extent">Temporal Extent</a></li>
-  <li><a href="#temporal-resolution" id="toc-temporal-resolution" class="nav-link" data-scroll-target="#temporal-resolution">Temporal Resolution</a></li>
-  <li><a href="#data-generation-process" id="toc-data-generation-process" class="nav-link" data-scroll-target="#data-generation-process">Data generation process</a></li>
-  <li><a href="#spatial-extent-and-resolution-gridded-data-only" id="toc-spatial-extent-and-resolution-gridded-data-only" class="nav-link" data-scroll-target="#spatial-extent-and-resolution-gridded-data-only">Spatial extent and resolution (gridded data only)</a></li>
-  <li><a href="#provenance" id="toc-provenance" class="nav-link" data-scroll-target="#provenance">Provenance</a></li>
-  <li><a href="#data-access" id="toc-data-access" class="nav-link" data-scroll-target="#data-access">Data access</a></li>
+  <li><a href="#identifiers-and-provenance" id="toc-identifiers-and-provenance" class="nav-link" data-scroll-target="#identifiers-and-provenance"><span class="header-section-number">2.1.1.1.1</span> Identifiers and provenance</a></li>
+  <li><a href="#spatial-geometry-and-hydrologic-references" id="toc-spatial-geometry-and-hydrologic-references" class="nav-link" data-scroll-target="#spatial-geometry-and-hydrologic-references"><span class="header-section-number">2.1.1.1.2</span> Spatial geometry and hydrologic references</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#complete-examples" id="toc-complete-examples" class="nav-link" data-scroll-target="#complete-examples">Complete Examples</a>
+  <li><a href="#sec-data" id="toc-sec-data" class="nav-link" data-scroll-target="#sec-data"><span class="header-section-number">2.1.2</span> Dataset-oriented</a></li>
+  </ul></li>
+  <li><a href="#organizational-monitoring-features" id="toc-organizational-monitoring-features" class="nav-link" data-scroll-target="#organizational-monitoring-features"><span class="header-section-number">2.2</span> Organizational Monitoring Features</a>
   <ul>
-  <li><a href="#monitoring-location-page-minimal" id="toc-monitoring-location-page-minimal" class="nav-link" data-scroll-target="#monitoring-location-page-minimal">Monitoring location page (minimal)</a></li>
-  <li><a href="#monitoring-location-page-full" id="toc-monitoring-location-page-full" class="nav-link" data-scroll-target="#monitoring-location-page-full">Monitoring location page (full)</a></li>
-  <li><a href="#dataset-minimal" id="toc-dataset-minimal" class="nav-link" data-scroll-target="#dataset-minimal">Dataset (minimal)</a></li>
-  <li><a href="#dataset-full" id="toc-dataset-full" class="nav-link" data-scroll-target="#dataset-full">Dataset (full)</a></li>
+  <li><a href="#surface-water" id="toc-surface-water" class="nav-link" data-scroll-target="#surface-water"><span class="header-section-number">2.2.1</span> Surface Water</a></li>
+  <li><a href="#groundwater" id="toc-groundwater" class="nav-link" data-scroll-target="#groundwater"><span class="header-section-number">2.2.2</span> Groundwater</a></li>
+  <li><a href="#non-hydrological" id="toc-non-hydrological" class="nav-link" data-scroll-target="#non-hydrological"><span class="header-section-number">2.2.3</span> Non-hydrological</a></li>
   </ul></li>
-  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work">Future work</a></li>
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets"><span class="header-section-number">2.3</span> Datasets</a>
+  <ul>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">2.3.1</span> Variables</a></li>
+  <li><a href="#temporal-extent" id="toc-temporal-extent" class="nav-link" data-scroll-target="#temporal-extent"><span class="header-section-number">2.3.2</span> Temporal Extent</a></li>
+  <li><a href="#temporal-resolution" id="toc-temporal-resolution" class="nav-link" data-scroll-target="#temporal-resolution"><span class="header-section-number">2.3.3</span> Temporal Resolution</a></li>
+  <li><a href="#data-generation-process" id="toc-data-generation-process" class="nav-link" data-scroll-target="#data-generation-process"><span class="header-section-number">2.3.4</span> Data generation process</a></li>
+  <li><a href="#spatial-extent-and-resolution-gridded-data-only" id="toc-spatial-extent-and-resolution-gridded-data-only" class="nav-link" data-scroll-target="#spatial-extent-and-resolution-gridded-data-only"><span class="header-section-number">2.3.5</span> Spatial extent and resolution (gridded data only)</a></li>
+  <li><a href="#provenance" id="toc-provenance" class="nav-link" data-scroll-target="#provenance"><span class="header-section-number">2.3.6</span> Provenance</a></li>
+  <li><a href="#data-access" id="toc-data-access" class="nav-link" data-scroll-target="#data-access"><span class="header-section-number">2.3.7</span> Data access</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#sec-completeExamples" id="toc-sec-completeExamples" class="nav-link" data-scroll-target="#sec-completeExamples"><span class="header-section-number">3</span> Complete Examples</a>
+  <ul>
+  <li><a href="#monitoring-location-page-minimal" id="toc-monitoring-location-page-minimal" class="nav-link" data-scroll-target="#monitoring-location-page-minimal"><span class="header-section-number">3.1</span> Monitoring location page (minimal)</a></li>
+  <li><a href="#monitoring-location-page-full" id="toc-monitoring-location-page-full" class="nav-link" data-scroll-target="#monitoring-location-page-full"><span class="header-section-number">3.2</span> Monitoring location page (full)</a></li>
+  <li><a href="#dataset-minimal" id="toc-dataset-minimal" class="nav-link" data-scroll-target="#dataset-minimal"><span class="header-section-number">3.3</span> Dataset (minimal)</a></li>
+  <li><a href="#dataset-full" id="toc-dataset-full" class="nav-link" data-scroll-target="#dataset-full"><span class="header-section-number">3.4</span> Dataset (full)</a></li>
+  </ul></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">4</span> Future work</a></li>
   </ul>
 </nav>
 </div>
@@ -148,20 +163,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div data-align="center">
 <p><img src="images/geoconnex-logo.png" alt="Logo" width="600"></p>
 </div>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="sec-introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sec-introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>The Geoconnex project is about providing technical infrastructure and guidance to create an open, community-contribution model for a knowledge graph linking hydrologic features in the United States, published in accordance with <a href="https://www.w3.org/TR/sdw-bp/">Spatial Data on the Web best practices</a> as an implementation of <a href="https://github.com/opengeospatial/SELFIE/blob/master/docs/demo/internet_of_water.md">Internet of Water</a> principles. The development of geoconnex.us takes place on GitHub. See <a href="https://github.com/internetofwater/about.geoconnex.us">here</a> for the system of repositories.</p>
 <p>Geoconnex will allow data users to answer questions like: “What datasets are available about the portions of <a href="https://geoconnex.us/ref/mainstems/29559" title="This is an HTTP identifier in the geoconnex system to unambiguously denote the Colorado River"><strong>Colorado River</strong></a> <em>upstream</em> of <a href="https://geoconnex.us/ref/dams/1080095" title="This an HTTP identifier in the Geoconnex system to unambiguously identify the Hoover Dam, in particular its location along the Colorado River"><strong>Hoover Dam</strong></a> <em>within</em> <strong>Nevada</strong> and <strong>Utah</strong> regarding <em>variables</em> <strong>discharge</strong> and <strong>total suspended solids</strong> with measurements taken at least <strong>daily</strong> with <em>coverage</em> <strong>between 2002 and 2007</strong>?” and be returned metadata for all relevant datasets from all participating organizations, including federal, state, private, and NGO organizations.</p>
 <p>See <a href="https://geoconnex.us/demo" class="uri">https://geoconnex.us/demo</a> for a mockup of data discovery and access workflows that <code>https://geoconnex.us</code> aspires to enable.</p>
-<p>Geoconnex rests on data providers publishing metadata to the system. Thus, Geoconnex involves the publication of metadata within websites that describe water datasets and the real-world environmental features (eg rivers, wells, dams, catchments) or the cataloging features (eg government jurisdiction areas, statiscal summary reporting areas) that they are relevant to. This document provides guidance, including general principles as well as specific templates, for data providers for how to structure this metadata using the JSON-LD format.</p>
+<p>Geoconnex rests on data providers publishing metadata to the system. Thus, Geoconnex involves the publication of Web Resources, which include structured, embedded metaadata that describe water datasets and the real-world environmental features (eg rivers, wells, dams, catchments) or the cataloging features (eg government jurisdiction areas, statiscal summary reporting areas) that they are relevant to. This document provides guidance, including general principles as well as specific templates, for data providers for how to structure this metadata using the JSON-LD format.</p>
 <p><strong>Related materials, presentations, and publications</strong></p>
 <p><a href="https://drive.google.com/file/d/1J0NKYOq3pGjQXr58FKO8sd7uHpGA8kNB/view?usp=sharing">National Hydrography Infrastructure and Geoconnex</a></p>
 <p><a href="https://docs.google.com/presentation/d/1yuNpBbQPcmb_Nw8DXiuNTazAjIM8UF7o/edit?usp=sharing&amp;ouid=102421334323378854304&amp;rtpof=true&amp;sd=true">New Mexico Water Data Initiative including geoconnex.us</a></p>
 <p><a href="https://www.westernstateswater.org/wp-content/uploads/2020/06/CO_Roundable_IoW.pdf">Roundtable presentation including geoconnex.us</a></p>
 <p><a href="https://github.com/opengeospatial/SELFIE">Second Environmental Linked Features Interoperability Experiment</a></p>
 <p><a href="https://2020esipsummermeeting.sched.com/event/cIvv/structured-data-on-the-web-putting-best-practice-to-work">ESIP Sessions on Structured Data in the Web</a> <a href="https://docs.google.com/presentation/d/1LSXHz2_Y7hrkGZPC_sNoJWl8AIujI8AAWktl9amIR4E/edit#slide=id.g8250495469_1_30">slides</a></p>
-<section id="basic-information-model" class="level3">
-<h3 class="anchored" data-anchor-id="basic-information-model">Basic Information Model</h3>
+<section id="sec-infomodel" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="sec-infomodel"><span class="header-section-number">1.1</span> Basic Information Model</h3>
 <p>The model used to organize information in the Geoconnex system is shown in <a href="#fig-info-model">Figure&nbsp;1</a>.</p>
 <div id="fig-info-model" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -178,31 +193,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>This Geoconnex guidance concerns how to explicitly publish metadata that describes Datasets how they are related to each of the other elements of the information model.</p>
 </section>
-<section id="json-ld" class="level3">
-<h3 class="anchored" data-anchor-id="json-ld">JSON-LD</h3>
+<section id="sec-primer" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="sec-primer"><span class="header-section-number">1.2</span> JSON-LD Primer</h3>
 <p>JSON-LD is a version of JSON, the popular data exchange format used by web APIs, to express linked data. Linked Data is an approach to data publication that allows data from various sources to be easily integrated. JSON-LD accomplishes this by mapping terms from a source data system to a machine-readable definition of that term available on the web, allowing different attribute names from different data sources to be consistently interpreted together. Commonly, JSON-LD is embedded within websites, allowing search engines and applications to parse the information available from web addresses (URLs). For an in-depth exploration and multimedia resources, refer to the <a href="https://json-ld.org">JSON-LD official site</a> and its <a href="https://json-ld.org/learn.html">learning section</a>. JSON-LD documents should be embedded in the HTML of websites using script headers. A brief overview of the JSON-LD format follows below.</p>
 <p>Below is an example JSON-LD document as embedded in a <code>&lt;script&gt;</code> division within a <code>&lt;head&gt;</code> or <code>&lt;body&gt;</code> section of an HTML page, with an explanation of its major elements.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;script</span> <span class="er">type="application/ld+json"&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"@context"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"@vocab"</span><span class="fu">:</span> <span class="st">"https://schema.org/"</span><span class="fu">,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ex"</span><span class="fu">:</span> <span class="st">"https://example.com/schema/"</span><span class="fu">,</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"locType"</span><span class="fu">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"@id"</span><span class="fu">:</span> <span class="st">"https://example.com/well/1234"</span><span class="fu">,</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"schema:Place"</span><span class="fu">,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Well 1234"</span><span class="fu">,</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Well at 1234 Place St., USA"</span><span class="fu">,</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"locType"</span><span class="fu">:</span> <span class="st">"well"</span><span class="fu">,</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"subjectOf"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"@id"</span><span class="fu">:</span> <span class="st">"https://datasystem.org/dataset1"</span><span class="fu">,</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"schema:Dataset"</span><span class="fu">,</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Well Locations Dataset"</span><span class="fu">,</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ex:recordCount"</span><span class="fu">:</span> <span class="dv">500</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;script&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1"></a><span class="er">&lt;script</span> <span class="er">type="application/ld+json"&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">{</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="dt">"@context"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="dt">"@vocab"</span><span class="fu">:</span> <span class="st">"https://schema.org/"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="dt">"ex"</span><span class="fu">:</span> <span class="st">"https://example.com/schema/"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="dt">"locType"</span><span class="fu">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType"</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="fu">},</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="dt">"@id"</span><span class="fu">:</span> <span class="st">"https://example.com/well/1234"</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"schema:Place"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Well 1234"</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Well at 1234 Place St., USA"</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="dt">"locType"</span><span class="fu">:</span> <span class="st">"well"</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="dt">"subjectOf"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>    <span class="dt">"@id"</span><span class="fu">:</span> <span class="st">"https://datasystem.org/dataset1"</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"schema:Dataset"</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Well Locations Dataset"</span><span class="fu">,</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>    <span class="dt">"ex:recordCount"</span><span class="fu">:</span> <span class="dv">500</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="fu">}</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="fu">}</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="er">&lt;script&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong><code>&lt;script type="application/ld+json"&gt;</code>, <code>&lt;script&gt;</code></strong> These are immutable HTML elements that tell machines to interpret everything between them as JSON-LD.</p>
 <p><strong><code>@context</code></strong> The <code>@context</code> keyword in JSON-LD sets the stage for interpreting the data by mapping terms to IRIs (Internationalized Resource Identifiers). By doing so, properties and values are clearly defined and identified. Our updated example has two contexts:</p>
@@ -228,27 +243,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <iframe width="780" height="500" src="https://tinyurl.com/29qaectm" title="JSON-LD playground"></iframe>
 </section>
-</section>
-<section id="geoconnex-json-ld-elements" class="level2">
-<h2 class="anchored" data-anchor-id="geoconnex-json-ld-elements">Geoconnex JSON-LD elements</h2>
+<section id="sec-jsonldelem" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="sec-jsonldelem"><span class="header-section-number">1.3</span> Geoconnex JSON-LD elements</h3>
 <p>A Geoconnex JSON-LD document should be embedded in a human-readable website that is about either a <strong>Location</strong> or a <strong>Dataset</strong>. Documents about <strong>Locations</strong> should ideally include references to relevant <strong>Hydrologic Features</strong>, <strong>Cataloging Features</strong>, and <strong>Datasets</strong>. Documents about <strong>Datasets</strong> <em>must</em> include references to relevant Reference <strong>Monitoring Locations</strong>, <strong>Hydrologic Features</strong> and/or <strong>Cataloging Features</strong>.</p>
-<section id="context" class="level3">
-<h3 class="anchored" data-anchor-id="context">Context</h3>
+<section id="sec-context" class="level4" data-number="1.3.1">
+<h4 data-number="1.3.1" class="anchored" data-anchor-id="sec-context"><span class="header-section-number">1.3.1</span> Context</h4>
 <p>Geoconnex JSON-LD documents can have varying contexts. However, there are several vocabularies other than <code>schema.org</code> that mqy be useful, depending on the type of location and dataset being described and the level of specificity for which metadata is produced by the data provider. The example context below can serve as general-purpose starting point, although simpler contexts may be sufficient for many documents:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="er">"@context":</span> <span class="fu">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"@vocab"</span><span class="fu">:</span> <span class="st">"https://schema.org/"</span><span class="fu">,</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"rdfs"</span><span class="fu">:</span> <span class="st">"http://www.w3.org/2000/01/rdf-schema#"</span><span class="fu">,</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"dc"</span><span class="fu">:</span> <span class="st">"http://purl.org/dc/elements/1.1/"</span><span class="fu">,</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"qudt-units"</span><span class="fu">:</span> <span class="st">"http://qudt.org/vocab/unit/"</span><span class="fu">,</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"qudt-quantkinds"</span><span class="fu">:</span> <span class="st">"http://qudt.org/vocab/quantitykind/"</span><span class="fu">,</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"gsp"</span><span class="fu">:</span> <span class="st">"http://www.opengis.net/ont/geosparql#"</span><span class="fu">,</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"odm2var"</span><span class="fu">:</span><span class="st">"http://vocabulary.odm2.org/variablename/"</span><span class="fu">,</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"odm2varType"</span><span class="fu">:</span> <span class="st">"http://vocabulary.odm2.org/variabletype/"</span><span class="fu">,</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"hyf"</span><span class="fu">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/"</span><span class="fu">,</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"skos"</span><span class="fu">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType"</span><span class="fu">,</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ssn"</span><span class="fu">:</span> <span class="st">"http://www.w3.org/ns/ssn/"</span><span class="fu">,</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ssn-system"</span><span class="fu">:</span>  <span class="st">"http://www.w3.org/ns/ssn/systems/"</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1"></a>  <span class="er">"@context":</span> <span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="dt">"@vocab"</span><span class="fu">:</span> <span class="st">"https://schema.org/"</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="dt">"rdfs"</span><span class="fu">:</span> <span class="st">"http://www.w3.org/2000/01/rdf-schema#"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="dt">"dc"</span><span class="fu">:</span> <span class="st">"http://purl.org/dc/elements/1.1/"</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="dt">"qudt-units"</span><span class="fu">:</span> <span class="st">"http://qudt.org/vocab/unit/"</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="dt">"qudt-quantkinds"</span><span class="fu">:</span> <span class="st">"http://qudt.org/vocab/quantitykind/"</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="dt">"gsp"</span><span class="fu">:</span> <span class="st">"http://www.opengis.net/ont/geosparql#"</span><span class="fu">,</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="dt">"locType"</span><span class="fu">:</span> <span class="st">"http://vocabulary.odm2.org/sitetype"</span><span class="fu">,</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="dt">"odm2var"</span><span class="fu">:</span><span class="st">"http://vocabulary.odm2.org/variablename/"</span><span class="fu">,</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="dt">"odm2varType"</span><span class="fu">:</span> <span class="st">"http://vocabulary.odm2.org/variabletype/"</span><span class="fu">,</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="dt">"hyf"</span><span class="fu">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/"</span><span class="fu">,</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="dt">"skos"</span><span class="fu">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType"</span><span class="fu">,</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="dt">"ssn"</span><span class="fu">:</span> <span class="st">"http://www.w3.org/ns/ssn/"</span><span class="fu">,</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="dt">"ssn-system"</span><span class="fu">:</span>  <span class="st">"http://www.w3.org/ns/ssn/systems/"</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>  <span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p><a href="https://www.w3.org/TR/rdf12-schema/"><code>rdfs</code></a> is a general vocabulary for basic relationships</p></li>
 <li><p><a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#"><code>dc</code></a> is the <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">Dublin Core</a> vocabulary for general information metadata attributes</p></li>
@@ -262,77 +277,262 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><a href="https://www.w3.org/TR/vocab-ssn/"><code>ssn</code></a> and <code>ssn-system</code> provide ids for aspects of observations and measurement (e.g.&nbsp;measurement methods)</p></li>
 </ul>
 </section>
-<section id="reference-features" class="level3">
-<h3 class="anchored" data-anchor-id="reference-features">Reference Features</h3>
+<section id="sec-ref" class="level4" data-number="1.3.2">
+<h4 data-number="1.3.2" class="anchored" data-anchor-id="sec-ref"><span class="header-section-number">1.3.2</span> Reference Features</h4>
 <p>Embedding links to URIs of Reference Features are the best way to ensure that your data can be related to other data providers’ data. URIs for reference features are available from <a href="https://reference.geoconnex.us/collections">the Geoconnex reference feature server</a>. Reference features can be one of three types:</p>
 <ul>
-<li><strong>Monitoring Locations</strong> which are common locations that many organizations might have data about such as a streamgage station e.g.&nbsp;<a href="https://geoconnex.us/ref/gages/1143822">https://geoconnex.us/ref/gages/1143822</a></li>
-<li><strong>Hydrologic Features</strong> which are common specific features of the hydrologic landscape that many organizations have data about. These could include confluence points, aquifers, stream segments and river mainstems and named tributaries, e.g.&nbsp;<a href="https://geoconnex.us/ref/mainstems/29559">https://geoconnex.us/ref/mainstems/29559</a>.</li>
+<li><strong>Monitoring Locations</strong> which are common locations that many organizations might have data about such as a streamgage station e.g.&nbsp;<a href="https://geoconnex.us/ref/gages/1143822" class="uri">https://geoconnex.us/ref/gages/1143822</a></li>
+<li><strong>Hydrologic Features</strong> which are common specific features of the hydrologic landscape that many organizations have data about. These could include confluence points, aquifers, stream segments and river mainstems and named tributaries, e.g.&nbsp;<a href="https://geoconnex.us/ref/mainstems/29559" class="uri">https://geoconnex.us/ref/mainstems/29559</a>.</li>
 <li><strong>Cataloging Features</strong> which are larger area units that are commonly used to group and filter data, such as <a href="https://geoconnex.us/ref/hu04/0308">HUCs</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, <a href="https://geoconnex.us/ref/states/48">states</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, <a href="https://geoconnex.us/ref/counties/37003">counties</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, PLSS grids, public agency operating districts, etc.</li>
 </ul>
+</section>
+</section>
+</section>
+<section id="sec-step-by-step" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sec-step-by-step"><span class="header-section-number">2</span> Building Geoconnex Web Resources, Step-by-Step</h2>
+<p>This section provides step-by-step guidance to build Geoconnex Web Resources, which should be an HTML webpage with a unique URL within which is embedded an JSON-LD document (see <a href="#sec-primer">Section&nbsp;1.2</a>).</p>
+<section id="location-or-dataset-oriented" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="location-or-dataset-oriented"><span class="header-section-number">2.1</span> Location or Dataset oriented?</h3>
 <p>Depending on what kind of resource i.e.&nbsp;(location or dataset) and the level of metadata you have available to publish, you can use different elements of the <code>@context</code> or use Reference Features in various ways. Below we will work through creating a JSON-LD document depending on your situation.</p>
 <p>There are two basic patterns to think about:</p>
 <ol type="1">
-<li><p><code>Location-oriented</code> A system of location-oriented webpages that include a catalog of datasets about the location for that page. The Monitor My Watershed Site pages published by are an example of this pattern. At <a href="https://monitormywatershed.org/sites/RH_MD/">this page</a>, one finds a variety of information about a specific location, such as that location’s identifier and name and a map of where it is. In addition there is information about which continuous sensor and field water quality sample data are available about the location, and links to download these data.</p></li>
-<li><p><code>Dataset-oriented</code> A system of dataset-oriented webpages that tag which locations are relevant to the dataset described at a given page. <a href="https://www.hydroshare.org/resource/11dd1840fe6a48abb9a33380ecaa6e1d/">This dataset record</a> published on CUAHSI’s Hydroshare platform is an example, where there is a “Related Geospatial Features” section that explicitly identifies several features that the dataset has data about.</p></li>
+<li><p><code>Location-oriented</code> webpages that include a catalog of parameters and periods of record for which there is data about the location. This pattern may be suitable where data can be accessed separately for each location and possibly for each parameter for each location. This is typical of streamgages, monitoring wells, water diversions, reservoirs, regulated effluent discharge locations, etc. where there is an ongoing monitoring or modeling program that includes data collection or generation for multiple parameters. The Monitor My Watershed Site pages published by the <a href="https://stroudcenter.org">Stroud Center</a> are an example of this pattern. At <a href="https://monitormywatershed.org/sites/RH_MD/">this page</a>, one finds a variety of information about a specific location, such as that location’s identifier and name and a map of where it is. In addition there is information about which continuous sensor and field water quality sample data are available about the location, and links to download these data.</p></li>
+<li><p><code>Dataset-oriented</code> webpages that tag which locations are relevant to the dataset described at a given page. This pattern may be suitable for static datasets where data was collected or modeled for a consistent set of parameters for a pre-specified research question and time period across one or more locations, and where it would not make sense to publish separate metadata for the parts of the dataset that are relevant to each individual feature and parameter. This is typical of datasets created for, and published in association withm scientific and regulatory studies. <a href="https://www.hydroshare.org/resource/11dd1840fe6a48abb9a33380ecaa6e1d/">This dataset record</a> published on <a href="https://cuahsi.org">CUAHSI</a>’s <a href="https://hydroshare.org">Hydroshare</a> platform is an example, where there is a “Related Geospatial Features” section that explicitly identifies several features that the dataset has data about.</p></li>
 </ol>
+<p>In some cases, it is possible to set up a web architecture that implements both patterns. For example, the <a href="https://seoflow.wyo.gov">Wyoming State Engineer’s Office Web Portal</a> conceptualizes a time series for a specific parameter at a specific location as a dataset. Thus, webpages exist for both <a href="https://seoflow.wyo.gov/Data/Location/Summary/Location/06280300/Interval/Latest">Locations</a> and <a href="https://seoflow.wyo.gov/Data/DataSet/Summary/Location/06280300/DataSet/Discharge/Discharge/Interval/Latest">Datasets</a>, and they link to each other where relevant. In this case, it is only necessary to implement Geoconnex embedded JSON-LD at either the Location or Dataset level, although both could be done as well.</p>
+<p>Having chosen one of the patterns, proceed to <a href="@sec-loc">location-oriented</a> or <a href="@sec-data">dataset-oriented</a> guidance to start building a JSON-LD document.</p>
+<section id="sec-loc" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="sec-loc"><span class="header-section-number">2.1.1</span> Location-oriented</h4>
+<p>The purpose of the location-oriented page is to give enough information about the location and the data available about that location that a water data user would be able to quickly determine whether and how to download the data after reading. We will use the USGS Monitoring Location <a href="https://geoconnex.us/usgs/monitoring-location/08282300">08282300</a> as an example for the type of content to put in location-oriented Geoconnex landing page web resources and how to map that content to embedded JSON-LD documents.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Scroll up and down to view elements of the example landing page</p>
+</div>
+</div>
+<iframe width="780" height="500" src="https://geoconnex.us/usgs/monitoring-location/08282300" title="USGS Example"></iframe>
+<p>This location-oriented web resource includes this type of information</p>
+<ul>
+<li><p>“<a href="https://geoconnex.us/ref/monitoring-location/08282300">This is my HTTP identifier</a>”<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p></li>
+<li><p>“I am the same thing as <a href="https://geoconnex.us/ref/gages/1018463">Geoconnex Reference Gage 1018463</a>”<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p></li>
+<li><p>“My unique USGS ID is <code>08282300</code>”</p></li>
+<li><p>“My name is <code>Rio Brazos at Fishtail Road NR Tierra Amarilla, NM</code>”</p></li>
+<li><p>“Data about me is provided by the <code>USGS Water Data for the Nation</code>”</p></li>
+<li><p>“I am a <code>hydrometric station</code><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>”</p></li>
+<li><p>“My lat/long is <code>36.738 -106.471</code>”</p></li>
+<li><p>“I am on the <a href="https://geoconnex.us/ref/mainstems/1611418">Rio Brazos</a>”<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p></li>
+<li><p>“There is data about me for the parameter <code>Discharge</code> and between June 6, 2014 to the present at a 15 minute time resolution. This data is generated from <code>in-situ observation</code>, in particular using <a href="https://pubs.usgs.gov/publication/tm3A8">USGS discharge measurement methods</a>. You can download it <a href="https://waterservices.usgs.gov/nwis/iv/?sites=08282300&amp;parameterCd=00060&amp;startDT=2023-08-13T03:08:21.313-06:00&amp;endDT=2023-08-20T03:08:21.313-06:00&amp;siteStatus=all&amp;format=rdb">here</a> using the <a href="https://waterservices.usgs.gov/rest/IV-Test-Tool.html">USGS Instantaneous Values REST Web Service</a> in the <a href="https://waterdata.usgs.gov/nwis/?tab_delimited_format_info">RDB format</a>”. You can also download it <a href="https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations">here</a> using the <a href="https://docs.ogc.org/is/15-078r6/15-078r6.html">SensorThings API standard</a> in <code>JSON</code> or <code>CSV</code> formats.”<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p></li>
+<li><p>“There is data about me for the parameter <code>Gage Height</code> between June 6, 2014 to the present at a 15 minute time resolution. This data is generated from <code>in-situ observation</code>, in particular using <a href="https://pubs.usgs.gov/publication/tm3A7">USGS stage measurement methods</a>. You can download it <a href="https://waterservices.usgs.gov/nwis/iv/?sites=08282300&amp;parameterCd=00065&amp;startDT=2023-08-13T03:08:21.313-06:00&amp;endDT=2023-08-20T03:08:21.313-06:00&amp;siteStatus=all&amp;format=rdb">here</a> from the <a href="https://waterservices.usgs.gov/rest/IV-Test-Tool.html">USGS Instantaneous Values REST Web Service</a> in the <a href="https://waterdata.usgs.gov/nwis/?tab_delimited_format_info">RDB format</a>”. You can also download it <a href="https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('ba774169b3e542cdb9c02e8d705b4d0f')?$expand=Thing,Observations">here</a> using the <a href="https://docs.ogc.org/is/15-078r6/15-078r6.html">SensorThings API standard</a> in <code>JSON</code> or <code>CSV</code> formats.”</p></li>
+</ul>
+<section id="json-ld" class="level5" data-number="2.1.1.1">
+<h5 data-number="2.1.1.1" class="anchored" data-anchor-id="json-ld"><span class="header-section-number">2.1.1.1</span> JSON-LD</h5>
+<p>Here we will build the equivalent JSON-LD content step-by-step. The steps are:</p>
+<ol type="1">
+<li>Identifiers and provenance</li>
+<li>Spatial geometry and hydrologic references</li>
+<li></li>
+<li></li>
+</ol>
+<section id="identifiers-and-provenance" class="level6" data-number="2.1.1.1.1">
+<h6 data-number="2.1.1.1.1" class="anchored" data-anchor-id="identifiers-and-provenance"><span class="header-section-number">2.1.1.1.1</span> Identifiers and provenance</h6>
+<p>A first group of information helps identify the location and its provenance.</p>
+<ul>
+<li><p>“<a href="https://geoconnex.us/usgs/monitoring-location/08282300">This is my HTTP identifier</a>”<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p></li>
+<li><p>“I am a <code>hydrometric station</code><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>”</p></li>
+<li><p>“I am the same thing as <a href="https://geoconnex.us/ref/gages/1018463">Geoconnex Reference Gage 1018463</a>”<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></p></li>
+<li><p>“My unique USGS ID is <code>08282300</code>”</p></li>
+<li><p>“My name is <code>Rio Brazos at Fishtail Road NR Tierra Amarilla, NM</code>”</p></li>
+<li><p>“Data about me is provided by the <code>USGS Water Data for the Nation</code>”</p></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">"@context"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="dt">"@vocab"</span><span class="fu">:</span><span class="st">"https://schema.org/"</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="dt">"hyf"</span><span class="fu">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/"</span><span class="fu">,</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="dt">"locType"</span><span class="fu">:</span> <span class="st">"http://vocabulary.odm2.org/sitetype/"</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">},</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="dt">"@id"</span><span class="fu">:</span> <span class="st">"https://geoconnex.us/usgs/monitoring-location/08282300"</span><span class="fu">,</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="dt">"@type"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="st">"hyf:HY_HydrometricFeature"</span><span class="ot">,</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="st">"hyf:HY_HydroLocation"</span><span class="ot">,</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="st">"locType:stream"</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>  <span class="dt">"hyf:HydroLocationType"</span><span class="fu">:</span> <span class="st">"hydrometric station"</span><span class="fu">,</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>  <span class="dt">"sameAs"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"@id"</span><span class="fu">:</span><span class="st">"https://geoconnex.us/ref/gages/1018463"</span><span class="fu">},</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>  <span class="dt">"identifier"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>    <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"PropertyValue"</span><span class="fu">,</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>    <span class="dt">"propertyID"</span><span class="fu">:</span> <span class="st">"USGS site number"</span><span class="fu">,</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>    <span class="dt">"value"</span><span class="fu">:</span>  <span class="st">"08282300"</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a>  <span class="fu">},</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Rio Brazos at Fishtail Road NR Tierra Amarilla, NM"</span><span class="fu">,</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>  <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Stream/River Site"</span><span class="fu">,</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>  <span class="dt">"provider"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>    <span class="dt">"url"</span><span class="fu">:</span> <span class="st">"https://waterdata.usgs.gov"</span><span class="fu">,</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>    <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"GovernmentOrganization"</span><span class="fu">,</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"U.S. Geological Survey Water Data for the Nation"</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a>  <span class="fu">}</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here we construct the JSON-LD document by adding a context which includes the <a href="https://schema.org/" class="uri">https://schema.org/</a> vocabulary, as well as the <a href="https://www.opengis.net/def/schema/hy_features/hyf/" class="uri">https://www.opengis.net/def/schema/hy_features/hyf/</a> vocabulary which defines specific concepts in surface hydrology, and the ODM2 <a href="http://vocabulary.odm2.org/sitetype/">sitetype vocabulary</a> which defines types of water data collection locations.</p>
+<ul>
+<li><p>The <code>@id</code> element of <a href="https://geoconnex.us/ref/monitoring-location/08282300" class="uri">https://geoconnex.us/ref/monitoring-location/08282300</a> in this case is a persistent geoconnex URI. See <a href="https://github.com/internetofwater/geoconnex.us/blob/master/CONTRIBUTING.md">here</a> for how to create these. It is optional if the “same thing” geoconnex URI in the next bullet is provided, in which case this could just be the URL of the web resource for the location, or omitted.</p></li>
+<li><p>The <code>@type</code> element here specifies that <a href="https://geoconnex.us/ref/monitoring-location/08282300" class="uri">https://geoconnex.us/ref/monitoring-location/08282300</a> is a <a href="https://schema.org/Place">Place</a> (i.e.&nbsp;a generic place on earth), a <a href="https://www.opengis.net/def/schema/hy_features/hyf/HY_HydrometricFeature">Hydrometric Feature</a> (i.e.&nbsp;a data collection station) and a <a href="https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocation">HydroLocation</a> (i.e.&nbsp;a specific location that could in principle define a catchment). The <code>locType</code> further specifies the type of location using the ODM2 sitetype vocabulary <a href="http://vocabulary.odm2.org/sitetype/" class="uri">http://vocabulary.odm2.org/sitetype/</a>, which expresses the location type in terms of the feature of interest (e.g.&nbsp;a stream, a groundwater system). If the location is more meant to represent a general location about which non-hydrologic data is being provided, as might be the case with a data provider publishing data about dams, levees, culverts, bridges, etc. but not associated water data, then <code>locType</code> and <code>hyf:HY_HydrometricFeature</code> can be omitted.</p></li>
+<li><p>The <code>hyf:HydroLocationType</code> can be used to identify the type of site with greater specificity and customization by using text values from any codelist, but preferably the <a href="https://docs.ogc.org/is/14-111r6/14-111r6.html#annexB_1">HY_Features HydroLocationType codelist</a> instead of identifiers. It can be useful to describe something like a dam, weir, culvert, bridge, etc.</p></li>
+<li><p>The <code>sameAs</code> element is optional if the <code>@id</code> element is included as a persistent geoconnex URI. However, wherever possible, it should be populated with a Geoconnex Reference Feature URI. If all data providers tag their own location metadata with these, it becomes much more easy for users of the Geoconnex system to find data collected by other providers about the same location. Reference features of all sorts are available to browse in a web map at <a href="https://geoconnex.us/iow/map" class="uri">https://geoconnex.us/iow/map</a>, access via API at <a href="https://reference.geoconnex.us/collections" class="uri">https://reference.geoconnex.us/collections</a>, or to download in bulk as GeoPackage files from <a href="https://www.hydroshare.org/resource/3cc04df349cd45f38e1637305c98529c/">HydroShare</a>. If your location does not appear to be represented in a reference location, please consider contributing your location. You can start this process by <a href="https://github.com/internetofwater/geoconnex.us/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=general.md&amp;title=%5Bgeneral%5D">submitting an issue at the geoconnex.us GitHub repository</a>. In this case <code>sameAs</code> is a persistent geoconnex URI for a “Reference Gage”. Reference Gages is an open source, continuously updated set of all known surface water monitoring locations with data being collected by all known organizations. It is managed on GitHub at <a href="https://github.com/internetofwater/ref_gages" class="uri">https://github.com/internetofwater/ref_gages</a></p></li>
+<li><p>The <code>identifier</code> element specifies the ID scheme name (<code>propertyID</code>) for the location in the data source and the ID itself (<code>value</code>)</p></li>
+<li><p>The <code>name</code> (required) and <code>description</code> (optional) elements are self-explanatory and can follow the conventions of the data provider.</p></li>
+<li><p>The <code>provider</code> element describes the data provider, which is generally conceptualized in Geoconnex as being a data system available on the web. Note that under <code>provider</code>, in addition to an identifying <code>name</code>, there is a <code>url</code> if available for the website of the providing data system, and a <code>@type</code>, which is most likely a sub type of <a href="https://schema.org/Organization" class="uri">https://schema.org/Organization</a>, which includes <a href="https://schema.org/GovernmentOrganization">GovernmentOrganization</a>, <a href="https://schema.org/NGO">NGO</a>, <a href="https://schema.org/ResearchOrganization">ResearchOrganization</a>, <a href="https://schema.org/EducationalOrganization">EducationalOrganization</a>, and <a href="https://schema.org/Corporation">Corporation</a>, among others.</p></li>
+</ul>
 </section>
-<section id="organizational-monitoring-features" class="level3">
-<h3 class="anchored" data-anchor-id="organizational-monitoring-features">Organizational Monitoring Features</h3>
-<section id="surface-water" class="level4">
-<h4 class="anchored" data-anchor-id="surface-water">Surface Water</h4>
+<section id="spatial-geometry-and-hydrologic-references" class="level6" data-number="2.1.1.1.2">
+<h6 data-number="2.1.1.1.2" class="anchored" data-anchor-id="spatial-geometry-and-hydrologic-references"><span class="header-section-number">2.1.1.1.2</span> Spatial geometry and hydrologic references</h6>
+<p>The second group of information provides specific location and spatial context:</p>
+<ul>
+<li><p>“My lat/long is <code>36.738 -106.471</code>”</p></li>
+<li><p>“I am on the <a href="https://geoconnex.us/ref/mainstems/1611418">Rio Brazos</a>”<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></p></li>
+</ul>
+<p>Adding this information to the bottom of JSON-LD document:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="dt">"@context"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="dt">"@vocab"</span><span class="fu">:</span><span class="st">"https://schema.org/"</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="dt">"hyf"</span><span class="fu">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/"</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="dt">"locType"</span><span class="fu">:</span> <span class="st">"http://vocabulary.odm2.org/sitetype/"</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">},</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>  <span class="dt">"@id"</span><span class="fu">:</span> <span class="st">"https://geoconnex.us/usgs/monitoring-location/08282300"</span><span class="fu">,</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>  <span class="dt">"@type"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="st">"hyf:HY_HydrometricFeature"</span><span class="ot">,</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>    <span class="st">"hyf:HY_HydroLocation"</span><span class="ot">,</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>    <span class="st">"locType:stream"</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>  <span class="dt">"hyf:HydroLocationType"</span><span class="fu">:</span> <span class="st">"hydrometric station"</span><span class="fu">,</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>  <span class="dt">"sameAs"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"@id"</span><span class="fu">:</span><span class="st">"https://geoconnex.us/ref/gages/1018463"</span><span class="fu">},</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>  <span class="dt">"identifier"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>    <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"PropertyValue"</span><span class="fu">,</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>    <span class="dt">"propertyID"</span><span class="fu">:</span> <span class="st">"USGS site number"</span><span class="fu">,</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a>    <span class="dt">"value"</span><span class="fu">:</span>  <span class="st">"08282300"</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a>  <span class="fu">},</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Rio Brazos at Fishtail Road NR Tierra Amarilla, NM"</span><span class="fu">,</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a>  <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"Stream/River Site"</span><span class="fu">,</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a>  <span class="dt">"provider"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a>    <span class="dt">"url"</span><span class="fu">:</span> <span class="st">"https://waterdata.usgs.gov"</span><span class="fu">,</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a>    <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"GovernmentOrganization"</span><span class="fu">,</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"U.S. Geological Survey Water Data for the Nation"</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a>  <span class="fu">},</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a>  <span class="dt">"geo"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a>    <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"schema:GeoCoordinates"</span><span class="fu">,</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a>    <span class="dt">"longitude"</span><span class="fu">:</span> <span class="fl">-106.4707722</span><span class="fu">,</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a>    <span class="dt">"latitude"</span><span class="fu">:</span> <span class="fl">36.7379333</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a>  <span class="fu">},</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a>  <span class="dt">"gsp:hasGeometry"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a>    <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"http://www.opengis.net/ont/sf#Point"</span><span class="fu">,</span></span>
+<span id="cb4-34"><a href="#cb4-34"></a>    <span class="dt">"gsp:asWKT"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a>      <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"http://www.opengis.net/ont/geosparql#wktLiteral"</span><span class="fu">,</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a>      <span class="dt">"@value"</span><span class="fu">:</span> <span class="st">"POINT (-106.4707722 36.7379333)"</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a>     <span class="fu">},</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a>    <span class="dt">"gsp:crs"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a>      <span class="er">@id</span><span class="dt">": "</span><span class="er">http</span><span class="fu">:</span><span class="er">//www.opengis.net/def/crs/OGC/</span><span class="fl">1.3</span><span class="er">/CRS84</span><span class="st">"</span></span>
+<span id="cb4-40"><a href="#cb4-40"></a><span class="st">    }</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a><span class="st">   },</span></span>
+<span id="cb4-42"><a href="#cb4-42"></a><span class="st">  "</span><span class="er">hyf:referencedPosition</span><span class="st">":{</span></span>
+<span id="cb4-43"><a href="#cb4-43"></a><span class="st">    "</span><span class="er">hyf:HY_IndirectPosition</span><span class="st">":{</span></span>
+<span id="cb4-44"><a href="#cb4-44"></a><span class="st">      "</span><span class="er">hyf:linearElement</span><span class="st">":{</span></span>
+<span id="cb4-45"><a href="#cb4-45"></a><span class="st">        "</span><span class="er">@id</span><span class="st">": "</span><span class="er">https://geoconnex.us/ref/mainstems/</span><span class="dv">1611418</span><span class="st">"</span></span>
+<span id="cb4-46"><a href="#cb4-46"></a><span class="st">      }</span></span>
+<span id="cb4-47"><a href="#cb4-47"></a><span class="st">    }</span></span>
+<span id="cb4-48"><a href="#cb4-48"></a><span class="st">  }</span></span>
+<span id="cb4-49"><a href="#cb4-49"></a><span class="st">    </span></span>
+<span id="cb4-50"><a href="#cb4-50"></a><span class="st">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We have added a context element <code>gsp</code> and three blocks: <code>geo</code>, <code>gsp:hasGeometry</code>, and <code>hyf:referencedPosition</code>.</p>
+<ul>
+<li><p><code>gsp</code> is the <a href="https://www.ogc.org/standard/geosparql/">GeoSPARQL</a> ontology used to standardize the representation of spatial data and relationships in knowledge graphs like the Geoconnex system</p></li>
+<li><p><code>geo</code> is the <code>schema.org</code> <a href="https://schema.org/geo">standard for representing spatial data</a>. It is what is used by search engines like Google and Bing to place webpages on a map. While useful, it does not have a standard way for representing multipoint, multipolyline, or multipolygon features, or a way to specify coordinate reference systems or projections, and so we need to also provide a GeoSPARQL version of the geometry. In this case, we are simply providing a point with a longitude and latitude via the <a href="https://schema.org/GeoCoordinates">schema:GeoCoordinates</a> property. It is also possible to represent <a href="https://schema.org/line">lines</a> and <a href="https://schema.org/polygon">polygons</a></p></li>
+<li><p><code>gsp:hasGeometry</code> is the GeoSPARQL version of geometry, with which we can embed <a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry">WKT</a> representations of geometry in structured metadata in the <code>@value</code> element, and declare the coordinate reference system or projection in the <code>gsp:crs</code> element by using EPSG codes as encoded in the <a href="http://www.opengis.net/def/crs/EPSG/0/">OGC register of reference systems</a>, in this case using <a href="http://www.opengis.net/def/crs/EPSG/0/4326" class="uri">http://www.opengis.net/def/crs/EPSG/0/4326</a> for the familiar WGS 84 (EPSG 4326) system.</p></li>
+<li><p><code>hyf:referencedPosition</code> uses the <a href="https://www.opengis.net/def/schema/hy_features/hyf/">HY_Features</a> model to declare that this location is located on a specific river, in this case the <a href="%22https://geoconnex.us/ref/mainstems/1611418%22">Rio Brazos in New Mexico</a> as identified in the Reference Mainstems dataset, which is available via API at <a href="https://reference.geoconnex.us/collections/mainstems" class="uri">https://reference.geoconnex.us/collections/mainstems</a> and managed on GitHub at <a href="https://github.com/internetofwater/ref_rivers" class="uri">https://github.com/internetofwater/ref_rivers</a>. All surface water locations should include this type of element.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Groundwater sample and monitoring locations such as wells can be referenced to aquifer identifiers where available using this pattern:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1"></a><span class="er">"https://":</span> <span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"https://geoconnex.us/ref/sec_hydrg_reg/S26"</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </section>
-<section id="groundwater" class="level4">
-<h4 class="anchored" data-anchor-id="groundwater">Groundwater</h4>
-</section>
-<section id="non-hydrological" class="level4">
-<h4 class="anchored" data-anchor-id="non-hydrological">Non-hydrological</h4>
 </section>
 </section>
-<section id="datasets" class="level3">
-<h3 class="anchored" data-anchor-id="datasets">Datasets</h3>
-<section id="variables" class="level4">
-<h4 class="anchored" data-anchor-id="variables">Variables</h4>
+<section id="sec-data" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="sec-data"><span class="header-section-number">2.1.2</span> Dataset-oriented</h4>
 </section>
-<section id="temporal-extent" class="level4">
-<h4 class="anchored" data-anchor-id="temporal-extent">Temporal Extent</h4>
 </section>
-<section id="temporal-resolution" class="level4">
-<h4 class="anchored" data-anchor-id="temporal-resolution">Temporal Resolution</h4>
+<section id="organizational-monitoring-features" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="organizational-monitoring-features"><span class="header-section-number">2.2</span> Organizational Monitoring Features</h3>
+<section id="surface-water" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="surface-water"><span class="header-section-number">2.2.1</span> Surface Water</h4>
+</section>
+<section id="groundwater" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="groundwater"><span class="header-section-number">2.2.2</span> Groundwater</h4>
+</section>
+<section id="non-hydrological" class="level4" data-number="2.2.3">
+<h4 data-number="2.2.3" class="anchored" data-anchor-id="non-hydrological"><span class="header-section-number">2.2.3</span> Non-hydrological</h4>
+</section>
+</section>
+<section id="datasets" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="datasets"><span class="header-section-number">2.3</span> Datasets</h3>
+<section id="variables" class="level4" data-number="2.3.1">
+<h4 data-number="2.3.1" class="anchored" data-anchor-id="variables"><span class="header-section-number">2.3.1</span> Variables</h4>
+</section>
+<section id="temporal-extent" class="level4" data-number="2.3.2">
+<h4 data-number="2.3.2" class="anchored" data-anchor-id="temporal-extent"><span class="header-section-number">2.3.2</span> Temporal Extent</h4>
+</section>
+<section id="temporal-resolution" class="level4" data-number="2.3.3">
+<h4 data-number="2.3.3" class="anchored" data-anchor-id="temporal-resolution"><span class="header-section-number">2.3.3</span> Temporal Resolution</h4>
 <p><em>discrete</em> timeseries * regular * irregular</p>
 <p>ssn-system: frequency</p>
 </section>
-<section id="data-generation-process" class="level4">
-<h4 class="anchored" data-anchor-id="data-generation-process">Data generation process</h4>
+<section id="data-generation-process" class="level4" data-number="2.3.4">
+<h4 data-number="2.3.4" class="anchored" data-anchor-id="data-generation-process"><span class="header-section-number">2.3.4</span> Data generation process</h4>
 </section>
-<section id="spatial-extent-and-resolution-gridded-data-only" class="level4">
-<h4 class="anchored" data-anchor-id="spatial-extent-and-resolution-gridded-data-only">Spatial extent and resolution (gridded data only)</h4>
+<section id="spatial-extent-and-resolution-gridded-data-only" class="level4" data-number="2.3.5">
+<h4 data-number="2.3.5" class="anchored" data-anchor-id="spatial-extent-and-resolution-gridded-data-only"><span class="header-section-number">2.3.5</span> Spatial extent and resolution (gridded data only)</h4>
 </section>
-<section id="provenance" class="level4">
-<h4 class="anchored" data-anchor-id="provenance">Provenance</h4>
+<section id="provenance" class="level4" data-number="2.3.6">
+<h4 data-number="2.3.6" class="anchored" data-anchor-id="provenance"><span class="header-section-number">2.3.6</span> Provenance</h4>
 </section>
-<section id="data-access" class="level4">
-<h4 class="anchored" data-anchor-id="data-access">Data access</h4>
-</section>
-</section>
-</section>
-<section id="complete-examples" class="level2">
-<h2 class="anchored" data-anchor-id="complete-examples">Complete Examples</h2>
-<section id="monitoring-location-page-minimal" class="level3">
-<h3 class="anchored" data-anchor-id="monitoring-location-page-minimal">Monitoring location page (minimal)</h3>
-</section>
-<section id="monitoring-location-page-full" class="level3">
-<h3 class="anchored" data-anchor-id="monitoring-location-page-full">Monitoring location page (full)</h3>
-</section>
-<section id="dataset-minimal" class="level3">
-<h3 class="anchored" data-anchor-id="dataset-minimal">Dataset (minimal)</h3>
-</section>
-<section id="dataset-full" class="level3">
-<h3 class="anchored" data-anchor-id="dataset-full">Dataset (full)</h3>
+<section id="data-access" class="level4" data-number="2.3.7">
+<h4 data-number="2.3.7" class="anchored" data-anchor-id="data-access"><span class="header-section-number">2.3.7</span> Data access</h4>
 </section>
 </section>
-<section id="future-work" class="level2">
-<h2 class="anchored" data-anchor-id="future-work">Future work</h2>
+</section>
+<section id="sec-completeExamples" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-completeExamples"><span class="header-section-number">3</span> Complete Examples</h2>
+<section id="monitoring-location-page-minimal" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="monitoring-location-page-minimal"><span class="header-section-number">3.1</span> Monitoring location page (minimal)</h3>
+</section>
+<section id="monitoring-location-page-full" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="monitoring-location-page-full"><span class="header-section-number">3.2</span> Monitoring location page (full)</h3>
+</section>
+<section id="dataset-minimal" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="dataset-minimal"><span class="header-section-number">3.3</span> Dataset (minimal)</h3>
+</section>
+<section id="dataset-full" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="dataset-full"><span class="header-section-number">3.4</span> Dataset (full)</h3>
+</section>
+</section>
+<section id="future-work" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="future-work"><span class="header-section-number">4</span> Future work</h2>
 <p>Fully semantic data</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -340,6 +540,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+<!-- -->
+
 </section>
 
 
@@ -349,6 +551,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li id="fn1"><p>https://geoconnex.us/ref/hu04/0308<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>https://geoconnex.us/ref/states/48<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>https://geoconnex.us/ref/counties/37003<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>This is ideally a persistent geoconnex URI. See <a href="https://github.com/internetofwater/geoconnex.us/blob/master/CONTRIBUTING.md">here</a> for how to create these. It is optional if the “same thing” geoconnex URI in the next bullet is provided, in which case this could just be the URL of the web resource for the location, or omitted.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Where possible, it will useful to tag your organization’s locations with pre-existing identifiers for reference locations, since many organizations collect data at the same location.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>This ideally would come from a <a href="https://docs.ogc.org/is/14-111r6/14-111r6.html#annexB_1">codelist</a> so that data providers use consistent terminology<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Note that ideally this would be a geoconnex URI for a river mainstem, in this case <a href="https://geoconnex.us/ref/mainstems/1611418" class="uri">https://geoconnex.us/ref/mainstems/1611418</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>This is towards the ‘more detailed’ end of the spectrum. If data is not available via API, it is still good to include links to data file downloads or web apps that provide access to the data<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>This is ideally a persistent geoconnex URI. See <a href="https://github.com/internetofwater/geoconnex.us/blob/master/CONTRIBUTING.md">here</a> for how to create these. It is optional if the “same thing” geoconnex URI in the next bullet is provided, in which case this could just be the URL of the web resource for the location, or omitted.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>This ideally would come from a <a href="https://docs.ogc.org/is/14-111r6/14-111r6.html#annexB_1">codelist</a> so that data providers use consistent terminology<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Where possible, it will useful to tag your organization’s locations with pre-existing identifiers for reference locations, since many organizations collect data at the same location.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Note that ideally this would be a geoconnex URI for a river mainstem, in this case <a href="https://geoconnex.us/ref/mainstems/1611418" class="uri">https://geoconnex.us/ref/mainstems/1611418</a><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
@@ -431,6 +642,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -600,7 +862,470 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 <script src="https://utteranc.es/client.js" repo="internetofwater/geoconnex-guidance" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
-</script>
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> "Geoconnex Structured Metadata Guidance"</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="an">title-block-banner:</span><span class="co"> '#181868'</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="an">website:</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">  search: </span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">    type: overlay</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">  html:</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">    toc: true</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">    toc-depth: 6</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">    toc-expand: 6</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">    toc-title: Table of Contents</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">    toc-location: left</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co">    code-tools: true</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co">    code-line-numbers: true</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="co">#    embed-resources: true</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co">    anchor-sections: true</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="co">    link-external-newwindow: true</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="co">    comments:</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a><span class="co">      utterances:</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="co">        repo: internetofwater/geoconnex-guidance</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="co">---</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a></span>
+<span id="cb7-27"><a href="#cb7-27"></a>::: {align="center"}</span>
+<span id="cb7-28"><a href="#cb7-28"></a><span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"images/geoconnex-logo.png"</span> <span class="er">alt</span><span class="ot">=</span><span class="st">"Logo"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"600"</span><span class="kw">/&gt;</span></span>
+<span id="cb7-29"><a href="#cb7-29"></a>:::</span>
+<span id="cb7-30"><a href="#cb7-30"></a></span>
+<span id="cb7-31"><a href="#cb7-31"></a><span class="fu">## Introduction {#sec-introduction}</span></span>
+<span id="cb7-32"><a href="#cb7-32"></a></span>
+<span id="cb7-33"><a href="#cb7-33"></a>The Geoconnex project is about providing technical infrastructure and guidance to create an open, community-contribution model for a knowledge graph linking hydrologic features in the United States, published in accordance with <span class="co">[</span><span class="ot">Spatial Data on the Web best practices</span><span class="co">](https://www.w3.org/TR/sdw-bp/)</span> as an implementation of <span class="co">[</span><span class="ot">Internet of Water</span><span class="co">](https://github.com/opengeospatial/SELFIE/blob/master/docs/demo/internet_of_water.md)</span> principles. The development of geoconnex.us takes place on GitHub. See <span class="co">[</span><span class="ot">here</span><span class="co">](https://github.com/internetofwater/about.geoconnex.us)</span> for the system of repositories.</span>
+<span id="cb7-34"><a href="#cb7-34"></a></span>
+<span id="cb7-35"><a href="#cb7-35"></a>Geoconnex will allow data users to answer questions like: "What datasets are available about the portions of <span class="co">[</span><span class="ot">**Colorado River**</span><span class="co">](https://geoconnex.us/ref/mainstems/29559 "This is an HTTP identifier in the geoconnex system to unambiguously denote the Colorado River")</span> *upstream* of [**Hoover Dam**](https://geoconnex.us/ref/dams/1080095 "This an HTTP identifier in the Geoconnex system to unambiguously identify the Hoover Dam, in particular its location along the Colorado River") *within* **Nevada** and **Utah** regarding *variables* **discharge** and **total suspended solids** with measurements taken at least **daily** with *coverage* **between 2002 and 2007**?" and be returned metadata for all relevant datasets from all participating organizations, including federal, state, private, and NGO organizations.</span>
+<span id="cb7-36"><a href="#cb7-36"></a></span>
+<span id="cb7-37"><a href="#cb7-37"></a>See <span class="ot">&lt;https://geoconnex.us/demo&gt;</span> for a mockup of data discovery and access workflows that <span class="in">`https://geoconnex.us`</span> aspires to enable.</span>
+<span id="cb7-38"><a href="#cb7-38"></a></span>
+<span id="cb7-39"><a href="#cb7-39"></a>Geoconnex rests on data providers publishing metadata to the system. Thus, Geoconnex involves the publication of Web Resources, which include structured, embedded metaadata that describe water datasets and the real-world environmental features (eg rivers, wells, dams, catchments) or the cataloging features (eg government jurisdiction areas, statiscal summary reporting areas) that they are relevant to. This document provides guidance, including general principles as well as specific templates, for data providers for how to structure this metadata using the JSON-LD format.</span>
+<span id="cb7-40"><a href="#cb7-40"></a></span>
+<span id="cb7-41"><a href="#cb7-41"></a>**Related materials, presentations, and publications**</span>
+<span id="cb7-42"><a href="#cb7-42"></a></span>
+<span id="cb7-43"><a href="#cb7-43"></a><span class="co">[</span><span class="ot">National Hydrography Infrastructure and Geoconnex</span><span class="co">](https://drive.google.com/file/d/1J0NKYOq3pGjQXr58FKO8sd7uHpGA8kNB/view?usp=sharing)</span></span>
+<span id="cb7-44"><a href="#cb7-44"></a></span>
+<span id="cb7-45"><a href="#cb7-45"></a><span class="co">[</span><span class="ot">New Mexico Water Data Initiative including geoconnex.us</span><span class="co">](https://docs.google.com/presentation/d/1yuNpBbQPcmb_Nw8DXiuNTazAjIM8UF7o/edit?usp=sharing&amp;ouid=102421334323378854304&amp;rtpof=true&amp;sd=true)</span></span>
+<span id="cb7-46"><a href="#cb7-46"></a></span>
+<span id="cb7-47"><a href="#cb7-47"></a><span class="co">[</span><span class="ot">Roundtable presentation including geoconnex.us</span><span class="co">](https://www.westernstateswater.org/wp-content/uploads/2020/06/CO_Roundable_IoW.pdf)</span></span>
+<span id="cb7-48"><a href="#cb7-48"></a></span>
+<span id="cb7-49"><a href="#cb7-49"></a><span class="co">[</span><span class="ot">Second Environmental Linked Features Interoperability Experiment</span><span class="co">](https://github.com/opengeospatial/SELFIE)</span></span>
+<span id="cb7-50"><a href="#cb7-50"></a></span>
+<span id="cb7-51"><a href="#cb7-51"></a><span class="co">[</span><span class="ot">ESIP Sessions on Structured Data in the Web</span><span class="co">](https://2020esipsummermeeting.sched.com/event/cIvv/structured-data-on-the-web-putting-best-practice-to-work)</span> <span class="co">[</span><span class="ot">slides</span><span class="co">](https://docs.google.com/presentation/d/1LSXHz2_Y7hrkGZPC_sNoJWl8AIujI8AAWktl9amIR4E/edit#slide=id.g8250495469_1_30)</span></span>
+<span id="cb7-52"><a href="#cb7-52"></a></span>
+<span id="cb7-53"><a href="#cb7-53"></a><span class="fu">### Basic Information Model {#sec-infomodel}</span></span>
+<span id="cb7-54"><a href="#cb7-54"></a></span>
+<span id="cb7-55"><a href="#cb7-55"></a>The model used to organize information in the Geoconnex system is shown in @fig-info-model.</span>
+<span id="cb7-56"><a href="#cb7-56"></a></span>
+<span id="cb7-57"><a href="#cb7-57"></a><span class="al">![Basic information model for resources in geoconnex](images/screenshot.png)</span>{#fig-info-model}</span>
+<span id="cb7-58"><a href="#cb7-58"></a></span>
+<span id="cb7-59"><a href="#cb7-59"></a><span class="ss">-   </span>**Data providers** refer to specific systems that publish water-related **datasets** on the web. Many times a provider will simply be the data dissemination arm of an organization, such as the <span class="co">[</span><span class="ot">Reclamation Information Sharing Environment (RISE)</span><span class="co">](https://data.usbr.gov)</span> of the US Bureau of Reclamation. Some organizations may have multiple data providers, such as US Geological Survey, which administers the <span class="co">[</span><span class="ot">National Water Information System</span><span class="co">](https://waterdata.usgs.gov)</span> as well as the <span class="co">[</span><span class="ot">National Groundwater Monitoring Network</span><span class="co">](https://cida.usgs.gov/ngwmn/)</span>, among others. Some data providers are aggregators of other organizations' data, such as the <span class="co">[</span><span class="ot">Hydrologic Information System</span><span class="co">](https://data.cuahsi.org)</span> of CUAHSI.</span>
+<span id="cb7-60"><a href="#cb7-60"></a></span>
+<span id="cb7-61"><a href="#cb7-61"></a><span class="ss">-   </span>**Datasets** refer to specific collections of data that are published by data providers. In the context of Geoconnex, a single dataset generally refers to one that is collected from, or summarizable to, a specific spatial **location** on earth, as part of a specific activity. For example, a dataset would be the stage, discharge and water quality sensor data coming from a single stream gage, but not the collection of all stream gage readings from all stream gages operated by a given organization. A dataset could also be the time-series of a statistical summary of water use at the county level.</span>
+<span id="cb7-62"><a href="#cb7-62"></a></span>
+<span id="cb7-63"><a href="#cb7-63"></a><span class="ss">-   </span>**Locations** are specific locations on earth that datasets are collected from or about, such as stream gages, groundwater wells, and dams. In the case of data that is reported at a summary unit such as a state, county, or hydrologic unit code (HUC), these can also be considered Locations. Conceptually, multiple datasets from multiple providers can be about the same Location, as might occur when a USGS streamgage and a state DEQ water quality sampling site are both located at a specific bridge.</span>
+<span id="cb7-64"><a href="#cb7-64"></a></span>
+<span id="cb7-65"><a href="#cb7-65"></a><span class="ss">-   </span>**Hydrologic features** are elements of the water system that are related to locations. For example, a point may be on a river, which is within a watershed, and whose flow influences an aquifer. Each of these are distinct, identifiable features which many Locations are hydrologically related to, and which a user of a given dataset might also want to use.</span>
+<span id="cb7-66"><a href="#cb7-66"></a></span>
+<span id="cb7-67"><a href="#cb7-67"></a><span class="ss">-   </span>**Cataloging features** are areas on earth that commonly group datasets. They are a superset of summary features such as HUCs, counties and states. For example, a state-level dataset summarizing average annual surface water availability would not have states as a cataloging feature. However, streamgage is within a state, county, HUC, congressional district, etc and may be tagged with these features in metadata, and thus be filtered alongside other streamgages within the same state.</span>
+<span id="cb7-68"><a href="#cb7-68"></a></span>
+<span id="cb7-69"><a href="#cb7-69"></a>This Geoconnex guidance concerns how to explicitly publish metadata that describes Datasets how they are related to each of the other elements of the information model.</span>
+<span id="cb7-70"><a href="#cb7-70"></a></span>
+<span id="cb7-71"><a href="#cb7-71"></a><span class="fu">### JSON-LD Primer {#sec-primer}</span></span>
+<span id="cb7-72"><a href="#cb7-72"></a></span>
+<span id="cb7-73"><a href="#cb7-73"></a>JSON-LD is a version of JSON, the popular data exchange format used by web APIs, to express linked data. Linked Data is an approach to data publication that allows data from various sources to be easily integrated. JSON-LD accomplishes this by mapping terms from a source data system to a machine-readable definition of that term available on the web, allowing different attribute names from different data sources to be consistently interpreted together. Commonly, JSON-LD is embedded within websites, allowing search engines and applications to parse the information available from web addresses (URLs). For an in-depth exploration and multimedia resources, refer to the <span class="co">[</span><span class="ot">JSON-LD official site</span><span class="co">](https://json-ld.org)</span> and its <span class="co">[</span><span class="ot">learning section</span><span class="co">](https://json-ld.org/learn.html)</span>. JSON-LD documents should be embedded in the HTML of websites using script headers. A brief overview of the JSON-LD format follows below.</span>
+<span id="cb7-74"><a href="#cb7-74"></a></span>
+<span id="cb7-75"><a href="#cb7-75"></a>Below is an example JSON-LD document as embedded in a <span class="in">`&lt;script&gt;`</span> division within a <span class="in">`&lt;head&gt;`</span> or <span class="in">`&lt;body&gt;`</span> section of an HTML page, with an explanation of its major elements.</span>
+<span id="cb7-76"><a href="#cb7-76"></a></span>
+<span id="cb7-79"><a href="#cb7-79"></a><span class="in">```{json}</span></span>
+<span id="cb7-80"><a href="#cb7-80"></a><span class="op">&lt;</span>script type<span class="op">=</span><span class="st">"application/ld+json"</span><span class="op">&gt;</span> </span>
+<span id="cb7-81"><a href="#cb7-81"></a>{</span>
+<span id="cb7-82"><a href="#cb7-82"></a>  <span class="st">"@context"</span><span class="op">:</span> {</span>
+<span id="cb7-83"><a href="#cb7-83"></a>    <span class="st">"@vocab"</span><span class="op">:</span> <span class="st">"https://schema.org/"</span><span class="op">,</span></span>
+<span id="cb7-84"><a href="#cb7-84"></a>    <span class="st">"ex"</span><span class="op">:</span> <span class="st">"https://example.com/schema/"</span><span class="op">,</span></span>
+<span id="cb7-85"><a href="#cb7-85"></a>    <span class="st">"locType"</span><span class="op">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType"</span></span>
+<span id="cb7-86"><a href="#cb7-86"></a>  }<span class="op">,</span></span>
+<span id="cb7-87"><a href="#cb7-87"></a>  <span class="st">"@id"</span><span class="op">:</span> <span class="st">"https://example.com/well/1234"</span><span class="op">,</span></span>
+<span id="cb7-88"><a href="#cb7-88"></a>  <span class="st">"@type"</span><span class="op">:</span> <span class="st">"schema:Place"</span><span class="op">,</span></span>
+<span id="cb7-89"><a href="#cb7-89"></a>  <span class="st">"name"</span><span class="op">:</span> <span class="st">"Well 1234"</span><span class="op">,</span></span>
+<span id="cb7-90"><a href="#cb7-90"></a>  <span class="st">"description"</span><span class="op">:</span> <span class="st">"Well at 1234 Place St., USA"</span><span class="op">,</span></span>
+<span id="cb7-91"><a href="#cb7-91"></a>  <span class="st">"locType"</span><span class="op">:</span> <span class="st">"well"</span><span class="op">,</span></span>
+<span id="cb7-92"><a href="#cb7-92"></a>  <span class="st">"subjectOf"</span><span class="op">:</span> {</span>
+<span id="cb7-93"><a href="#cb7-93"></a>    <span class="st">"@id"</span><span class="op">:</span> <span class="st">"https://datasystem.org/dataset1"</span><span class="op">,</span></span>
+<span id="cb7-94"><a href="#cb7-94"></a>    <span class="st">"@type"</span><span class="op">:</span> <span class="st">"schema:Dataset"</span><span class="op">,</span></span>
+<span id="cb7-95"><a href="#cb7-95"></a>    <span class="st">"name"</span><span class="op">:</span> <span class="st">"Well Locations Dataset"</span><span class="op">,</span></span>
+<span id="cb7-96"><a href="#cb7-96"></a>    <span class="st">"ex:recordCount"</span><span class="op">:</span> <span class="dv">500</span></span>
+<span id="cb7-97"><a href="#cb7-97"></a>  }</span>
+<span id="cb7-98"><a href="#cb7-98"></a>}</span>
+<span id="cb7-99"><a href="#cb7-99"></a><span class="op">&lt;</span>script<span class="op">&gt;</span> </span>
+<span id="cb7-100"><a href="#cb7-100"></a><span class="in">```</span></span>
+<span id="cb7-101"><a href="#cb7-101"></a></span>
+<span id="cb7-102"><a href="#cb7-102"></a>**`&lt;script type="application/ld+json"&gt;`, `&lt;script&gt;`** These are immutable HTML elements that tell machines to interpret everything between them as JSON-LD.</span>
+<span id="cb7-103"><a href="#cb7-103"></a></span>
+<span id="cb7-104"><a href="#cb7-104"></a>**`@context`** The <span class="in">`@context`</span> keyword in JSON-LD sets the stage for interpreting the data by mapping terms to IRIs (Internationalized Resource Identifiers). By doing so, properties and values are clearly defined and identified. Our updated example has two contexts:</span>
+<span id="cb7-105"><a href="#cb7-105"></a></span>
+<span id="cb7-106"><a href="#cb7-106"></a><span class="ss">-   </span><span class="in">`@vocab`</span>: Sets the default document vocabulary to <span class="in">`https://schema.org/`</span>, which is a standard vocabulary for web-based structured data. This means that in general, attributes in the document will be assumed to have <span class="in">`https://schema.org/`</span> as a prefix, so JSON-LD parsers will map <span class="in">`name`</span> to <span class="ot">&lt;https://schema.org/name&gt;</span></span>
+<span id="cb7-107"><a href="#cb7-107"></a><span class="ss">-   </span><span class="in">`ex`</span>: This is a custom context prefix representing <span class="in">`https://example.com/schema/`</span>, signifying specific extensions or custom data definitions specific to our website. The prefix can be used on other attributes so that JSON-LD parsers do the appropriate mapping. Thus, <span class="in">`ex:name`</span> will be parsed as <span class="in">`https://example.com/schema/recordCount`</span>.</span>
+<span id="cb7-108"><a href="#cb7-108"></a><span class="ss">-   </span><span class="in">`locType`</span>: This is a custom direct attribute mapping, specifying that this attribute exactly matches to the concept identified by this HTTP identifier <span class="ot">&lt;https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType&gt;</span>. Using this direct mapping approach allows data publishers to map their arbitrary terminology to any publicly accessibly and well-identified standard term.</span>
+<span id="cb7-109"><a href="#cb7-109"></a></span>
+<span id="cb7-110"><a href="#cb7-110"></a>**`@id`** The <span class="in">`@id`</span> keyword furnishes a uniform resource identifier (URI) for subjects in the JSON-LD document, enabling the subjects to be interconnected with data elsewhere. In this example:</span>
+<span id="cb7-111"><a href="#cb7-111"></a></span>
+<span id="cb7-112"><a href="#cb7-112"></a><span class="ss">-   </span>Well 1234 has the identifier <span class="in">`https://example.com/well/1234`</span>.</span>
+<span id="cb7-113"><a href="#cb7-113"></a><span class="ss">-   </span>The dataset that it is about, "Well Locations Dataset", has its unique identifier as <span class="in">`https://datasystem.org/dataset1`</span>.</span>
+<span id="cb7-114"><a href="#cb7-114"></a></span>
+<span id="cb7-115"><a href="#cb7-115"></a>**`@type`** The <span class="in">`@type`</span> keyword stipulates the type or nature of the subject or node in the JSON-LD. It aids in discerning the entity being depicted. In the given context:</span>
+<span id="cb7-116"><a href="#cb7-116"></a></span>
+<span id="cb7-117"><a href="#cb7-117"></a><span class="ss">-   </span>Well 1234 is specified as a "Place" from the schema.org vocabulary (<span class="in">`schema:Place`</span>).</span>
+<span id="cb7-118"><a href="#cb7-118"></a><span class="ss">-   </span>Well Locations Dataset's type is a "Dataset" from the schema.org vocabulary (<span class="in">`schema:Dataset`</span>).</span>
+<span id="cb7-119"><a href="#cb7-119"></a></span>
+<span id="cb7-120"><a href="#cb7-120"></a>**Nodes** Nodes represent entities in JSON-LD, with each entity having properties associated with it. In the example:</span>
+<span id="cb7-121"><a href="#cb7-121"></a></span>
+<span id="cb7-122"><a href="#cb7-122"></a><span class="ss">-   </span>The main node is Well 1234, possessing properties like "name", "description", "locType", and "subjectOf".</span>
+<span id="cb7-123"><a href="#cb7-123"></a><span class="ss">-   </span>subjectOf property itself is a node representing a dataset that is about Well 1234. Apart from the "name" property, the dataset now also has a property called "ex:recordCount" (using the <span class="in">`ex:`</span> prefix from <span class="in">`@context`</span>) indicating the number of rows in the dataset. This extension showcases the flexibility and strength of JSON-LD, where you can seamlessly integrate standard vocabulary with custom definitions, ensuring rich and well-structured interconnected data representations. Below, you can see how JSON-LD tools would parse and standardize the JSON-LD in the example.</span>
+<span id="cb7-124"><a href="#cb7-124"></a></span>
+<span id="cb7-125"><a href="#cb7-125"></a><span class="in">```{=html}</span></span>
+<span id="cb7-126"><a href="#cb7-126"></a><span class="in">&lt;iframe width="780" height="500" src="https://tinyurl.com/29qaectm" title="JSON-LD playground"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb7-127"><a href="#cb7-127"></a><span class="in">```</span></span>
+<span id="cb7-128"><a href="#cb7-128"></a><span class="fu">### Geoconnex JSON-LD elements {#sec-jsonldelem}</span></span>
+<span id="cb7-129"><a href="#cb7-129"></a></span>
+<span id="cb7-130"><a href="#cb7-130"></a>A Geoconnex JSON-LD document should be embedded in a human-readable website that is about either a **Location** or a **Dataset**. Documents about **Locations** should ideally include references to relevant **Hydrologic Features**, **Cataloging Features**, and **Datasets**. Documents about **Datasets** *must* include references to relevant Reference **Monitoring Locations**, **Hydrologic Features** and/or **Cataloging Features**.</span>
+<span id="cb7-131"><a href="#cb7-131"></a></span>
+<span id="cb7-132"><a href="#cb7-132"></a><span class="fu">#### Context {#sec-context}</span></span>
+<span id="cb7-133"><a href="#cb7-133"></a></span>
+<span id="cb7-134"><a href="#cb7-134"></a>Geoconnex JSON-LD documents can have varying contexts. However, there are several vocabularies other than <span class="in">`schema.org`</span> that mqy be useful, depending on the type of location and dataset being described and the level of specificity for which metadata is produced by the data provider. The example context below can serve as general-purpose starting point, although simpler contexts may be sufficient for many documents:</span>
+<span id="cb7-135"><a href="#cb7-135"></a></span>
+<span id="cb7-136"><a href="#cb7-136"></a><span class="in">``` json</span></span>
+<span id="cb7-137"><a href="#cb7-137"></a>  <span class="st">"@context"</span><span class="op">:</span> {</span>
+<span id="cb7-138"><a href="#cb7-138"></a>    <span class="st">"@vocab"</span><span class="op">:</span> <span class="st">"https://schema.org/"</span><span class="op">,</span></span>
+<span id="cb7-139"><a href="#cb7-139"></a>    <span class="st">"rdfs"</span><span class="op">:</span> <span class="st">"http://www.w3.org/2000/01/rdf-schema#"</span><span class="op">,</span></span>
+<span id="cb7-140"><a href="#cb7-140"></a>    <span class="st">"dc"</span><span class="op">:</span> <span class="st">"http://purl.org/dc/elements/1.1/"</span><span class="op">,</span></span>
+<span id="cb7-141"><a href="#cb7-141"></a>    <span class="st">"qudt-units"</span><span class="op">:</span> <span class="st">"http://qudt.org/vocab/unit/"</span><span class="op">,</span></span>
+<span id="cb7-142"><a href="#cb7-142"></a>    <span class="st">"qudt-quantkinds"</span><span class="op">:</span> <span class="st">"http://qudt.org/vocab/quantitykind/"</span><span class="op">,</span></span>
+<span id="cb7-143"><a href="#cb7-143"></a>    <span class="st">"gsp"</span><span class="op">:</span> <span class="st">"http://www.opengis.net/ont/geosparql#"</span><span class="op">,</span></span>
+<span id="cb7-144"><a href="#cb7-144"></a>    <span class="st">"locType"</span><span class="op">:</span> <span class="st">"http://vocabulary.odm2.org/sitetype"</span><span class="op">,</span></span>
+<span id="cb7-145"><a href="#cb7-145"></a>    <span class="st">"odm2var"</span><span class="op">:</span><span class="st">"http://vocabulary.odm2.org/variablename/"</span><span class="op">,</span></span>
+<span id="cb7-146"><a href="#cb7-146"></a>    <span class="st">"odm2varType"</span><span class="op">:</span> <span class="st">"http://vocabulary.odm2.org/variabletype/"</span><span class="op">,</span></span>
+<span id="cb7-147"><a href="#cb7-147"></a>    <span class="st">"hyf"</span><span class="op">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/"</span><span class="op">,</span></span>
+<span id="cb7-148"><a href="#cb7-148"></a>    <span class="st">"skos"</span><span class="op">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType"</span><span class="op">,</span></span>
+<span id="cb7-149"><a href="#cb7-149"></a>    <span class="st">"ssn"</span><span class="op">:</span> <span class="st">"http://www.w3.org/ns/ssn/"</span><span class="op">,</span></span>
+<span id="cb7-150"><a href="#cb7-150"></a>    <span class="st">"ssn-system"</span><span class="op">:</span>  <span class="st">"http://www.w3.org/ns/ssn/systems/"</span></span>
+<span id="cb7-151"><a href="#cb7-151"></a>  }</span>
+<span id="cb7-152"><a href="#cb7-152"></a><span class="in">```</span></span>
+<span id="cb7-153"><a href="#cb7-153"></a></span>
+<span id="cb7-154"><a href="#cb7-154"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`rdfs`</span><span class="co">](https://www.w3.org/TR/rdf12-schema/)</span> is a general vocabulary for basic relationships</span>
+<span id="cb7-155"><a href="#cb7-155"></a></span>
+<span id="cb7-156"><a href="#cb7-156"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`dc`</span><span class="co">](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#)</span> is the <span class="co">[</span><span class="ot">Dublin Core</span><span class="co">](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)</span> vocabulary for general information metadata attributes</span>
+<span id="cb7-157"><a href="#cb7-157"></a></span>
+<span id="cb7-158"><a href="#cb7-158"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`qudt-units`</span><span class="co">](https://www.qudt.org/doc/DOC_VOCAB-UNITS.html)</span> provides standard identifiers for units (e.g. <span class="co">[</span><span class="ot">cubic feet per second</span><span class="co">](https://qudt.org/vocab/unit/FT3-PER-SEC)</span>)</span>
+<span id="cb7-159"><a href="#cb7-159"></a></span>
+<span id="cb7-160"><a href="#cb7-160"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`qudt-quantkinds`</span><span class="co">](https://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html)</span> provides ids for general phenomena (e.g. <span class="co">[</span><span class="ot">Volume flow rate</span><span class="co">](https://qudt.org/vocab/quantitykind/VolumeFlowRate)</span>) which may be measured in various units</span>
+<span id="cb7-161"><a href="#cb7-161"></a></span>
+<span id="cb7-162"><a href="#cb7-162"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`gsp`</span><span class="co">](http://defs.opengis.net/vocprez/object?uri=http://www.opengis.net/def/function/geosparql)</span> provides ids for spatial relationships (e.g. intersects)</span>
+<span id="cb7-163"><a href="#cb7-163"></a></span>
+<span id="cb7-164"><a href="#cb7-164"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`odm2var`</span><span class="co">](http://vocabulary.odm2.org/variablename)</span> is a supplement to <span class="in">`qudt-quantkinds`</span>, and includes ids for many variables relevant to water science and management (e.g. <span class="co">[</span><span class="ot">turbidity</span><span class="co">](http://vocabulary.odm2.org/variablename/turbidity/)</span>)</span>
+<span id="cb7-165"><a href="#cb7-165"></a></span>
+<span id="cb7-166"><a href="#cb7-166"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`odm2varType`</span><span class="co">](http://vocabulary.odm2.org/variabletype/)</span> is a supplement to <span class="in">`odm2var`</span> that includes ids for large groupings of variables (e.g. <span class="co">[</span><span class="ot">Water Quality</span><span class="co">](http://vocabulary.odm2.org/variabletype/WaterQuality/)</span>)</span>
+<span id="cb7-167"><a href="#cb7-167"></a></span>
+<span id="cb7-168"><a href="#cb7-168"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`hyf`</span><span class="co">](https://www.opengis.net/def/schema/hy_features/hyf/)</span> provides ids for surface water hydrology concepts (e.g. <span class="co">[</span><span class="ot">streams</span><span class="co">](https://defs.opengis.net/vocprez/object?uri=https%3A//www.opengis.net/def/schema/hy_features/hyf/HY_River)</span>)</span>
+<span id="cb7-169"><a href="#cb7-169"></a></span>
+<span id="cb7-170"><a href="#cb7-170"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`skos`</span><span class="co">](https://www.w3.org/TR/swbp-skos-core-spec/)</span> provides general properties for relating different concepts (e.g. broader, <span class="co">[</span><span class="ot">narrower,</span><span class="co">](https://www.w3.org/2009/08/skos-reference/skos.html#narrower)</span> exact Match)</span>
+<span id="cb7-171"><a href="#cb7-171"></a></span>
+<span id="cb7-172"><a href="#cb7-172"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`ssn`</span><span class="co">](https://www.w3.org/TR/vocab-ssn/)</span> and <span class="in">`ssn-system`</span> provide ids for aspects of observations and measurement (e.g. measurement methods)</span>
+<span id="cb7-173"><a href="#cb7-173"></a></span>
+<span id="cb7-174"><a href="#cb7-174"></a><span class="fu">#### Reference Features {#sec-ref}</span></span>
+<span id="cb7-175"><a href="#cb7-175"></a></span>
+<span id="cb7-176"><a href="#cb7-176"></a>Embedding links to URIs of Reference Features are the best way to ensure that your data can be related to other data providers' data. URIs for reference features are available from <span class="co">[</span><span class="ot">the Geoconnex reference feature server</span><span class="co">](https://reference.geoconnex.us/collections)</span>. Reference features can be one of three types:</span>
+<span id="cb7-177"><a href="#cb7-177"></a></span>
+<span id="cb7-178"><a href="#cb7-178"></a><span class="ss">-   </span>**Monitoring Locations** which are common locations that many organizations might have data about such as a streamgage station e.g. <span class="ot">&lt;https://geoconnex.us/ref/gages/1143822&gt;</span></span>
+<span id="cb7-179"><a href="#cb7-179"></a><span class="ss">-   </span>**Hydrologic Features** which are common specific features of the hydrologic landscape that many organizations have data about. These could include confluence points, aquifers, stream segments and river mainstems and named tributaries, e.g. <span class="ot">&lt;https://geoconnex.us/ref/mainstems/29559&gt;</span>.</span>
+<span id="cb7-180"><a href="#cb7-180"></a><span class="ss">-   </span>**Cataloging Features** which are larger area units that are commonly used to group and filter data, such as <span class="co">[</span><span class="ot">HUCs</span><span class="co">](https://geoconnex.us/ref/hu04/0308)</span><span class="ot">[^1]</span>, <span class="co">[</span><span class="ot">states</span><span class="co">](https://geoconnex.us/ref/states/48)</span><span class="ot">[^2]</span>, <span class="co">[</span><span class="ot">counties</span><span class="co">](https://geoconnex.us/ref/counties/37003)</span><span class="ot">[^3]</span>, PLSS grids, public agency operating districts, etc.</span>
+<span id="cb7-181"><a href="#cb7-181"></a></span>
+<span id="cb7-182"><a href="#cb7-182"></a><span class="ot">[^1]: https://geoconnex.us/ref/hu04/0308</span></span>
+<span id="cb7-183"><a href="#cb7-183"></a></span>
+<span id="cb7-184"><a href="#cb7-184"></a><span class="ot">[^2]: https://geoconnex.us/ref/states/48</span></span>
+<span id="cb7-185"><a href="#cb7-185"></a></span>
+<span id="cb7-186"><a href="#cb7-186"></a><span class="ot">[^3]: https://geoconnex.us/ref/counties/37003</span></span>
+<span id="cb7-187"><a href="#cb7-187"></a></span>
+<span id="cb7-188"><a href="#cb7-188"></a><span class="fu">## Building Geoconnex Web Resources, Step-by-Step {#sec-step-by-step}</span></span>
+<span id="cb7-189"><a href="#cb7-189"></a></span>
+<span id="cb7-190"><a href="#cb7-190"></a>This section provides step-by-step guidance to build Geoconnex Web Resources, which should be an HTML webpage with a unique URL within which is embedded an JSON-LD document (see @sec-primer).</span>
+<span id="cb7-191"><a href="#cb7-191"></a></span>
+<span id="cb7-192"><a href="#cb7-192"></a><span class="fu">### Location or Dataset oriented?</span></span>
+<span id="cb7-193"><a href="#cb7-193"></a></span>
+<span id="cb7-194"><a href="#cb7-194"></a>Depending on what kind of resource i.e. (location or dataset) and the level of metadata you have available to publish, you can use different elements of the <span class="in">`@context`</span> or use Reference Features in various ways. Below we will work through creating a JSON-LD document depending on your situation.</span>
+<span id="cb7-195"><a href="#cb7-195"></a></span>
+<span id="cb7-196"><a href="#cb7-196"></a>There are two basic patterns to think about:</span>
+<span id="cb7-197"><a href="#cb7-197"></a></span>
+<span id="cb7-198"><a href="#cb7-198"></a><span class="ss">1.  </span><span class="in">`Location-oriented`</span> webpages that include a catalog of parameters and periods of record for which there is data about the location. This pattern may be suitable where data can be accessed separately for each location and possibly for each parameter for each location. This is typical of streamgages, monitoring wells, water diversions, reservoirs, regulated effluent discharge locations, etc. where there is an ongoing monitoring or modeling program that includes data collection or generation for multiple parameters. The Monitor My Watershed Site pages published by the <span class="co">[</span><span class="ot">Stroud Center</span><span class="co">](https://stroudcenter.org)</span> are an example of this pattern. At <span class="co">[</span><span class="ot">this page</span><span class="co">](https://monitormywatershed.org/sites/RH_MD/)</span>, one finds a variety of information about a specific location, such as that location's identifier and name and a map of where it is. In addition there is information about which continuous sensor and field water quality sample data are available about the location, and links to download these data.</span>
+<span id="cb7-199"><a href="#cb7-199"></a></span>
+<span id="cb7-200"><a href="#cb7-200"></a><span class="ss">2.  </span><span class="in">`Dataset-oriented`</span> webpages that tag which locations are relevant to the dataset described at a given page. This pattern may be suitable for static datasets where data was collected or modeled for a consistent set of parameters for a pre-specified research question and time period across one or more locations, and where it would not make sense to publish separate metadata for the parts of the dataset that are relevant to each individual feature and parameter. This is typical of datasets created for, and published in association withm scientific and regulatory studies. <span class="co">[</span><span class="ot">This dataset record</span><span class="co">](https://www.hydroshare.org/resource/11dd1840fe6a48abb9a33380ecaa6e1d/)</span> published on <span class="co">[</span><span class="ot">CUAHSI</span><span class="co">](https://cuahsi.org)</span>'s <span class="co">[</span><span class="ot">Hydroshare</span><span class="co">](https://hydroshare.org)</span> platform is an example, where there is a "Related Geospatial Features" section that explicitly identifies several features that the dataset has data about.</span>
+<span id="cb7-201"><a href="#cb7-201"></a></span>
+<span id="cb7-202"><a href="#cb7-202"></a>In some cases, it is possible to set up a web architecture that implements both patterns. For example, the <span class="co">[</span><span class="ot">Wyoming State Engineer's Office Web Portal</span><span class="co">](https://seoflow.wyo.gov)</span> conceptualizes a time series for a specific parameter at a specific location as a dataset. Thus, webpages exist for both <span class="co">[</span><span class="ot">Locations</span><span class="co">](https://seoflow.wyo.gov/Data/Location/Summary/Location/06280300/Interval/Latest)</span> and <span class="co">[</span><span class="ot">Datasets</span><span class="co">](https://seoflow.wyo.gov/Data/DataSet/Summary/Location/06280300/DataSet/Discharge/Discharge/Interval/Latest)</span>, and they link to each other where relevant. In this case, it is only necessary to implement Geoconnex embedded JSON-LD at either the Location or Dataset level, although both could be done as well.</span>
+<span id="cb7-203"><a href="#cb7-203"></a></span>
+<span id="cb7-204"><a href="#cb7-204"></a>Having chosen one of the patterns, proceed to <span class="co">[</span><span class="ot">location-oriented</span><span class="co">](@sec-loc)</span> or <span class="co">[</span><span class="ot">dataset-oriented</span><span class="co">](@sec-data)</span> guidance to start building a JSON-LD document.</span>
+<span id="cb7-205"><a href="#cb7-205"></a></span>
+<span id="cb7-206"><a href="#cb7-206"></a><span class="fu">#### Location-oriented {#sec-loc}</span></span>
+<span id="cb7-207"><a href="#cb7-207"></a></span>
+<span id="cb7-208"><a href="#cb7-208"></a>The purpose of the location-oriented page is to give enough information about the location and the data available about that location that a water data user would be able to quickly determine whether and how to download the data after reading. We will use the USGS Monitoring Location <span class="co">[</span><span class="ot">08282300</span><span class="co">](https://geoconnex.us/usgs/monitoring-location/08282300)</span> as an example for the type of content to put in location-oriented Geoconnex landing page web resources and how to map that content to embedded JSON-LD documents.</span>
+<span id="cb7-209"><a href="#cb7-209"></a></span>
+<span id="cb7-210"><a href="#cb7-210"></a>::: callout-note</span>
+<span id="cb7-211"><a href="#cb7-211"></a>Scroll up and down to view elements of the example landing page</span>
+<span id="cb7-212"><a href="#cb7-212"></a>:::</span>
+<span id="cb7-213"><a href="#cb7-213"></a></span>
+<span id="cb7-214"><a href="#cb7-214"></a><span class="in">```{=html}</span></span>
+<span id="cb7-215"><a href="#cb7-215"></a><span class="in">&lt;iframe width="780" height="500" src="https://geoconnex.us/usgs/monitoring-location/08282300" title="USGS Example"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb7-216"><a href="#cb7-216"></a><span class="in">```</span></span>
+<span id="cb7-217"><a href="#cb7-217"></a>This location-oriented web resource includes this type of information</span>
+<span id="cb7-218"><a href="#cb7-218"></a></span>
+<span id="cb7-219"><a href="#cb7-219"></a><span class="ss">-   </span>"<span class="co">[</span><span class="ot">This is my HTTP identifier</span><span class="co">](https://geoconnex.us/ref/monitoring-location/08282300)</span>"<span class="ot">[^4]</span></span>
+<span id="cb7-220"><a href="#cb7-220"></a></span>
+<span id="cb7-221"><a href="#cb7-221"></a><span class="ss">-   </span>"I am the same thing as <span class="co">[</span><span class="ot">Geoconnex Reference Gage 1018463</span><span class="co">](https://geoconnex.us/ref/gages/1018463)</span>"<span class="ot">[^5]</span></span>
+<span id="cb7-222"><a href="#cb7-222"></a></span>
+<span id="cb7-223"><a href="#cb7-223"></a><span class="ss">-   </span>"My unique USGS ID is <span class="in">`08282300`</span>"</span>
+<span id="cb7-224"><a href="#cb7-224"></a></span>
+<span id="cb7-225"><a href="#cb7-225"></a><span class="ss">-   </span>"My name is <span class="in">`Rio Brazos at Fishtail Road NR Tierra Amarilla, NM`</span>"</span>
+<span id="cb7-226"><a href="#cb7-226"></a></span>
+<span id="cb7-227"><a href="#cb7-227"></a><span class="ss">-   </span>"Data about me is provided by the <span class="in">`USGS Water Data for the Nation`</span>"</span>
+<span id="cb7-228"><a href="#cb7-228"></a></span>
+<span id="cb7-229"><a href="#cb7-229"></a><span class="ss">-   </span>"I am a <span class="in">`hydrometric station`</span><span class="ot">[^6]</span>"</span>
+<span id="cb7-230"><a href="#cb7-230"></a></span>
+<span id="cb7-231"><a href="#cb7-231"></a><span class="ss">-   </span>"My lat/long is <span class="in">`36.738 -106.471`</span>"</span>
+<span id="cb7-232"><a href="#cb7-232"></a></span>
+<span id="cb7-233"><a href="#cb7-233"></a><span class="ss">-   </span>"I am on the <span class="co">[</span><span class="ot">Rio Brazos</span><span class="co">](https://geoconnex.us/ref/mainstems/1611418)</span>"<span class="ot">[^7]</span></span>
+<span id="cb7-234"><a href="#cb7-234"></a></span>
+<span id="cb7-235"><a href="#cb7-235"></a><span class="ss">-   </span>"There is data about me for the parameter <span class="in">`Discharge`</span> and between June 6, 2014 to the present at a 15 minute time resolution. This data is generated from <span class="in">`in-situ observation`</span>, in particular using <span class="co">[</span><span class="ot">USGS discharge measurement methods</span><span class="co">](https://pubs.usgs.gov/publication/tm3A8)</span>. You can download it <span class="co">[</span><span class="ot">here</span><span class="co">](https://waterservices.usgs.gov/nwis/iv/?sites=08282300&amp;parameterCd=00060&amp;startDT=2023-08-13T03:08:21.313-06:00&amp;endDT=2023-08-20T03:08:21.313-06:00&amp;siteStatus=all&amp;format=rdb)</span> using the <span class="co">[</span><span class="ot">USGS Instantaneous Values REST Web Service</span><span class="co">](https://waterservices.usgs.gov/rest/IV-Test-Tool.html)</span> in the <span class="co">[</span><span class="ot">RDB format</span><span class="co">](https://waterdata.usgs.gov/nwis/?tab_delimited_format_info)</span>". You can also download it <span class="co">[</span><span class="ot">here</span><span class="co">]</span>(https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations) using the <span class="co">[</span><span class="ot">SensorThings API standard</span><span class="co">](https://docs.ogc.org/is/15-078r6/15-078r6.html)</span> in <span class="in">`JSON`</span> or <span class="in">`CSV`</span> formats."<span class="ot">[^8]</span></span>
+<span id="cb7-236"><a href="#cb7-236"></a></span>
+<span id="cb7-237"><a href="#cb7-237"></a><span class="ss">-   </span>"There is data about me for the parameter <span class="in">`Gage Height`</span> between June 6, 2014 to the present at a 15 minute time resolution. This data is generated from <span class="in">`in-situ observation`</span>, in particular using <span class="co">[</span><span class="ot">USGS stage measurement methods</span><span class="co">](https://pubs.usgs.gov/publication/tm3A7)</span>. You can download it <span class="co">[</span><span class="ot">here</span><span class="co">](https://waterservices.usgs.gov/nwis/iv/?sites=08282300&amp;parameterCd=00065&amp;startDT=2023-08-13T03:08:21.313-06:00&amp;endDT=2023-08-20T03:08:21.313-06:00&amp;siteStatus=all&amp;format=rdb)</span> from the <span class="co">[</span><span class="ot">USGS Instantaneous Values REST Web Service</span><span class="co">](https://waterservices.usgs.gov/rest/IV-Test-Tool.html)</span> in the <span class="co">[</span><span class="ot">RDB format</span><span class="co">](https://waterdata.usgs.gov/nwis/?tab_delimited_format_info)</span>". You can also download it <span class="co">[</span><span class="ot">here</span><span class="co">]</span>(https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('ba774169b3e542cdb9c02e8d705b4d0f')?$expand=Thing,Observations) using the <span class="co">[</span><span class="ot">SensorThings API standard</span><span class="co">](https://docs.ogc.org/is/15-078r6/15-078r6.html)</span> in <span class="in">`JSON`</span> or <span class="in">`CSV`</span> formats."</span>
+<span id="cb7-238"><a href="#cb7-238"></a></span>
+<span id="cb7-239"><a href="#cb7-239"></a><span class="ot">[^4]: </span>This is ideally a persistent geoconnex URI. See <span class="co">[</span><span class="ot">here</span><span class="co">](https://github.com/internetofwater/geoconnex.us/blob/master/CONTRIBUTING.md)</span> for how to create these. It is optional if the "same thing" geoconnex URI in the next bullet is provided, in which case this could just be the URL of the web resource for the location, or omitted.</span>
+<span id="cb7-240"><a href="#cb7-240"></a></span>
+<span id="cb7-241"><a href="#cb7-241"></a><span class="ot">[^5]: </span>Where possible, it will useful to tag your organization's locations with pre-existing identifiers for reference locations, since many organizations collect data at the same location.</span>
+<span id="cb7-242"><a href="#cb7-242"></a></span>
+<span id="cb7-243"><a href="#cb7-243"></a><span class="ot">[^6]: </span>This ideally would come from a <span class="co">[</span><span class="ot">codelist</span><span class="co">](https://docs.ogc.org/is/14-111r6/14-111r6.html#annexB_1)</span> so that data providers use consistent terminology</span>
+<span id="cb7-244"><a href="#cb7-244"></a></span>
+<span id="cb7-245"><a href="#cb7-245"></a><span class="ot">[^7]: </span>Note that ideally this would be a geoconnex URI for a river mainstem, in this case <span class="ot">&lt;https://geoconnex.us/ref/mainstems/1611418&gt;</span></span>
+<span id="cb7-246"><a href="#cb7-246"></a></span>
+<span id="cb7-247"><a href="#cb7-247"></a><span class="ot">[^8]: </span>This is towards the 'more detailed' end of the spectrum. If data is not available via API, it is still good to include links to data file downloads or web apps that provide access to the data</span>
+<span id="cb7-248"><a href="#cb7-248"></a></span>
+<span id="cb7-249"><a href="#cb7-249"></a><span class="fu">##### JSON-LD</span></span>
+<span id="cb7-250"><a href="#cb7-250"></a></span>
+<span id="cb7-251"><a href="#cb7-251"></a>Here we will build the equivalent JSON-LD content step-by-step. The steps are:</span>
+<span id="cb7-252"><a href="#cb7-252"></a></span>
+<span id="cb7-253"><a href="#cb7-253"></a><span class="ss">1.  </span>Identifiers and provenance</span>
+<span id="cb7-254"><a href="#cb7-254"></a><span class="ss">2.  </span>Spatial geometry and hydrologic references</span>
+<span id="cb7-255"><a href="#cb7-255"></a><span class="ss">3.  </span></span>
+<span id="cb7-256"><a href="#cb7-256"></a><span class="ss">4.  </span></span>
+<span id="cb7-257"><a href="#cb7-257"></a></span>
+<span id="cb7-258"><a href="#cb7-258"></a><span class="fu">###### Identifiers and provenance</span></span>
+<span id="cb7-259"><a href="#cb7-259"></a></span>
+<span id="cb7-260"><a href="#cb7-260"></a>A first group of information helps identify the location and its provenance.</span>
+<span id="cb7-261"><a href="#cb7-261"></a></span>
+<span id="cb7-262"><a href="#cb7-262"></a><span class="ss">-   </span>"<span class="co">[</span><span class="ot">This is my HTTP identifier</span><span class="co">](https://geoconnex.us/usgs/monitoring-location/08282300)</span>"<span class="ot">[^9]</span></span>
+<span id="cb7-263"><a href="#cb7-263"></a></span>
+<span id="cb7-264"><a href="#cb7-264"></a><span class="ss">-  </span>"I am a <span class="in">`hydrometric station`</span><span class="ot">[^6]</span>"</span>
+<span id="cb7-265"><a href="#cb7-265"></a></span>
+<span id="cb7-266"><a href="#cb7-266"></a><span class="ss">-   </span>"I am the same thing as <span class="co">[</span><span class="ot">Geoconnex Reference Gage 1018463</span><span class="co">](https://geoconnex.us/ref/gages/1018463)</span>"<span class="ot">[^10]</span></span>
+<span id="cb7-267"><a href="#cb7-267"></a></span>
+<span id="cb7-268"><a href="#cb7-268"></a><span class="ss">-   </span>"My unique USGS ID is <span class="in">`08282300`</span>"</span>
+<span id="cb7-269"><a href="#cb7-269"></a></span>
+<span id="cb7-270"><a href="#cb7-270"></a><span class="ss">-   </span>"My name is <span class="in">`Rio Brazos at Fishtail Road NR Tierra Amarilla, NM`</span>"</span>
+<span id="cb7-271"><a href="#cb7-271"></a></span>
+<span id="cb7-272"><a href="#cb7-272"></a><span class="ss">-   </span>"Data about me is provided by the <span class="in">`USGS Water Data for the Nation`</span>"</span>
+<span id="cb7-273"><a href="#cb7-273"></a></span>
+<span id="cb7-274"><a href="#cb7-274"></a><span class="ot">[^9]: </span>This is ideally a persistent geoconnex URI. See <span class="co">[</span><span class="ot">here</span><span class="co">](https://github.com/internetofwater/geoconnex.us/blob/master/CONTRIBUTING.md)</span> for how to create these. It is optional if the "same thing" geoconnex URI in the next bullet is provided, in which case this could just be the URL of the web resource for the location, or omitted.</span>
+<span id="cb7-275"><a href="#cb7-275"></a></span>
+<span id="cb7-276"><a href="#cb7-276"></a><span class="ot">[^10]: </span>Where possible, it will useful to tag your organization's locations with pre-existing identifiers for reference locations, since many organizations collect data at the same location.</span>
+<span id="cb7-277"><a href="#cb7-277"></a></span>
+<span id="cb7-278"><a href="#cb7-278"></a><span class="in">``` json</span></span>
+<span id="cb7-279"><a href="#cb7-279"></a>{</span>
+<span id="cb7-280"><a href="#cb7-280"></a>  <span class="st">"@context"</span><span class="op">:</span> {</span>
+<span id="cb7-281"><a href="#cb7-281"></a>    <span class="st">"@vocab"</span><span class="op">:</span><span class="st">"https://schema.org/"</span><span class="op">,</span></span>
+<span id="cb7-282"><a href="#cb7-282"></a>    <span class="st">"hyf"</span><span class="op">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/"</span><span class="op">,</span></span>
+<span id="cb7-283"><a href="#cb7-283"></a>    <span class="st">"locType"</span><span class="op">:</span> <span class="st">"http://vocabulary.odm2.org/sitetype/"</span></span>
+<span id="cb7-284"><a href="#cb7-284"></a>  }<span class="op">,</span></span>
+<span id="cb7-285"><a href="#cb7-285"></a>  <span class="st">"@id"</span><span class="op">:</span> <span class="st">"https://geoconnex.us/usgs/monitoring-location/08282300"</span><span class="op">,</span></span>
+<span id="cb7-286"><a href="#cb7-286"></a>  <span class="st">"@type"</span><span class="op">:</span> [</span>
+<span id="cb7-287"><a href="#cb7-287"></a>    <span class="st">"hyf:HY_HydrometricFeature"</span><span class="op">,</span></span>
+<span id="cb7-288"><a href="#cb7-288"></a>    <span class="st">"hyf:HY_HydroLocation"</span><span class="op">,</span></span>
+<span id="cb7-289"><a href="#cb7-289"></a>    <span class="st">"locType:stream"</span></span>
+<span id="cb7-290"><a href="#cb7-290"></a>  ]<span class="op">,</span></span>
+<span id="cb7-291"><a href="#cb7-291"></a>  <span class="st">"hyf:HydroLocationType"</span><span class="op">:</span> <span class="st">"hydrometric station"</span><span class="op">,</span></span>
+<span id="cb7-292"><a href="#cb7-292"></a>  <span class="st">"sameAs"</span><span class="op">:</span> {<span class="st">"@id"</span><span class="op">:</span><span class="st">"https://geoconnex.us/ref/gages/1018463"</span>}<span class="op">,</span></span>
+<span id="cb7-293"><a href="#cb7-293"></a>  <span class="st">"identifier"</span><span class="op">:</span> {</span>
+<span id="cb7-294"><a href="#cb7-294"></a>    <span class="st">"@type"</span><span class="op">:</span> <span class="st">"PropertyValue"</span><span class="op">,</span></span>
+<span id="cb7-295"><a href="#cb7-295"></a>    <span class="st">"propertyID"</span><span class="op">:</span> <span class="st">"USGS site number"</span><span class="op">,</span></span>
+<span id="cb7-296"><a href="#cb7-296"></a>    <span class="st">"value"</span><span class="op">:</span>  <span class="st">"08282300"</span></span>
+<span id="cb7-297"><a href="#cb7-297"></a>  }<span class="op">,</span></span>
+<span id="cb7-298"><a href="#cb7-298"></a>  <span class="st">"name"</span><span class="op">:</span> <span class="st">"Rio Brazos at Fishtail Road NR Tierra Amarilla, NM"</span><span class="op">,</span></span>
+<span id="cb7-299"><a href="#cb7-299"></a>  <span class="st">"description"</span><span class="op">:</span> <span class="st">"Stream/River Site"</span><span class="op">,</span></span>
+<span id="cb7-300"><a href="#cb7-300"></a>  <span class="st">"provider"</span><span class="op">:</span> {</span>
+<span id="cb7-301"><a href="#cb7-301"></a>    <span class="st">"url"</span><span class="op">:</span> <span class="st">"https://waterdata.usgs.gov"</span><span class="op">,</span></span>
+<span id="cb7-302"><a href="#cb7-302"></a>    <span class="st">"@type"</span><span class="op">:</span> <span class="st">"GovernmentOrganization"</span><span class="op">,</span></span>
+<span id="cb7-303"><a href="#cb7-303"></a>    <span class="st">"name"</span><span class="op">:</span> <span class="st">"U.S. Geological Survey Water Data for the Nation"</span></span>
+<span id="cb7-304"><a href="#cb7-304"></a>  }</span>
+<span id="cb7-305"><a href="#cb7-305"></a>}</span>
+<span id="cb7-306"><a href="#cb7-306"></a><span class="in">```</span></span>
+<span id="cb7-307"><a href="#cb7-307"></a></span>
+<span id="cb7-308"><a href="#cb7-308"></a>Here we construct the JSON-LD document by adding a context which includes the <span class="ot">&lt;https://schema.org/&gt;</span> vocabulary, as well as the <span class="ot">&lt;https://www.opengis.net/def/schema/hy_features/hyf/&gt;</span> vocabulary which defines specific concepts in surface hydrology, and the ODM2 <span class="co">[</span><span class="ot">sitetype vocabulary</span><span class="co">](http://vocabulary.odm2.org/sitetype/)</span> which defines types of water data collection locations.</span>
+<span id="cb7-309"><a href="#cb7-309"></a></span>
+<span id="cb7-310"><a href="#cb7-310"></a><span class="ss">-   </span>The <span class="in">`@id`</span> element of <span class="ot">&lt;https://geoconnex.us/ref/monitoring-location/08282300&gt;</span> in this case is a persistent geoconnex URI. See <span class="co">[</span><span class="ot">here</span><span class="co">](https://github.com/internetofwater/geoconnex.us/blob/master/CONTRIBUTING.md)</span> for how to create these. It is optional if the "same thing" geoconnex URI in the next bullet is provided, in which case this could just be the URL of the web resource for the location, or omitted.</span>
+<span id="cb7-311"><a href="#cb7-311"></a></span>
+<span id="cb7-312"><a href="#cb7-312"></a><span class="ss">-   </span>The <span class="in">`@type`</span> element here specifies that <span class="ot">&lt;https://geoconnex.us/ref/monitoring-location/08282300&gt;</span> is a <span class="co">[</span><span class="ot">Place</span><span class="co">](https://schema.org/Place)</span> (i.e. a generic place on earth), a <span class="co">[</span><span class="ot">Hydrometric Feature</span><span class="co">](https://www.opengis.net/def/schema/hy_features/hyf/HY_HydrometricFeature)</span> (i.e. a data collection station) and a <span class="co">[</span><span class="ot">HydroLocation</span><span class="co">](https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocation)</span> (i.e. a specific location that could in principle define a catchment). The <span class="in">`locType`</span> further specifies the type of location using the ODM2 sitetype vocabulary <span class="ot">&lt;http://vocabulary.odm2.org/sitetype/&gt;</span>, which expresses the location type in terms of the feature of interest (e.g. a stream, a groundwater system). If the location is more meant to represent a general location about which non-hydrologic data is being provided, as might be the case with a data provider publishing data about dams, levees, culverts, bridges, etc. but not associated water data, then <span class="in">`locType`</span> and <span class="in">`hyf:HY_HydrometricFeature`</span> can be omitted.</span>
+<span id="cb7-313"><a href="#cb7-313"></a></span>
+<span id="cb7-314"><a href="#cb7-314"></a><span class="ss">-   </span>The <span class="in">`hyf:HydroLocationType`</span> can be used to identify the type of site with greater specificity and customization by using text values from any codelist, but preferably the <span class="co">[</span><span class="ot">HY_Features HydroLocationType codelist</span><span class="co">](https://docs.ogc.org/is/14-111r6/14-111r6.html#annexB_1)</span> instead of identifiers. It can be useful to describe something like a dam, weir, culvert, bridge, etc. </span>
+<span id="cb7-315"><a href="#cb7-315"></a></span>
+<span id="cb7-316"><a href="#cb7-316"></a></span>
+<span id="cb7-317"><a href="#cb7-317"></a><span class="ss">-   </span>The <span class="in">`sameAs`</span> element is optional if the <span class="in">`@id`</span> element is included as a persistent geoconnex URI. However, wherever possible, it should be populated with a Geoconnex Reference Feature URI. If all data providers tag their own location metadata with these, it becomes much more easy for users of the Geoconnex system to find data collected by other providers about the same location. Reference features of all sorts are available to browse in a web map at <span class="ot">&lt;https://geoconnex.us/iow/map&gt;</span>, access via API at <span class="ot">&lt;https://reference.geoconnex.us/collections&gt;</span>, or to download in bulk as GeoPackage files from <span class="co">[</span><span class="ot">HydroShare</span><span class="co">](https://www.hydroshare.org/resource/3cc04df349cd45f38e1637305c98529c/)</span>. If your location does not appear to be represented in a reference location, please consider contributing your location. You can start this process by <span class="co">[</span><span class="ot">submitting an issue at the geoconnex.us GitHub repository</span><span class="co">](https://github.com/internetofwater/geoconnex.us/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=general.md&amp;title=%5Bgeneral%5D)</span>. In this case <span class="in">`sameAs`</span> is a persistent geoconnex URI for a "Reference Gage". Reference Gages is an open source, continuously updated set of all known surface water monitoring locations with data being collected by all known organizations. It is managed on GitHub at <span class="ot">&lt;https://github.com/internetofwater/ref_gages&gt;</span></span>
+<span id="cb7-318"><a href="#cb7-318"></a></span>
+<span id="cb7-319"><a href="#cb7-319"></a><span class="ss">-   </span>The <span class="in">`identifier`</span> element specifies the ID scheme name (<span class="in">`propertyID`</span>) for the location in the data source and the ID itself (<span class="in">`value`</span>)</span>
+<span id="cb7-320"><a href="#cb7-320"></a></span>
+<span id="cb7-321"><a href="#cb7-321"></a><span class="ss">-   </span>The <span class="in">`name`</span> (required) and <span class="in">`description`</span> (optional) elements are self-explanatory and can follow the conventions of the data provider.</span>
+<span id="cb7-322"><a href="#cb7-322"></a></span>
+<span id="cb7-323"><a href="#cb7-323"></a><span class="ss">-   </span>The <span class="in">`provider`</span> element describes the data provider, which is generally conceptualized in Geoconnex as being a data system available on the web. Note that under <span class="in">`provider`</span>, in addition to an identifying <span class="in">`name`</span>, there is a <span class="in">`url`</span> if available for the website of the providing data system, and a <span class="in">`@type`</span>, which is most likely a sub type of <span class="ot">&lt;https://schema.org/Organization&gt;</span>, which includes <span class="co">[</span><span class="ot">GovernmentOrganization</span><span class="co">](https://schema.org/GovernmentOrganization)</span>, <span class="co">[</span><span class="ot">NGO</span><span class="co">](https://schema.org/NGO)</span>, <span class="co">[</span><span class="ot">ResearchOrganization</span><span class="co">](https://schema.org/ResearchOrganization)</span>, <span class="co">[</span><span class="ot">EducationalOrganization</span><span class="co">](https://schema.org/EducationalOrganization)</span>, and <span class="co">[</span><span class="ot">Corporation</span><span class="co">](https://schema.org/Corporation)</span>, among others.</span>
+<span id="cb7-324"><a href="#cb7-324"></a></span>
+<span id="cb7-325"><a href="#cb7-325"></a><span class="fu">###### Spatial geometry and hydrologic references</span></span>
+<span id="cb7-326"><a href="#cb7-326"></a></span>
+<span id="cb7-327"><a href="#cb7-327"></a>The second group of information provides specific location and spatial context:</span>
+<span id="cb7-328"><a href="#cb7-328"></a></span>
+<span id="cb7-329"><a href="#cb7-329"></a><span class="ss">-   </span>"My lat/long is <span class="in">`36.738 -106.471`</span>"</span>
+<span id="cb7-330"><a href="#cb7-330"></a></span>
+<span id="cb7-331"><a href="#cb7-331"></a><span class="ss">-   </span>"I am on the <span class="co">[</span><span class="ot">Rio Brazos</span><span class="co">](https://geoconnex.us/ref/mainstems/1611418)</span>"<span class="ot">[^11]</span></span>
+<span id="cb7-332"><a href="#cb7-332"></a></span>
+<span id="cb7-333"><a href="#cb7-333"></a><span class="ot">[^11]: </span>Note that ideally this would be a geoconnex URI for a river mainstem, in this case <span class="ot">&lt;https://geoconnex.us/ref/mainstems/1611418&gt;</span></span>
+<span id="cb7-334"><a href="#cb7-334"></a></span>
+<span id="cb7-335"><a href="#cb7-335"></a>Adding this information to the bottom of JSON-LD document:</span>
+<span id="cb7-336"><a href="#cb7-336"></a></span>
+<span id="cb7-337"><a href="#cb7-337"></a><span class="in">``` json</span></span>
+<span id="cb7-338"><a href="#cb7-338"></a>{</span>
+<span id="cb7-339"><a href="#cb7-339"></a>  <span class="st">"@context"</span><span class="op">:</span> {</span>
+<span id="cb7-340"><a href="#cb7-340"></a>    <span class="st">"@vocab"</span><span class="op">:</span><span class="st">"https://schema.org/"</span><span class="op">,</span></span>
+<span id="cb7-341"><a href="#cb7-341"></a>    <span class="st">"hyf"</span><span class="op">:</span> <span class="st">"https://www.opengis.net/def/schema/hy_features/hyf/"</span><span class="op">,</span></span>
+<span id="cb7-342"><a href="#cb7-342"></a>    <span class="st">"locType"</span><span class="op">:</span> <span class="st">"http://vocabulary.odm2.org/sitetype/"</span></span>
+<span id="cb7-343"><a href="#cb7-343"></a>  }<span class="op">,</span></span>
+<span id="cb7-344"><a href="#cb7-344"></a>  <span class="st">"@id"</span><span class="op">:</span> <span class="st">"https://geoconnex.us/usgs/monitoring-location/08282300"</span><span class="op">,</span></span>
+<span id="cb7-345"><a href="#cb7-345"></a>  <span class="st">"@type"</span><span class="op">:</span> [</span>
+<span id="cb7-346"><a href="#cb7-346"></a>    <span class="st">"hyf:HY_HydrometricFeature"</span><span class="op">,</span></span>
+<span id="cb7-347"><a href="#cb7-347"></a>    <span class="st">"hyf:HY_HydroLocation"</span><span class="op">,</span></span>
+<span id="cb7-348"><a href="#cb7-348"></a>    <span class="st">"locType:stream"</span></span>
+<span id="cb7-349"><a href="#cb7-349"></a>  ]<span class="op">,</span></span>
+<span id="cb7-350"><a href="#cb7-350"></a>  <span class="st">"hyf:HydroLocationType"</span><span class="op">:</span> <span class="st">"hydrometric station"</span><span class="op">,</span></span>
+<span id="cb7-351"><a href="#cb7-351"></a>  <span class="st">"sameAs"</span><span class="op">:</span> {<span class="st">"@id"</span><span class="op">:</span><span class="st">"https://geoconnex.us/ref/gages/1018463"</span>}<span class="op">,</span></span>
+<span id="cb7-352"><a href="#cb7-352"></a>  <span class="st">"identifier"</span><span class="op">:</span> {</span>
+<span id="cb7-353"><a href="#cb7-353"></a>    <span class="st">"@type"</span><span class="op">:</span> <span class="st">"PropertyValue"</span><span class="op">,</span></span>
+<span id="cb7-354"><a href="#cb7-354"></a>    <span class="st">"propertyID"</span><span class="op">:</span> <span class="st">"USGS site number"</span><span class="op">,</span></span>
+<span id="cb7-355"><a href="#cb7-355"></a>    <span class="st">"value"</span><span class="op">:</span>  <span class="st">"08282300"</span></span>
+<span id="cb7-356"><a href="#cb7-356"></a>  }<span class="op">,</span></span>
+<span id="cb7-357"><a href="#cb7-357"></a>  <span class="st">"name"</span><span class="op">:</span> <span class="st">"Rio Brazos at Fishtail Road NR Tierra Amarilla, NM"</span><span class="op">,</span></span>
+<span id="cb7-358"><a href="#cb7-358"></a>  <span class="st">"description"</span><span class="op">:</span> <span class="st">"Stream/River Site"</span><span class="op">,</span></span>
+<span id="cb7-359"><a href="#cb7-359"></a>  <span class="st">"provider"</span><span class="op">:</span> {</span>
+<span id="cb7-360"><a href="#cb7-360"></a>    <span class="st">"url"</span><span class="op">:</span> <span class="st">"https://waterdata.usgs.gov"</span><span class="op">,</span></span>
+<span id="cb7-361"><a href="#cb7-361"></a>    <span class="st">"@type"</span><span class="op">:</span> <span class="st">"GovernmentOrganization"</span><span class="op">,</span></span>
+<span id="cb7-362"><a href="#cb7-362"></a>    <span class="st">"name"</span><span class="op">:</span> <span class="st">"U.S. Geological Survey Water Data for the Nation"</span></span>
+<span id="cb7-363"><a href="#cb7-363"></a>  }<span class="op">,</span></span>
+<span id="cb7-364"><a href="#cb7-364"></a>  <span class="st">"geo"</span><span class="op">:</span> {</span>
+<span id="cb7-365"><a href="#cb7-365"></a>    <span class="st">"@type"</span><span class="op">:</span> <span class="st">"schema:GeoCoordinates"</span><span class="op">,</span></span>
+<span id="cb7-366"><a href="#cb7-366"></a>    <span class="st">"longitude"</span><span class="op">:</span> <span class="op">-</span><span class="fl">106.4707722</span><span class="op">,</span></span>
+<span id="cb7-367"><a href="#cb7-367"></a>    <span class="st">"latitude"</span><span class="op">:</span> <span class="fl">36.7379333</span></span>
+<span id="cb7-368"><a href="#cb7-368"></a>  }<span class="op">,</span></span>
+<span id="cb7-369"><a href="#cb7-369"></a>  <span class="st">"gsp:hasGeometry"</span><span class="op">:</span> {</span>
+<span id="cb7-370"><a href="#cb7-370"></a>    <span class="st">"@type"</span><span class="op">:</span> <span class="st">"http://www.opengis.net/ont/sf#Point"</span><span class="op">,</span></span>
+<span id="cb7-371"><a href="#cb7-371"></a>    <span class="st">"gsp:asWKT"</span><span class="op">:</span> {</span>
+<span id="cb7-372"><a href="#cb7-372"></a>      <span class="st">"@type"</span><span class="op">:</span> <span class="st">"http://www.opengis.net/ont/geosparql#wktLiteral"</span><span class="op">,</span></span>
+<span id="cb7-373"><a href="#cb7-373"></a>      <span class="st">"@value"</span><span class="op">:</span> <span class="st">"POINT (-106.4707722 36.7379333)"</span></span>
+<span id="cb7-374"><a href="#cb7-374"></a>     }<span class="op">,</span></span>
+<span id="cb7-375"><a href="#cb7-375"></a>    <span class="st">"gsp:crs"</span><span class="op">:</span> {</span>
+<span id="cb7-376"><a href="#cb7-376"></a>      @id<span class="st">": "</span><span class="dt">http</span><span class="op">:</span><span class="co">//www.opengis.net/def/crs/OGC/1.3/CRS84"</span></span>
+<span id="cb7-377"><a href="#cb7-377"></a>    }</span>
+<span id="cb7-378"><a href="#cb7-378"></a>   }<span class="op">,</span></span>
+<span id="cb7-379"><a href="#cb7-379"></a>  <span class="st">"hyf:referencedPosition"</span><span class="op">:</span>{</span>
+<span id="cb7-380"><a href="#cb7-380"></a>    <span class="st">"hyf:HY_IndirectPosition"</span><span class="op">:</span>{</span>
+<span id="cb7-381"><a href="#cb7-381"></a>      <span class="st">"hyf:linearElement"</span><span class="op">:</span>{</span>
+<span id="cb7-382"><a href="#cb7-382"></a>        <span class="st">"@id"</span><span class="op">:</span> <span class="st">"https://geoconnex.us/ref/mainstems/1611418"</span></span>
+<span id="cb7-383"><a href="#cb7-383"></a>      }</span>
+<span id="cb7-384"><a href="#cb7-384"></a>    }</span>
+<span id="cb7-385"><a href="#cb7-385"></a>  }</span>
+<span id="cb7-386"><a href="#cb7-386"></a>    </span>
+<span id="cb7-387"><a href="#cb7-387"></a>}</span>
+<span id="cb7-388"><a href="#cb7-388"></a><span class="in">```</span></span>
+<span id="cb7-389"><a href="#cb7-389"></a></span>
+<span id="cb7-390"><a href="#cb7-390"></a>We have added a context element <span class="in">`gsp`</span> and three blocks: <span class="in">`geo`</span>, <span class="in">`gsp:hasGeometry`</span>, and <span class="in">`hyf:referencedPosition`</span>.</span>
+<span id="cb7-391"><a href="#cb7-391"></a></span>
+<span id="cb7-392"><a href="#cb7-392"></a><span class="ss">-   </span><span class="in">`gsp`</span> is the <span class="co">[</span><span class="ot">GeoSPARQL</span><span class="co">](https://www.ogc.org/standard/geosparql/)</span> ontology used to standardize the representation of spatial data and relationships in knowledge graphs like the Geoconnex system</span>
+<span id="cb7-393"><a href="#cb7-393"></a></span>
+<span id="cb7-394"><a href="#cb7-394"></a><span class="ss">-   </span><span class="in">`geo`</span> is the <span class="in">`schema.org`</span> <span class="co">[</span><span class="ot">standard for representing spatial data</span><span class="co">](https://schema.org/geo)</span>. It is what is used by search engines like Google and Bing to place webpages on a map. While useful, it does not have a standard way for representing multipoint, multipolyline, or multipolygon features, or a way to specify coordinate reference systems or projections, and so we need to also provide a GeoSPARQL version of the geometry. In this case, we are simply providing a point with a longitude and latitude via the <span class="co">[</span><span class="ot">schema:GeoCoordinates</span><span class="co">](https://schema.org/GeoCoordinates)</span> property. It is also possible to represent <span class="co">[</span><span class="ot">lines</span><span class="co">](https://schema.org/line)</span> and <span class="co">[</span><span class="ot">polygons</span><span class="co">](https://schema.org/polygon)</span></span>
+<span id="cb7-395"><a href="#cb7-395"></a></span>
+<span id="cb7-396"><a href="#cb7-396"></a><span class="ss">-   </span><span class="in">`gsp:hasGeometry`</span> is the GeoSPARQL version of geometry, with which we can embed <span class="co">[</span><span class="ot">WKT</span><span class="co">](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry)</span> representations of geometry in structured metadata in the <span class="in">`@value`</span> element, and declare the coordinate reference system or projection in the <span class="in">`gsp:crs`</span> element by using EPSG codes as encoded in the <span class="co">[</span><span class="ot">OGC register of reference systems</span><span class="co">](http://www.opengis.net/def/crs/EPSG/0/)</span>, in this case using <span class="ot">&lt;http://www.opengis.net/def/crs/EPSG/0/4326&gt;</span> for the familiar WGS 84 (EPSG 4326) system.</span>
+<span id="cb7-397"><a href="#cb7-397"></a></span>
+<span id="cb7-398"><a href="#cb7-398"></a><span class="ss">-   </span><span class="in">`hyf:referencedPosition`</span> uses the <span class="co">[</span><span class="ot">HY_Features</span><span class="co">](https://www.opengis.net/def/schema/hy_features/hyf/)</span> model to declare that this location is located on a specific river, in this case the <span class="co">[</span><span class="ot">Rio Brazos in New Mexico</span><span class="co">](%22https://geoconnex.us/ref/mainstems/1611418%22)</span> as identified in the Reference Mainstems dataset, which is available via API at <span class="ot">&lt;https://reference.geoconnex.us/collections/mainstems&gt;</span> and managed on GitHub at <span class="ot">&lt;https://github.com/internetofwater/ref_rivers&gt;</span>. All surface water locations should include this type of element. </span>
+<span id="cb7-399"><a href="#cb7-399"></a></span>
+<span id="cb7-400"><a href="#cb7-400"></a>::: {.callout-note}</span>
+<span id="cb7-401"><a href="#cb7-401"></a>Groundwater sample and monitoring locations such as wells can be referenced to aquifer identifiers where available using this pattern:</span>
+<span id="cb7-402"><a href="#cb7-402"></a></span>
+<span id="cb7-403"><a href="#cb7-403"></a><span class="in">``` json</span></span>
+<span id="cb7-404"><a href="#cb7-404"></a><span class="st">"https://"</span><span class="op">:</span> {</span>
+<span id="cb7-405"><a href="#cb7-405"></a>  <span class="st">"id"</span><span class="op">:</span> <span class="st">"https://geoconnex.us/ref/sec_hydrg_reg/S26"</span></span>
+<span id="cb7-406"><a href="#cb7-406"></a>}</span>
+<span id="cb7-407"><a href="#cb7-407"></a><span class="in">```</span></span>
+<span id="cb7-408"><a href="#cb7-408"></a></span>
+<span id="cb7-409"><a href="#cb7-409"></a></span>
+<span id="cb7-410"><a href="#cb7-410"></a></span>
+<span id="cb7-411"><a href="#cb7-411"></a></span>
+<span id="cb7-412"><a href="#cb7-412"></a></span>
+<span id="cb7-413"><a href="#cb7-413"></a>:::</span>
+<span id="cb7-414"><a href="#cb7-414"></a><span class="fu">#### Dataset-oriented {#sec-data}</span></span>
+<span id="cb7-415"><a href="#cb7-415"></a></span>
+<span id="cb7-416"><a href="#cb7-416"></a><span class="fu">### Organizational Monitoring Features</span></span>
+<span id="cb7-417"><a href="#cb7-417"></a></span>
+<span id="cb7-418"><a href="#cb7-418"></a><span class="fu">#### Surface Water</span></span>
+<span id="cb7-419"><a href="#cb7-419"></a></span>
+<span id="cb7-420"><a href="#cb7-420"></a><span class="fu">#### Groundwater</span></span>
+<span id="cb7-421"><a href="#cb7-421"></a></span>
+<span id="cb7-422"><a href="#cb7-422"></a><span class="fu">#### Non-hydrological</span></span>
+<span id="cb7-423"><a href="#cb7-423"></a></span>
+<span id="cb7-424"><a href="#cb7-424"></a><span class="fu">### Datasets</span></span>
+<span id="cb7-425"><a href="#cb7-425"></a></span>
+<span id="cb7-426"><a href="#cb7-426"></a><span class="fu">#### Variables</span></span>
+<span id="cb7-427"><a href="#cb7-427"></a></span>
+<span id="cb7-428"><a href="#cb7-428"></a><span class="fu">#### Temporal Extent</span></span>
+<span id="cb7-429"><a href="#cb7-429"></a></span>
+<span id="cb7-430"><a href="#cb7-430"></a><span class="fu">#### Temporal Resolution</span></span>
+<span id="cb7-431"><a href="#cb7-431"></a></span>
+<span id="cb7-432"><a href="#cb7-432"></a>*discrete* timeseries <span class="sc">\*</span> regular <span class="sc">\*</span> irregular</span>
+<span id="cb7-433"><a href="#cb7-433"></a></span>
+<span id="cb7-434"><a href="#cb7-434"></a>ssn-system: frequency</span>
+<span id="cb7-435"><a href="#cb7-435"></a></span>
+<span id="cb7-436"><a href="#cb7-436"></a><span class="fu">#### Data generation process</span></span>
+<span id="cb7-437"><a href="#cb7-437"></a></span>
+<span id="cb7-438"><a href="#cb7-438"></a><span class="fu">#### Spatial extent and resolution (gridded data only)</span></span>
+<span id="cb7-439"><a href="#cb7-439"></a></span>
+<span id="cb7-440"><a href="#cb7-440"></a><span class="fu">#### Provenance</span></span>
+<span id="cb7-441"><a href="#cb7-441"></a></span>
+<span id="cb7-442"><a href="#cb7-442"></a><span class="fu">#### Data access</span></span>
+<span id="cb7-443"><a href="#cb7-443"></a></span>
+<span id="cb7-444"><a href="#cb7-444"></a><span class="fu">## Complete Examples {#sec-completeExamples}</span></span>
+<span id="cb7-445"><a href="#cb7-445"></a></span>
+<span id="cb7-446"><a href="#cb7-446"></a><span class="fu">### Monitoring location page (minimal)</span></span>
+<span id="cb7-447"><a href="#cb7-447"></a></span>
+<span id="cb7-448"><a href="#cb7-448"></a><span class="fu">### Monitoring location page (full)</span></span>
+<span id="cb7-449"><a href="#cb7-449"></a></span>
+<span id="cb7-450"><a href="#cb7-450"></a><span class="fu">### Dataset (minimal)</span></span>
+<span id="cb7-451"><a href="#cb7-451"></a></span>
+<span id="cb7-452"><a href="#cb7-452"></a><span class="fu">### Dataset (full)</span></span>
+<span id="cb7-453"><a href="#cb7-453"></a></span>
+<span id="cb7-454"><a href="#cb7-454"></a><span class="fu">## Future work</span></span>
+<span id="cb7-455"><a href="#cb7-455"></a></span>
+<span id="cb7-456"><a href="#cb7-456"></a>Fully semantic data</span>
+<span id="cb7-457"><a href="#cb7-457"></a></span>
+<span id="cb7-460"><a href="#cb7-460"></a><span class="in">```{r}</span></span>
+<span id="cb7-461"><a href="#cb7-461"></a><span class="co">#| echo: false</span></span>
+<span id="cb7-462"><a href="#cb7-462"></a><span class="dv">2</span> <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb7-463"><a href="#cb7-463"></a><span class="in">```</span></span>
+<span id="cb7-464"><a href="#cb7-464"></a></span>
+<span id="cb7-465"><a href="#cb7-465"></a>The <span class="in">`echo: false`</span> option disables the printing of code (only output is displayed).</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
