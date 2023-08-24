@@ -254,6 +254,8 @@ Here we will build the equivalent JSON-LD content step-by-step. The steps are:
 2.  [Spatial geometry and hydrologic references](#sec-spatial)
 3.  [Datasets](#sec-loc-data)
 
+These culmminate in the [complete example]().
+
 ##### Identifiers and provenance {#sec-ident}
 
 A first group of information helps identify the location and its provenance.
@@ -373,7 +375,7 @@ Adding this information to the bottom of JSON-LD document:
       "@value": "POINT (-106.4707722 36.7379333)"
      },
     "gsp:crs": {
-      @id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+      "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
     }
    },
   "hyf:referencedPosition":{
@@ -455,13 +457,13 @@ However, to enable data users (and search engines) to filter for your data using
   "variableMeasured": {                                                                                       // <4>
    "@type": "PropertyValue",                                                                                  // <5>
    "name": "discharge",                                                                                       // <4>
-   "description": "Discharge in cubic feet per second"                                                        // <4>
+   "description": "Discharge in cubic feet per second",                                                        // <4>
    "propertyID": "https://www.wikidata.org/wiki/Q8737769",                                                    // <5>
    "url": "https://en.wikipedia.org/wiki/Discharge_(hydrology)",                                               // <6>
    "unitText": "cubic feet per second",                                                                       // <7>
    "qudt:hasQuantityKind": "qudt-quantkinds:VolumeFlowRate",                                                  // <8>
    "qudt:hasUnit": "qudt-units:FT3-PER-SEC",                                                                  // <9>
-   "measurementTechnique": "in-situ observation",                                                             // <10>
+   "measurementTechnique": "location-based observation",                                                      // <10>
    "measurementMethod": {                                                                                     // <11>
      "name":"Discharge Measurements at Gaging Stations",                                                      // <11>
      "publisher": "U.S. Geological Survey",                                                                   // <11>
@@ -475,16 +477,18 @@ However, to enable data users (and search engines) to filter for your data using
    },
    "distribution": [                                                                                          // <14>
      {
-      "@type": "DataDownload",                                                                                // <15>
-      "contentUrl": "https://waterservices.usgs.gov/nwis/iv/?sites=08282300&parameterCd=00060&format=rdb",    // <16>
-      "encodingFormat": ["text/tab-separated-values"],                                                        // <17>
-      "dc:conformsTo": "https://waterservices.usgs.gov/rest/IV-Service.html"                                     // <18>
+      "@type": "DataDownload",
+      "name": "USGS Instantaneous Values Service" // <14>
+      "contentUrl": "https://waterservices.usgs.gov/nwis/iv/?sites=08282300&parameterCd=00060&format=rdb",    // <14>
+      "encodingFormat": ["text/tab-separated-values"],                                                        // <14>
+      "dc:conformsTo": "https://pubs.usgs.gov/of/2003/ofr03123/6.4rdb_format.pdf"                                     // <14>
       },
       {
-      "@type": "DataDownload",                                                                                // <19>
-      "contentUrl": "https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations", // <19>
-      "encodingFormat": ["application/json"],                                                                 // <20>
-      "dc:conformsTo": "https://docs.ogc.org/is/18-088/18-088.html"                                              // <21>
+      "@type": "DataDownload",  
+      "name": "USGS SensorThings API"// <15>
+      "contentUrl": "https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations", // <15>
+      "encodingFormat": ["application/json"],                                                                 // <15>
+      "dc:conformsTo": "https://labs.waterdata.usgs.gov/docs/sensorthings/index.html"                                              // <15>
       }
     ]
   }
@@ -494,17 +498,167 @@ However, to enable data users (and search engines) to filter for your data using
 1.  This node (we are continuing from the above JSON-LD document, so the USGS Monitoring Location) is `subjectOf` the node that follows)
 2.  This node is a `Dataset`(<https://schema.org/Dataset>)
 3.  The dataset's name and description
-4.  The dataset includes information on a variable. (in schema.org called [variableMeasured](https://schema.org/variableMeasured)). Multiple `variableMeasured` can be specified for datasets by using [arrays](https://www.w3.org/TR/json-ld11/#example-135-indexing-language-tagged-strings-and-set), which is useful for datasets that must be downloaded in bulk that include multiple variables of interest. In general it is more clear to specify a "dataset" per `variableMeasured` if the data has different temporal coverage per variable, or can be downloaded on a per-variable basis.
+4.  The dataset includes information on a variable. (in schema.org called [variableMeasured](https://schema.org/variableMeasured)). Multiple `variableMeasured` can be specified for datasets by using [arrays](https://www.w3.org/TR/json-ld11/#example-135-indexing-language-tagged-strings-and-set), which is useful for datasets that must be downloaded in bulk that include multiple variables of interest. In general it is more clear to specify a "dataset" per `variableMeasured` if the data has different temporal coverage per variable, or can be downloaded on a per-variable basis. Multiple `variableMeasured` can be specified using nested JSON arrays.
 5.  `@PropertyValue` is a generic type to extend schema.org properties and should just be used as a rule on `variableMeasured` nodes. `propertyID` should be a URL where there is a machine-readable resource defines what the variable is. In this case, we are using a Wikidata link to the concept of stream discharge.
 6.  Here `url` points to a human-readable resource describing the variable, in this case, we are using a Wikipedia link to the concept of stream discharge.
 7.  Here we use the units as written in the data source.
 8.  While `name` and `propertyID` specifies the variable as being "discharge" in this case, since multiple data sources might use different words and identifiers for their variables, it can be useful to reference a more general category of variables that we can ue to group variables across sources. We can use identifiers for [QuantityKinds](https://qudt.org/schema/qudt/QuantityKind) from QUDT, which we reference with the `qudt-quantkinds` for the prefix as described in the `@context` in @sec-context.
 9.  While `unitText` above specifies the units, since multiple data sources might use different words for the same unit, to improve interoperability we can use identifiers for units provided by QUDT, which we reference with the `qudt-units` vocabulary prefix as described in the `@context` in @sec-context.
-10. `measurementTechnique` is meant to be a highly general account of the data generating procedure. It is highly recommended to restrict these values to the codelist here.
+10. `measurementTechnique` is meant to be a highly general account of the data generating procedure, and primarily to distinguish between feature-based and raster, and observed and modeled data. It is highly recommended to restrict these values to the codelist [here](#sec-measurementTechnique).
+11. `measurementMethod` specifies the method used to generate the data to as great a degree of specificity as possible. Ideally it could a persistent identifier that directs to a machine-readable web resource that unambiguously describes that method. This would look something like this: `"measurementMethod": {"@id": "https://www.nemi.gov/methods/method_summary/4680/"}` In lieu of that, a name, description and URL to human-readable web resource like an explanatory webpage, technical report, standards document, or academic article would be appropriate, as in this example for USGS discharge measurement.
+12. `temporal coverage` refers to the first and last time for which data is available. It can be specified using [ISO 8061 interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) (`YYYY-MM-DD/YYYY-MM-DD`, with the start date first and the end date after the `/` . It can also include time like so `YYYY-MM-DDTHH:MM:SS/YYYY-MM-DDTHH:MM:SS` . If the dataset has no end date, as there is an active monitoring program, then this can be indicated like so `YYYY-MM-DD/..` .
+13. `ssn-system:frequency` refers to the minimum intended time spacing between observations in the case of regular time series data. Irregular time series or discrete sample data should omit this block. The `value` should be an integer and the `unitCode` a time unit from `qudt-units`.
+14. `distribution` provides a way to structure information about data access points. This can range in complexity from a specification of a URL and format to specifications for how to interact with an API. In this example, a URL, format (`encodingFormat` populated by [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml)). `conformsTo` is optional and should be a document that helps interpret the data structure. This could be a link to a data dictionary in the case of simple tabular data, documentation of a data model for a complex database, or an API specification document for an API endpoint.
+15. Multiple `distributions` can be specified using nested JSON arrays.
 
-This translates roughly to - There is is the following information about me: a `Dataset` - for the variable (`measuredValue`) `Discharge` in units of `cubic feet per second` - generated by `in-situ observation` - it is a `regular time series` - between `June 6, 2014` to the `present` - at a `15 minute` time resolution. - generated in particular using [USGS discharge measurement methods](https://pubs.usgs.gov/publication/tm3A8). - You can download it [here](https://waterservices.usgs.gov/nwis/iv/?sites=08282300&parameterCd=00060&startDT=2023-08-13T03:08:21.313-06:00&endDT=2023-08-20T03:08:21.313-06:00&siteStatus=all&format=rdb) - Using the [USGS Instantaneous Values REST Web Service](https://waterservices.usgs.gov/rest/IV-Service.html) in the [RDB format](https://waterdata.usgs.gov/nwis/?tab_delimited_format_info). - You can also download it [here](https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations) - Using the [SensorThings API standard](https://docs.ogc.org/is/15-078r6/15-078r6.html) in `JSON` or `CSV` formats.
+This translates roughly to
 
-### Dataset-oriented
+-   There is is the following information about me: a `Dataset`
+
+    -   for the variable (`measuredVariable`) `Discharge`
+
+        -   It has values between `June 6, 2014` to the `present`
+
+        -   at a `15` `minute` time resolution
+
+        -   in units of `cubic feet per second`
+
+        -   generated by `location observation`
+
+        -   generated in particular using [USGS discharge measurement methods](https://pubs.usgs.gov/publication/tm3A8).
+
+        -   You can download it:
+
+            -   [here](https://waterservices.usgs.gov/nwis/iv/?sites=08282300&paramete)
+
+                -   Using the [USGS Instantaneous Values REST Web Service](https://waterservices.usgs.gov/rest/IV-Service.html)
+
+                -   in the [RDB format](https://waterdata.usgs.gov/nwis/?tab_delimited_format_info)
+
+            -   You can also download it [here](https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations)
+
+                -   Using the [USGS SensorThings API implementation](https://labs.waterdata.usgs.gov/docs/sensorthings/index.html)
+
+                -   in JSON
+
+## Complete Examples {#sec-loc-complete-example}
+
+### Location-based data
+
+This example is available for download \[here\]:
+
+``` json
+{
+  "@context": {
+    "@vocab": "https://schema.org/", 
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dc": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "qudt-units": "http://qudt.org/vocab/unit/",
+    "qudt-quantkinds": "http://qudt.org/vocab/quantitykind/",
+    "gsp": "http://www.opengis.net/ont/geosparql#",
+    "locType": "http://vocabulary.odm2.org/sitetype",
+    "odm2var":"http://vocabulary.odm2.org/variablename/",
+    "odm2varType": "http://vocabulary.odm2.org/variabletype/",
+    "hyf": "https://www.opengis.net/def/schema/hy_features/hyf/",
+    "skos": "https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "ssn-system":  "http://www.w3.org/ns/ssn/systems/"
+  },
+  "@id": "https://geoconnex.us/usgs/monitoring-location/08282300",
+  "@type": [
+    "hyf:HY_HydrometricFeature",
+    "hyf:HY_HydroLocation",
+    "locType:stream"
+  ],
+  "hyf:HydroLocationType": "hydrometric station",
+  "sameAs": {
+    "@id": "https://geoconnex.us/ref/gages/1018463"
+  },
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "USGS site number",
+    "value": "08282300"
+  },
+  "name": "Rio Brazos at Fishtail Road NR Tierra Amarilla, NM",
+  "description": "Stream/River Site",
+  "provider": {
+    "url": "https://waterdata.usgs.gov",
+    "@type": "GovernmentOrganization",
+    "name": "U.S. Geological Survey Water Data for the Nation"
+  },
+  "geo": {
+    "@type": "schema:GeoCoordinates",
+    "longitude": -106.4707722,
+    "latitude": 36.7379333
+  },
+  "gsp:hasGeometry": {
+    "@type": "http://www.opengis.net/ont/sf#Point",
+    "gsp:asWKT": {
+      "@type": "http://www.opengis.net/ont/geosparql#wktLiteral",
+      "@value": "POINT (-106.4707722 36.7379333)"
+    },
+    "gsp:crs": {
+      "@id": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+    }
+  },
+  "hyf:referencedPosition": {
+    "hyf:HY_IndirectPosition": {
+      "hyf:linearElement": {
+        "@id": "https://geoconnex.us/ref/mainstems/1611418"
+      }
+    }
+  },
+  "subjectOf": {
+    "@type": "Dataset",
+    "name": "Discharge data from USGS Monitoring Location 08282300",
+    "description": "Discharge data from USGS Streamgage at Rio Brazos at Fishtail Road NR Tierra Amarilla, NM",
+    "variableMeasured": {
+      "@type": "PropertyValue",
+      "name": "discharge",
+      "description": "Discharge in cubic feet per second",
+      "propertyID": "https://www.wikidata.org/wiki/Q8737769",
+      "url": "https://en.wikipedia.org/wiki/Discharge_(hydrology)",
+      "unitText": "cubic feet per second",
+      "qudt:hasQuantityKind": "qudt-quantkinds:VolumeFlowRate",
+      "qudt:hasUnit": "qudt-units:FT3-PER-SEC",
+      "measurementTechnique": "location-based observation",
+      "measurementMethod": {
+        "name": "Discharge Measurements at Gaging Stations",
+        "publisher": "U.S. Geological Survey",
+        "url": "https://doi.org/10.3133/tm3A8"
+      }
+    },
+    "temporalCoverage": "2014-06-30/..",
+    "ssn-system:frequency": {
+      "value": "15",
+      "unitCode": "qudt-units:Minute"
+    },
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "name": "USGS Instantaneous Values Service"
+        "contentUrl": "https://waterservices.usgs.gov/nwis/iv/?sites=08282300&parameterCd=00060&format=rdb",
+        "encodingFormat": [
+          "text/tab-separated-values"
+        ],
+        "dc:conformsTo": "https://pubs.usgs.gov/of/2003/ofr03123/6.4rdb_format.pdf"
+      },
+      {
+        "@type": "DataDownload",
+        "name": "USGS SensorThings API"
+        "contentUrl": "https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations",
+        "encodingFormat": [
+          "application/json"
+        ],
+        "dc:conformsTo": "https://labs.waterdata.usgs.gov/docs/sensorthings/index.html"
+      }
+    ]
+  }
+}
+```
+
+### Gridded data
 
 ## Appendices {#sec-appendices}
 
@@ -512,11 +666,22 @@ This translates roughly to - There is is the following information about me: a `
 
 #### measurementTechnique {#sec-measurementTechnique}
 
-| code                 | definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| location observation | This term is meant to group data generating procedures that occur primarily to measure phenomena at or adjacent to specific features (real-world objects and locations). Examples include ground-based sensors like streamgages and weather stations, but also discrete water quality samples, habitat assessments, ecological surveys, and surveys of individuals, households, and organizations. Datasets in this category may be generated from algorithms or human processes that combine heterogeneous source data into latent or derived variables (e.g. composite indexes such as health risk scores or regulatory categorizations such as "in compliance"), or spatially aggregate data from smaller geographic units to larger ones (e.g. Census area-based reporting), as long as the data is representing the phenomena of interest at the time and place it actually occured. However, this category can include datasets that use procedures for gap filling missing data (e.g. streamgage data with sensor malfunction period data estimated from time series models)  |
-| gridded observation  | This term is meant to group areally extensive datasets that are not generated from or reported to particular locations. Typical (though not exclusive) examples are data derived from images collected by satellite or aircraft-mounted sensors. Datasets in this category could include postprocessing techniques as long as the data is representing the phenomena of interest at the time and place they actually occurred. Such techniques include algorithms that that mathematically transform raw data into indirectly observed variables (e.g. NVDI, impervious surface), image classification and vectorization (e.g. land use/ land cover data), and algorithms or human processes that combine heterogeneous source data into latent or derived variables (e.g. the \[U.S. Drought Monitor Maps\](https://droughtmonitor.unl.edu/CurrentMap.aspx)).                                                                                                                                                                                                                       |
-| location model       | This term is meant to be a counterpart to "in-situ observations" that refers to data about specific locations that is modeled rather than observed. It groups data generating procedures that generate data for hypothetical states or counterfactual timelines (e.g. reservoir operations models, river stage forecasts like the stream routing data generated by the \[National Water Model\](https://water.noaa.gov/about/nwm))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| gridded model        | This term is meant to group data generating procedures that generate gridded data that is extensive over an area that are meant to represent hypothetical states or counterfactual timelines. Examples include flood risk maps and gridded precipitation forecasts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
++----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| code                       | definition                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
++============================+===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================+
+| location-based observation | This term is meant to group data generating procedures that occur primarily to measure phenomena at, adjacent to, or about discrete features (real-world objects and locations). Examples include ground-based sensors like streamgages and weather stations, but also discrete water quality samples, habitat assessments, ecological surveys, and surveys of individuals, households, and organizations. Datasets in this category may be generated from algorithms or human processes that combine heterogeneous source data into latent or derived variables (e.g. composite indexes such as health risk scores or regulatory categorizations such as "in compliance"), or spatially aggregate data from smaller geographic units to larger ones (e.g. Census area-based reporting), as long as the data is representing the phenomena of interest at the time and place it actually occurred and was measured. However, this category can include datasets that use procedures for gap filling missing data (e.g. streamgage data with sensor malfunction period data estimated from time series models) |
++----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| gridded observation        | This term is meant to group areally extensive datasets that are not generated from or reported to particular locations. Typical (though not exclusive) examples are data derived from images collected by satellite or aircraft-mounted sensors. Datasets in this category could include postprocessing techniques as long as the data is representing the phenomena of interest at the time and place they actually occurred. Such techniques include algorithms that that mathematically transform raw data into indirectly observed variables such as image classification (e.g. NVDI, impervious surface, land use/ land cover), and algorithms or human processes that combine heterogeneous source data into latent or derived variables (e.g. the [U.S. Drought Monitor Maps](https://droughtmonitor.unl.edu/CurrentMap.aspx)).                                                                                                                                                                                                                                                                        |
++----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| location-based model       | This term is meant to be a model counterpart to "location observations" that refers to data about specific locations that are modeled rather than observed. It groups data generating procedures that generate data for **hypothetical states** at discrete locations, such as (but not limited to):\                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|                            | -   **the near future** (e.g. river stage forecasts like the stream routing data generated by the [National Water Model](https://water.noaa.gov/about/nwm))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|                            | -   **counterfactuals** (e.g. hydrologic models under varying assumptions about dam removal or reservoir operations)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|                            | -   **the unobserved past and present at the feature of interest** (e.g. water quality models for parameters based on climate and upstream effluent discharge data)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
++----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| gridded model              | This term is meant to group data generating procedures that generate gridded data that is extensive over an area that are meant to represent hypothetical states as detailed above. Examples include flood risk maps and gridded precipitation forecasts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
++----------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ### Appendix 2: Vocabularies {#sec-vocabularies}
