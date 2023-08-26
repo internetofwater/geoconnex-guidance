@@ -126,7 +126,7 @@ Below is an example JSON-LD document as embedded in a `<script>` division within
 ```
 ## Geoconnex JSON-LD elements {#sec-jsonldelem}
 
-A Geoconnex JSON-LD document should be embedded in a human-readable website that is about either a **Location** or a **Dataset**. Documents about **Locations** should ideally include references to relevant **Hydrologic Features**, **Cataloging Features**, and **Datasets**. Documents about **Datasets** *must* include references to relevant Reference **Monitoring Locations**, **Hydrologic Features** and/or **Cataloging Features**.
+A Geoconnex JSON-LD document should be embedded in a human-readable website that is about either a **Location** or a **Dataset**. Documents about **Locations** should ideally include references to relevant **Hydrologic Features**, **Cataloging Features**, and **Datasets**. Documents about **Datasets** *must* include references to one or more relevant Reference **Monitoring Locations** or **Hydrologic Features** or **Cataloging Features**, or declare their spatial coverage.
 
 ### Context {#sec-context}
 
@@ -137,7 +137,7 @@ Geoconnex JSON-LD documents can have varying contexts. However, there are severa
     "@vocab": "https://schema.org/", 
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dc": "http://purl.org/dc/terms/",
-    "qudt": "http://qudt.org/schema/qudt/""
+    "qudt": "http://qudt.org/schema/qudt/",
     "qudt-units": "http://qudt.org/vocab/unit/",
     "qudt-quantkinds": "http://qudt.org/vocab/quantitykind/",
     "gsp": "http://www.opengis.net/ont/geosparql#",
