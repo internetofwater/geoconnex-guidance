@@ -16,7 +16,7 @@ format:
     code-overflow: wrap
     code-line-numbers: true
     code-annotations: hover
-    embed-resources: true
+ #   embed-resources: true
     anchor-sections: true
     link-external-newwindow: true
     comments:
