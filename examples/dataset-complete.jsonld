@@ -1,0 +1,101 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dc": "http://purl.org/dc/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "qudt-units": "http://qudt.org/vocab/unit/",
+    "qudt-quantkinds": "http://qudt.org/vocab/quantitykind/",
+    "gsp": "http://www.opengis.net/ont/geosparql#",
+    "locType": "http://vocabulary.odm2.org/sitetype",
+    "odm2var": "http://vocabulary.odm2.org/variablename/",
+    "odm2varType": "http://vocabulary.odm2.org/variabletype/",
+    "hyf": "https://www.opengis.net/def/schema/hy_features/hyf/",
+    "skos": "https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "ssn-system": "http://www.w3.org/ns/ssn/systems/"
+  },
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.4211/hs.4cf2a4298eca418f980201c1c5505299",
+  "identifier": "doi:hs.4cf2a4298eca418f980201c1c5505299",
+  "name": "Geoconnex Dataset Example: Data for Triangle Water Supply Dashboard",
+  "description": "This is a dataset meant as an example of dataset-level schema.org markup for https://geoconnex.us. It uses as an example data from the NC Triangle Water Supply Dashboard, which collects and visualizes finished water deliveries by water utilities to their service areas in the North Carolina Research Triangle area",
+  "url": "https://www.hydroshare.org/resource/4cf2a4298eca418f980201c1c5505299",
+  "keywords": [
+    "water demand",
+    "water supply",
+    "geoconnex"
+  ],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "isAccessibleForFree": "true",
+  "distribution": {
+    "@type": "DataDownload",
+    "name": "HydroShare file URL",
+    "contentUrl": "https://www.hydroshare.org/resource/4cf2a4298eca418f980201c1c5505299/data/contents/demand_over_time.csv",
+    "encodingFormat": [
+      "text/csv"
+    ],
+    "dc:conformsTo": "https://www.hydroshare.org/resource/4cf2a4298eca418f980201c1c5505299/data/contents/dataDictionary.xlsx"
+  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "water demand",
+      "description": "treated water delivered to distribution system",
+      "propertyID": "http://vocabulary.odm2.org/variablename/waterUsePublicSupply/",
+      "url": "http://vocabulary.odm2.org/variablename/waterUsePublicSupply/",
+      "unitText": "million gallons per day",
+      "qudt:hasQuantityKind": "qudt-quantkinds:VolumeFlowRate",
+      "unitCode": "http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units&id=1125579048",
+      "measurementTechnique": "observation",
+      "measurementMethod": {
+        "name": "water meter",
+        "description": "metered bulk value, accumlated over one month",
+        "url": "https://www.wikidata.org/wiki/Q268503"
+      }
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "water demand (monthly average)",
+      "description": "average monthly treated water delivered to distribution system",
+      "propertyID": "http://vocabulary.odm2.org/variablename/waterUsePublicSupply/",
+      "url": "http://vocabulary.odm2.org/variablename/waterUsePublicSupply/",
+      "unitText": "million gallons per day",
+      "qudt:hasQuantityKind": "qudt-quantkinds:VolumeFlowRate",
+      "unitCode": "http://his.cuahsi.org/mastercvreg/edit_cv11.aspx?tbl=Units&id=1125579048",
+      "measurementTechnique": "observation",
+      "measurementMethod": {
+        "name": "water meter",
+        "description": "metered bulk value, average accumlated over each month for multiple years",
+        "url": "https://www.wikidata.org/wiki/Q268503"
+      }
+    }
+  ],
+  "temporalCoverage": "2002-01-01/2020-12-31",
+  "ssn-system:frequency": {
+    "value": "1",
+    "unitCode": "qudt-units:Month"
+  },
+  "about": [
+    {
+      "@id": "https://geoconnex.us/ref/pws/NC0332010",
+      "@type": "Place"
+    },
+    {
+      "@id": "https://geoconnex.us/ref/pws/NC0368010",
+      "@type": "Place"
+    },
+    {
+      "@id": "https://geoconnex.us/ref/pws/NC0392010",
+      "@type": "Place"
+    },
+    {
+      "@id": "https://geoconnex.us/ref/pws/NC0392020",
+      "@type": "Place"
+    },
+    {
+      "@id": "https://geoconnex.us/ref/pws/NC0392045",
+      "@type": "Place"
+    }
+  ]
+}

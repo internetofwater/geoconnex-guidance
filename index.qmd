@@ -775,17 +775,16 @@ Sometimes there are no particular features that a dataset is explicitly about. T
   }
 ```
 
-## Complete Examples {#sec-loc-complete-example}
+## Complete Examples 
 
 Below are complete examples for the general JSON-LD document types depending on the location or dataset orientation and data type.
 
 They are viewable together below, or available for download:
 
 -   [location-oriented example](https://raw.githubusercontent.com/internetofwater/geoconnex-guidance/main/examples/location-complete.jsonld)
--   [dataset-oriented example]()
--   [gridded dataset-oriented example]()
+-   [dataset-oriented example](https://raw.githubusercontent.com/internetofwater/geoconnex-guidance/main/examples/dataaset-complete.jsonld)
 
-### Location-oriented 
+### Location-oriented  {#sec-loc-complete-example}
 
 ``` json
 {
@@ -898,7 +897,7 @@ They are viewable together below, or available for download:
 }
 ```
 
-### Dataset-oriented
+### Dataset-oriented  {#sec-data-complete-example}
 
 ``` json
 {
