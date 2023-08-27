@@ -730,7 +730,7 @@ Using the `about` construction, a single geoconnex URI or an array of multiple c
       },
       {
         "@id": "https://geoconnex.us/ref/pws/NC0392045",
-        @type": "Place"
+        "@type": "Place"
       }
     ],
     ...
