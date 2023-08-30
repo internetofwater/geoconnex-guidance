@@ -212,7 +212,7 @@ Scroll up and down to view elements of the example landing page
 :::
 
 ```{=html}
-<iframe width="780" height="500" src="https://geoconnex.us/usgs/monitoring-location/08282300" title="USGS Example"></iframe>
+<iframe width="780" height="500" src="https://waterdata.usgs.gov/monitoring-location/08282300" title="USGS Example"></iframe>
 ```
 This location-oriented web resource includes this type of information
 
@@ -503,12 +503,12 @@ However, to enable data users (and search engines) to filter for your data using
 4.  The dataset's license, which is most easily populated by a URI for the license appropriate for your data. Federal agencies, many state agencies, and academics use open licenses such as those provided by [opendatacommons.org](https://opendatacommons.org/licenses/) and [creativecommons.org](https://creativecommons.org/licenses). URIs for licenses are available from <https://spdx.org/licenses/>
 5.  Either `true` or `false` depending on if the dataset is available for free.
 6.  The dataset includes information on a variable. (in schema.org called [variableMeasured](https://schema.org/variableMeasured)). Multiple `variableMeasured` can be specified for datasets by using [arrays](https://www.w3.org/TR/json-ld11/#example-135-indexing-language-tagged-strings-and-set), which is useful for datasets that must be downloaded in bulk that include multiple variables of interest. In general it is more clear to specify a "dataset" per `variableMeasured` if the data has different temporal coverage per variable, or can be downloaded on a per-variable basis. Multiple `variableMeasured` can be specified using nested JSON arrays.
-7. `@PropertyValue` is a generic type to extend schema.org properties and should just be used as a rule on `variableMeasured` nodes.
+7.  `@PropertyValue` is a generic type to extend schema.org properties and should just be used as a rule on `variableMeasured` nodes.
 8.  `propertyID` should be a URI where there is a machine-readable resource defines what the variable is. In this case, we are using a Wikidata link to the concept of stream discharge. In general, a good source for URIs is the [ODM2 variable vocabulary](http://vocabulary.odm2.org/variablename/).
 9.  Here `url` points to a human-readable resource describing the variable, in this case, we are using a Wikipedia link to the concept of stream discharge.
-10.  Here we use the units as written in the data source.
-11.  While `name` and `propertyID` specifies the variable as being "discharge" in this case, since multiple data sources might use different words and identifiers for their variables, it can be useful to reference a more general category of variables that we can ue to group variables across sources. We can use identifiers for [QuantityKinds](https://qudt.org/schema/qudt/QuantityKind) from QUDT, which we reference with the `qudt-quantkinds` for the prefix as described in the `@context` in @sec-context.
-12.  While `unitText` above specifies the units, since multiple data sources might use different words for the same unit, to improve interoperability we can use identifiers for units provided by QUDT, which we reference with the `qudt-units` vocabulary prefix as described in the `@context` in @sec-context. If units from QUDT are unavailable, first check if `unitText` can be filled with a term from name from http://vocabulary.odm2.org/units/.
+10. Here we use the units as written in the data source.
+11. While `name` and `propertyID` specifies the variable as being "discharge" in this case, since multiple data sources might use different words and identifiers for their variables, it can be useful to reference a more general category of variables that we can ue to group variables across sources. We can use identifiers for [QuantityKinds](https://qudt.org/schema/qudt/QuantityKind) from QUDT, which we reference with the `qudt-quantkinds` for the prefix as described in the `@context` in @sec-context.
+12. While `unitText` above specifies the units, since multiple data sources might use different words for the same unit, to improve interoperability we can use identifiers for units provided by QUDT, which we reference with the `qudt-units` vocabulary prefix as described in the `@context` in @sec-context. If units from QUDT are unavailable, first check if `unitText` can be filled with a term from name from http://vocabulary.odm2.org/units/.
 13. `measurementTechnique` is meant to be a highly general account of the data generating procedure, and primarily to distinguish between observed and modeled data. It is highly recommended for this to be `model` or `observation`, or if more specificity is required, to restrict these values to the ODM2 [methodType](http://vocabulary.odm2.org/methodtype/) vocabulary.
 14. `measurementMethod` specifies the method used to generate the data to as great a degree of specificity as possible. Ideally it could a persistent identifier that directs to a machine-readable web resource that unambiguously describes that method. This would look something like this: `"measurementMethod": {"@id": "https://www.nemi.gov/methods/method_summary/4680/"}` In lieu of that, a name, description and URL to human-readable web resource like an explanatory webpage, technical report, standards document, or academic article would be appropriate, as in this example for USGS discharge measurement.
 15. `temporal coverage` refers to the first and last time for which data is available. It can be specified using [ISO 8061 interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) (`YYYY-MM-DD/YYYY-MM-DD`, with the start date first and the end date after the `/` . It can also include time like so `YYYY-MM-DDTHH:MM:SS/YYYY-MM-DDTHH:MM:SS` . If the dataset has no end date, as there is an active monitoring program, then this can be indicated like so `YYYY-MM-DD/..` .
@@ -548,7 +548,7 @@ This translates roughly to
 
 ### Dataset-oriented {#sec-data}
 
-The purpose of the dataset-oriented page is to give enough information about the data available and the area, locations, or features that it is relevant to that a water data user would be able to quickly determine whether and how to download the data after reading. We will use this [data resource about water utility treated water demand that has been published at HydroShare](https://www.hydroshare.org/resource/4cf2a4298eca418f980201c1c5505299/) as an example for the type of content to put in dataset-oriented Geoconnex landing page web resources and how to map that content to embedded JSON-LD documents. 
+The purpose of the dataset-oriented page is to give enough information about the data available and the area, locations, or features that it is relevant to that a water data user would be able to quickly determine whether and how to download the data after reading. We will use this [data resource about water utility treated water demand that has been published at HydroShare](https://www.hydroshare.org/resource/4cf2a4298eca418f980201c1c5505299/) as an example for the type of content to put in dataset-oriented Geoconnex landing page web resources and how to map that content to embedded JSON-LD documents.
 
 ::: callout-note
 Scroll up and down to view elements of the example landing page
@@ -571,23 +571,24 @@ This dataset-oriented web resource includes this type of information
 
 -   "My spatial coverage is the bounding box `"35.5463 -79.1235 36.0520 -78.3765"`"[^16]
 
--   "I have data between January 1, 2002 and December 31, 2020" ^[refers to the first and last time for which data is available. It can be specified using [ISO 8061 interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) (`YYYY-MM-DD/YYYY-MM-DD`, with the start date first and the end date after the `/` . It can also include time like so `YYYY-MM-DDTHH:MM:SS/YYYY-MM-DDTHH:MM:SS` . If the dataset has no end date, as there is an active monitoring program, then this can be indicated like so `YYYY-MM-DD/..` ]
+-   "I have data between January 1, 2002 and December 31, 2020" [^17]
 
--   "My data is at a `1` `month` time step frequency" ^[refers to the minimum intended time spacing between observations in the case of regular time series data]
+-   "My data is at a `1` `month` time step frequency" [^18]
 
--   "I am about the following features":[^17].
+-   "I am about the following features":[^19].
 
     -   [Raleigh Public Water System](https://geoconnex.us/ref/pws/NC0392010)
     -   [Cary Public Water System](https://geoconnex.us/ref/pws/NC0392020)
     -   [Durham Public Water System](https://geoconnex.us/ref/pws/NC0332010)
     -   [Apex Public Water System](https://geoconnex.us/ref/pws/NC0392045)
     -   [Orange Water and Sewer Authority](https://geoconnex.us/ref/pws/NC0368010)
-    
+
 -   "I have the following variables":
+
     -   Monthly Water demand measured in units of averaged millions of gallons per day
     -   Historic Mean monthly water demand over the period of record measured in units of millions of gallons per day
     -   The monthly water demand divided by historic mean monthly water demand, as a percent
-    
+
 -   "You can download me [here](https://www.hydroshare.org/hsapi/resource/4cf2a4298eca418f980201c1c5505299/) on HydroShare as a zipped csv file"
 
 -   "I am accessible for free subject to this [license](http://creativecommons.org/licenses/by/4.0/).
@@ -600,11 +601,15 @@ This dataset-oriented web resource includes this type of information
 
 [^16]: Spatial coverage revers to maximum area extent of where data is about. For Geoconnex purposes, this is not necessary if the "about" elements with links to Geoconnex Reference Features is used
 
-[^17]: These should be geoconnex reference feature URIs. If the locations the dataset is about is not within <https://reference.geoconnex.us/collections>, then consider [creating location-based resources and minting geoconnex identifiers](https://github.com/internetofwater/geoconnex.us/blob/master/CONTRIBUTING.md). If the dataset is extensive over a vector feature spatial fabric, like all Census Tracts or HUC12s or NHD Catchments, then this can be a reference to a single reference fabric dataset rather than an array of identifiers for every single feature. If the dataset is extensive over an area but has no particular tie to a particular reference feature set, like a raster dataset, then this can be omitted. 
+[^17]: refers to the first and last time for which data is available. It can be specified using [ISO 8061 interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) (`YYYY-MM-DD/YYYY-MM-DD`, with the start date first and the end date after the `/` . It can also include time like so `YYYY-MM-DDTHH:MM:SS/YYYY-MM-DDTHH:MM:SS` . If the dataset has no end date, as there is an active monitoring program, then this can be indicated like so `YYYY-MM-DD/..`
+
+[^18]: refers to the minimum intended time spacing between observations in the case of regular time series data
+
+[^19]: These should be geoconnex reference feature URIs. If the locations the dataset is about is not within <https://reference.geoconnex.us/collections>, then consider [creating location-based resources and minting geoconnex identifiers](https://github.com/internetofwater/geoconnex.us/blob/master/CONTRIBUTING.md). If the dataset is extensive over a vector feature spatial fabric, like all Census Tracts or HUC12s or NHD Catchments, then this can be a reference to a single reference fabric dataset rather than an array of identifiers for every single feature. If the dataset is extensive over an area but has no particular tie to a particular reference feature set, like a raster dataset, then this can be omitted.
 
 #### JSON-LD
 
-Much is similar to the [Datasets guidance for location-oriented web resources](#sec-loc-data), so here we focus on the differences. Note that HydroShare automatically embeds JSON-LD. The JSON-LD examples below vary somewhat from HydroShare's default content to illustrate optional elements that would be useful for Geoconnex that are not currently implemented in HydroShare. 
+Much is similar to the [Datasets guidance for location-oriented web resources](#sec-loc-data), so here we focus on the differences. Note that HydroShare automatically embeds JSON-LD. The JSON-LD examples below vary somewhat from HydroShare's default content to illustrate optional elements that would be useful for Geoconnex that are not currently implemented in HydroShare.
 
 ##### Identifiers, provenance, license, and distribution.
 
@@ -649,10 +654,11 @@ For basic identifying and descriptive information, [science-on-schema.org has ap
 ```
 
 ##### Variables and Methods
+
 Again, follows the [dataset guidance](#sec-loc-data). In the example below, multiple `variableMeasured` are specified using a nested array. Other differences to point out:
 
-- The unit of "million gallons per day" is not available from the QUDT units vocabulary. It is in the [ODM2 units codelist](http://vocabulary.odm2.org/units/), so we populate `unitCode` with the url listed there. 
-- The measurementMethod for both variables, which are simply different aggregation statistics for the same variable, do not have known web resources or specific identifiers available, and so use `description` to clarify the method.
+-   The unit of "million gallons per day" is not available from the QUDT units vocabulary. It is in the [ODM2 units codelist](http://vocabulary.odm2.org/units/), so we populate `unitCode` with the url listed there.
+-   The measurementMethod for both variables, which are simply different aggregation statistics for the same variable, do not have known web resources or specific identifiers available, and so use `description` to clarify the method.
 
 ``` json
 ...,
@@ -698,13 +704,11 @@ Again, follows the [dataset guidance](#sec-loc-data). In the example below, mult
    
 ```
 
-
 ##### Geoconnex Reference Feature Links and Spatial Coverage
 
 Unlike the location-based example, where a location is explicitly the `subjectOf` the dataset, here, the dataset must be described as being `about` certain features. If the dataset is not explicitly about any discrete features, such as raster datasets, then a Spatial Coverage should be specified.
 
 Using the `about` construction, a single geoconnex URI or an array of multiple can be constructed. In the below example, multiple are used. Note the nesting of nodes within the array so that each URI has an `@id` keyword and is `@type` `Place`. In this example, URIs from the geoconnex [reference features set for Public Water Systems](https://reference.geoconnex.us/collections/pws) are used.
-
 
 ``` json
 ...,
@@ -726,7 +730,7 @@ Using the `about` construction, a single geoconnex URI or an array of multiple c
     
       {
         "@id": "https://geoconnex.us/ref/pws/NC0392020",
-        @type": "Place"
+        "@type": "Place"
       },
       {
         "@id": "https://geoconnex.us/ref/pws/NC0392045",
@@ -736,31 +740,30 @@ Using the `about` construction, a single geoconnex URI or an array of multiple c
     ...
 ```
 
- To assist in finding reference features, <https://reference.geoconnex.us> allows queries following the [OGC-API Features](https://ogcapi.ogc.org/features/) API standard and the CQL [Common Query Language standard](https://portal.ogc.org/files/96288). 
+To assist in finding reference features, <https://reference.geoconnex.us> allows queries following the [OGC-API Features](https://ogcapi.ogc.org/features/) API standard and the CQL [Common Query Language standard](https://portal.ogc.org/files/96288).
 
-For example, to find the Geoconnex URI for the Raleigh public water system (PWS), we can construct the URL: 
+For example, to find the Geoconnex URI for the Raleigh public water system (PWS), we can construct the URL:
 
-- CQL filter API endpoint for the PWS feature collection <https://reference.geoconnex.us/collections/pws/items>
-- filter for name field `pws_name`: <https://reference.geoconnex.us/collections/pws/items?filter=pws_name>
-- filter for a name that includes "Raleigh": [https://reference.geoconnex.us/collections/pws/items?filter=pws_name ILIKE '%Raleigh%'](https://reference.geoconnex.us/collections/pws/items?filter=pws_name ILIKE '%Raleigh%')
+-   CQL filter API endpoint for the PWS feature collection <https://reference.geoconnex.us/collections/pws/items>
+-   filter for name field `pws_name`: <https://reference.geoconnex.us/collections/pws/items?filter=pws_name>
+-   filter for a name that includes "Raleigh": [https://reference.geoconnex.us/collections/pws/items?filter=pws_name ILIKE '%Raleigh%'](https://reference.geoconnex.us/collections/pws/items?filter=pws_name%20ILIKE "%Raleigh%")
 
-Sometimes it is impossible to use feature URIs because the relevant specific features are not available from <https://reference.geoconnex.us/collections>. If so, feel free to [submit an issue to the geoconnex.us github repository](https://github.com/internetofwater/geoconnex.us/issues/new/choose) requesting a reference feature set. 
+Sometimes it is impossible to use feature URIs because the relevant specific features are not available from <https://reference.geoconnex.us/collections>. If so, feel free to [submit an issue to the geoconnex.us github repository](https://github.com/internetofwater/geoconnex.us/issues/new/choose) requesting a reference feature set.
 
 Sometimes it is impractical to list all applicable reference features, whether or not they are in <https://reference.geoconnex.us> or another source. This is common for comprehensive datasets that are all about an entire reference dataset or other another dataset like a hydrofabric, such as datasets summmarizing values to U.S. Counties, or the National Water Model generating values for all NHDPlusV2 COMID flowlines. In this case it is best to declare that the Dataset is [isBasedOn](https://schema.org/isBasedOn) the source geospatial fabric. For example, if the example dataset were about all public water systems instead of just the 5 listed, instead of `about`, we should specify an identifier, name, description, and any URLs for other resources that describe the source fabric and how to interpret it:
 
 ``` json
 ...,
 "isBasedOn": {
-"@id": "https://www.hydroshare.org/resource/9ebc0a0b43b843b9835830ffffdd971e/"
+"@id": "https://www.hydroshare.org/resource/9ebc0a0b43b843b9835830ffffdd971e/",
 "name": "U.S. Community Water Systems Service Boundaries, v4.0.0"
 "description": "This is a layer of water service boundaries for 45,973 community water systems that deliver tap water to 307.7 million people in the US." 
 "url": "https://github.com/SimpleLab-Inc/wsb"
 },
 ...
-
 ```
 
-Sometimes there are no particular features that a dataset is explicitly about. This is common with remote sensing raster data. In this case, it is best to specify a `spatialCoverage` polygon using WKT encoded geometry: 
+Sometimes there are no particular features that a dataset is explicitly about. This is common with remote sensing raster data. In this case, it is best to specify a `spatialCoverage` polygon using WKT encoded geometry:
 
 ``` json
   "spatialCoverage": {
@@ -775,7 +778,7 @@ Sometimes there are no particular features that a dataset is explicitly about. T
   }
 ```
 
-## Complete Examples{#sec-complete-examples}
+## Complete Examples {#sec-complete-examples}
 
 Below are complete examples for the general JSON-LD document types depending on the location or dataset orientation and data type.
 
@@ -784,7 +787,7 @@ They are viewable together below, or available for download:
 -   [location-oriented example](https://raw.githubusercontent.com/internetofwater/geoconnex-guidance/main/examples/location-complete.jsonld)
 -   [dataset-oriented example](https://raw.githubusercontent.com/internetofwater/geoconnex-guidance/main/examples/dataaset-complete.jsonld)
 
-### Location-oriented  {#sec-loc-complete-example}
+### Location-oriented {#sec-loc-complete-example}
 
 ``` json
 {
@@ -897,7 +900,7 @@ They are viewable together below, or available for download:
 }
 ```
 
-### Dataset-oriented  {#sec-data-complete-example}
+### Dataset-oriented {#sec-data-complete-example}
 
 ``` json
 {
@@ -1001,8 +1004,8 @@ They are viewable together below, or available for download:
     }
   ]
 }
-
 ```
+
 ## Appendices {#sec-appendices}
 
 ### Appendix 1: Codelists {#sec-codelists}
@@ -1022,4 +1025,3 @@ They are viewable together below, or available for download:
 |             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |             | -   **the unobserved past and present at the feature of interest** (e.g. water quality models for parameters based on climate and upstream effluent discharge data)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 +-------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
