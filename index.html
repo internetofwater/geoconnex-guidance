@@ -531,8 +531,8 @@ What about groundwater?
 <span id="annotated-cell-6-36"><a href="#annotated-cell-6-36"></a>      <span class="fu">}</span><span class="ot">,</span></span>
 <span id="annotated-cell-6-37"><a href="#annotated-cell-6-37"></a>      <span class="fu">{</span></span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="18">18</button><span id="annotated-cell-6-38" class="code-annotation-target"><a href="#annotated-cell-6-38"></a>      <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"DataDownload"</span><span class="fu">,</span></span>
-<span id="annotated-cell-6-39"><a href="#annotated-cell-6-39"></a>      <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"USGS SensorThings API"</span><span class="er">.</span></span>
-<span id="annotated-cell-6-40"><a href="#annotated-cell-6-40"></a>      <span class="st">"contentUrl"</span><span class="er">:</span> <span class="st">"https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations"</span><span class="fu">,</span></span>
+<span id="annotated-cell-6-39"><a href="#annotated-cell-6-39"></a>      <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"USGS SensorThings API"</span><span class="fu">,</span></span>
+<span id="annotated-cell-6-40"><a href="#annotated-cell-6-40"></a>      <span class="dt">"contentUrl"</span><span class="fu">:</span> <span class="st">"https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations"</span><span class="fu">,</span></span>
 <span id="annotated-cell-6-41"><a href="#annotated-cell-6-41"></a>      <span class="dt">"encodingFormat"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"application/json"</span><span class="ot">]</span><span class="fu">,</span></span>
 <span id="annotated-cell-6-42"><a href="#annotated-cell-6-42"></a>      <span class="dt">"dc:conformsTo"</span><span class="fu">:</span> <span class="st">"https://labs.waterdata.usgs.gov/docs/sensorthings/index.html"</span></span>
 <span id="annotated-cell-6-43"><a href="#annotated-cell-6-43"></a>      <span class="fu">}</span></span>
@@ -542,75 +542,75 @@ What about groundwater?
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-cell="annotated-cell-6" data-code-annotation="1">This node (we are continuing from the above JSON-LD document, so the USGS Monitoring Location) is <code>subjectOf</code> the node that follows)</span>
+<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-6">This node (we are continuing from the above JSON-LD document, so the USGS Monitoring Location) is <code>subjectOf</code> the node that follows)</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="3" data-code-cell="annotated-cell-6" data-code-annotation="2">This node is a <code>Dataset</code>(<a href="https://schema.org/Dataset" class="uri">https://schema.org/Dataset</a>)</span>
+<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-6">This node is a <code>Dataset</code>(<a href="https://schema.org/Dataset" class="uri">https://schema.org/Dataset</a>)</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="4,5" data-code-cell="annotated-cell-6" data-code-annotation="3">The dataset’s name and description</span>
+<span data-code-annotation="3" data-code-lines="4,5" data-code-cell="annotated-cell-6">The dataset’s name and description</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-lines="6" data-code-cell="annotated-cell-6" data-code-annotation="4">The dataset’s license, which is most easily populated by a URI for the license appropriate for your data. Federal agencies, many state agencies, and academics use open licenses such as those provided by <a href="https://opendatacommons.org/licenses/">opendatacommons.org</a> and <a href="https://creativecommons.org/licenses">creativecommons.org</a>. URIs for licenses are available from <a href="https://spdx.org/licenses/" class="uri">https://spdx.org/licenses/</a></span>
+<span data-code-annotation="4" data-code-lines="6" data-code-cell="annotated-cell-6">The dataset’s license, which is most easily populated by a URI for the license appropriate for your data. Federal agencies, many state agencies, and academics use open licenses such as those provided by <a href="https://opendatacommons.org/licenses/">opendatacommons.org</a> and <a href="https://creativecommons.org/licenses">creativecommons.org</a>. URIs for licenses are available from <a href="https://spdx.org/licenses/" class="uri">https://spdx.org/licenses/</a></span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-lines="7" data-code-cell="annotated-cell-6" data-code-annotation="5">Either <code>true</code> or <code>false</code> depending on if the dataset is available for free.</span>
+<span data-code-annotation="5" data-code-lines="7" data-code-cell="annotated-cell-6">Either <code>true</code> or <code>false</code> depending on if the dataset is available for free.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-lines="8" data-code-cell="annotated-cell-6" data-code-annotation="6">The dataset includes information on a variable. (in schema.org called <a href="https://schema.org/variableMeasured">variableMeasured</a>). Multiple <code>variableMeasured</code> can be specified for datasets by using <a href="https://www.w3.org/TR/json-ld11/#example-135-indexing-language-tagged-strings-and-set">arrays</a>, which is useful for datasets that must be downloaded in bulk that include multiple variables of interest. In general it is more clear to specify a “dataset” per <code>variableMeasured</code> if the data has different temporal coverage per variable, or can be downloaded on a per-variable basis. Multiple <code>variableMeasured</code> can be specified using nested JSON arrays.</span>
+<span data-code-annotation="6" data-code-lines="8" data-code-cell="annotated-cell-6">The dataset includes information on a variable. (in schema.org called <a href="https://schema.org/variableMeasured">variableMeasured</a>). Multiple <code>variableMeasured</code> can be specified for datasets by using <a href="https://www.w3.org/TR/json-ld11/#example-135-indexing-language-tagged-strings-and-set">arrays</a>, which is useful for datasets that must be downloaded in bulk that include multiple variables of interest. In general it is more clear to specify a “dataset” per <code>variableMeasured</code> if the data has different temporal coverage per variable, or can be downloaded on a per-variable basis. Multiple <code>variableMeasured</code> can be specified using nested JSON arrays.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-lines="9,10,11" data-code-cell="annotated-cell-6" data-code-annotation="7"><code>@PropertyValue</code> is a generic type to extend schema.org properties and should just be used as a rule on <code>variableMeasured</code> nodes.</span>
+<span data-code-annotation="7" data-code-lines="9,10,11" data-code-cell="annotated-cell-6"><code>@PropertyValue</code> is a generic type to extend schema.org properties and should just be used as a rule on <code>variableMeasured</code> nodes.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="8">8</dt>
 <dd>
-<span data-code-lines="12" data-code-cell="annotated-cell-6" data-code-annotation="8"><code>propertyID</code> should be a URI where there is a machine-readable resource defines what the variable is. In this case, we are using a Wikidata link to the concept of stream discharge. In general, a good source for URIs is the <a href="http://vocabulary.odm2.org/variablename/">ODM2 variable vocabulary</a>.</span>
+<span data-code-annotation="8" data-code-lines="12" data-code-cell="annotated-cell-6"><code>propertyID</code> should be a URI where there is a machine-readable resource defines what the variable is. In this case, we are using a Wikidata link to the concept of stream discharge. In general, a good source for URIs is the <a href="http://vocabulary.odm2.org/variablename/">ODM2 variable vocabulary</a>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="9">9</dt>
 <dd>
-<span data-code-lines="13" data-code-cell="annotated-cell-6" data-code-annotation="9">Here <code>url</code> points to a human-readable resource describing the variable, in this case, we are using a Wikipedia link to the concept of stream discharge.</span>
+<span data-code-annotation="9" data-code-lines="13" data-code-cell="annotated-cell-6">Here <code>url</code> points to a human-readable resource describing the variable, in this case, we are using a Wikipedia link to the concept of stream discharge.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="10">10</dt>
 <dd>
-<span data-code-lines="14" data-code-cell="annotated-cell-6" data-code-annotation="10">Here we use the units as written in the data source.</span>
+<span data-code-annotation="10" data-code-lines="14" data-code-cell="annotated-cell-6">Here we use the units as written in the data source.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="11">11</dt>
 <dd>
-<span data-code-lines="15" data-code-cell="annotated-cell-6" data-code-annotation="11">While <code>name</code> and <code>propertyID</code> specifies the variable as being “discharge” in this case, since multiple data sources might use different words and identifiers for their variables, it can be useful to reference a more general category of variables that we can ue to group variables across sources. We can use identifiers for <a href="https://qudt.org/schema/qudt/QuantityKind">QuantityKinds</a> from QUDT, which we reference with the <code>qudt-quantkinds</code> for the prefix as described in the <code>@context</code> in <a href="#sec-context">Section&nbsp;1.3.1</a>.</span>
+<span data-code-annotation="11" data-code-lines="15" data-code-cell="annotated-cell-6">While <code>name</code> and <code>propertyID</code> specifies the variable as being “discharge” in this case, since multiple data sources might use different words and identifiers for their variables, it can be useful to reference a more general category of variables that we can ue to group variables across sources. We can use identifiers for <a href="https://qudt.org/schema/qudt/QuantityKind">QuantityKinds</a> from QUDT, which we reference with the <code>qudt-quantkinds</code> for the prefix as described in the <code>@context</code> in <a href="#sec-context">Section&nbsp;1.3.1</a>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="12">12</dt>
 <dd>
-<span data-code-lines="16" data-code-cell="annotated-cell-6" data-code-annotation="12">While <code>unitText</code> above specifies the units, since multiple data sources might use different words for the same unit, to improve interoperability we can use identifiers for units provided by QUDT, which we reference with the <code>qudt-units</code> vocabulary prefix as described in the <code>@context</code> in <a href="#sec-context">Section&nbsp;1.3.1</a>. If units from QUDT are unavailable, first check if <code>unitText</code> can be filled with a term from name from http://vocabulary.odm2.org/units/.</span>
+<span data-code-annotation="12" data-code-lines="16" data-code-cell="annotated-cell-6">While <code>unitText</code> above specifies the units, since multiple data sources might use different words for the same unit, to improve interoperability we can use identifiers for units provided by QUDT, which we reference with the <code>qudt-units</code> vocabulary prefix as described in the <code>@context</code> in <a href="#sec-context">Section&nbsp;1.3.1</a>. If units from QUDT are unavailable, first check if <code>unitText</code> can be filled with a term from name from http://vocabulary.odm2.org/units/.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="13">13</dt>
 <dd>
-<span data-code-lines="17" data-code-cell="annotated-cell-6" data-code-annotation="13"><code>measurementTechnique</code> is meant to be a highly general account of the data generating procedure, and primarily to distinguish between observed and modeled data. It is highly recommended for this to be <code>model</code> or <code>observation</code>, or if more specificity is required, to restrict these values to the ODM2 <a href="http://vocabulary.odm2.org/methodtype/">methodType</a> vocabulary.</span>
+<span data-code-annotation="13" data-code-lines="17" data-code-cell="annotated-cell-6"><code>measurementTechnique</code> is meant to be a highly general account of the data generating procedure, and primarily to distinguish between observed and modeled data. It is highly recommended for this to be <code>model</code> or <code>observation</code>, or if more specificity is required, to restrict these values to the ODM2 <a href="http://vocabulary.odm2.org/methodtype/">methodType</a> vocabulary.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="14">14</dt>
 <dd>
-<span data-code-lines="18,19,20,21,22,23" data-code-cell="annotated-cell-6" data-code-annotation="14"><code>measurementMethod</code> specifies the method used to generate the data to as great a degree of specificity as possible. Ideally it could a persistent identifier that directs to a machine-readable web resource that unambiguously describes that method. This would look something like this: <code>"measurementMethod": {"@id": "https://www.nemi.gov/methods/method_summary/4680/"}</code> In lieu of that, a name, description and URL to human-readable web resource like an explanatory webpage, technical report, standards document, or academic article would be appropriate, as in this example for USGS discharge measurement.</span>
+<span data-code-annotation="14" data-code-lines="18,19,20,21,22,23" data-code-cell="annotated-cell-6"><code>measurementMethod</code> specifies the method used to generate the data to as great a degree of specificity as possible. Ideally it could a persistent identifier that directs to a machine-readable web resource that unambiguously describes that method. This would look something like this: <code>"measurementMethod": {"@id": "https://www.nemi.gov/methods/method_summary/4680/"}</code> In lieu of that, a name, description and URL to human-readable web resource like an explanatory webpage, technical report, standards document, or academic article would be appropriate, as in this example for USGS discharge measurement.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="15">15</dt>
 <dd>
-<span data-code-lines="24" data-code-cell="annotated-cell-6" data-code-annotation="15"><code>temporal coverage</code> refers to the first and last time for which data is available. It can be specified using <a href="https://en.wikipedia.org/wiki/ISO_8601#Time_intervals">ISO 8061 interval format</a> (<code>YYYY-MM-DD/YYYY-MM-DD</code>, with the start date first and the end date after the <code>/</code> . It can also include time like so <code>YYYY-MM-DDTHH:MM:SS/YYYY-MM-DDTHH:MM:SS</code> . If the dataset has no end date, as there is an active monitoring program, then this can be indicated like so <code>YYYY-MM-DD/..</code> .</span>
+<span data-code-annotation="15" data-code-lines="24" data-code-cell="annotated-cell-6"><code>temporal coverage</code> refers to the first and last time for which data is available. It can be specified using <a href="https://en.wikipedia.org/wiki/ISO_8601#Time_intervals">ISO 8061 interval format</a> (<code>YYYY-MM-DD/YYYY-MM-DD</code>, with the start date first and the end date after the <code>/</code> . It can also include time like so <code>YYYY-MM-DDTHH:MM:SS/YYYY-MM-DDTHH:MM:SS</code> . If the dataset has no end date, as there is an active monitoring program, then this can be indicated like so <code>YYYY-MM-DD/..</code> .</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="16">16</dt>
 <dd>
-<span data-code-lines="25,26,27" data-code-cell="annotated-cell-6" data-code-annotation="16"><code>ssn-system:frequency</code> refers to the minimum intended time spacing between observations in the case of regular time series data. Irregular time series or discrete sample data should omit this block. The <code>value</code> should be an integer and the <code>unitCode</code> a time unit from <code>qudt-units</code>.</span>
+<span data-code-annotation="16" data-code-lines="25,26,27" data-code-cell="annotated-cell-6"><code>ssn-system:frequency</code> refers to the minimum intended time spacing between observations in the case of regular time series data. Irregular time series or discrete sample data should omit this block. The <code>value</code> should be an integer and the <code>unitCode</code> a time unit from <code>qudt-units</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="17">17</dt>
 <dd>
-<span data-code-lines="29,31,32,33,34,35" data-code-cell="annotated-cell-6" data-code-annotation="17"><code>distribution</code> provides a way to structure information about data access points. This can range in complexity from a specification of a URL and format to specifications for how to interact with an API. In this example, a URL, format (<code>encodingFormat</code> populated by <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">MIME type</a>). <code>conformsTo</code> is optional and should be a document that helps interpret the data structure. This could be a link to a data dictionary in the case of simple tabular data, documentation of a data model for a complex database, or an API specification document for an API endpoint.</span>
+<span data-code-annotation="17" data-code-lines="29,31,32,33,34,35" data-code-cell="annotated-cell-6"><code>distribution</code> provides a way to structure information about data access points. This can range in complexity from a specification of a URL and format to specifications for how to interact with an API. In this example, a URL, format (<code>encodingFormat</code> populated by <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">MIME type</a>). <code>conformsTo</code> is optional and should be a document that helps interpret the data structure. This could be a link to a data dictionary in the case of simple tabular data, documentation of a data model for a complex database, or an API specification document for an API endpoint.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="18">18</dt>
 <dd>
-<span data-code-lines="38,39,40,41,42" data-code-cell="annotated-cell-6" data-code-annotation="18">Multiple <code>distributions</code> can be specified using nested JSON arrays.</span>
+<span data-code-annotation="18" data-code-lines="38,39,40,41,42" data-code-cell="annotated-cell-6">Multiple <code>distributions</code> can be specified using nested JSON arrays.</span>
 </dd>
 </dl>
 <p>This translates roughly to</p>
@@ -950,8 +950,8 @@ Note
 <span id="cb13-96"><a href="#cb13-96"></a>      <span class="fu">}</span><span class="ot">,</span></span>
 <span id="cb13-97"><a href="#cb13-97"></a>      <span class="fu">{</span></span>
 <span id="cb13-98"><a href="#cb13-98"></a>        <span class="dt">"@type"</span><span class="fu">:</span> <span class="st">"DataDownload"</span><span class="fu">,</span></span>
-<span id="cb13-99"><a href="#cb13-99"></a>        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"USGS SensorThings API"</span></span>
-<span id="cb13-100"><a href="#cb13-100"></a>        <span class="st">"contentUrl"</span><span class="er">:</span> <span class="st">"https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations"</span><span class="fu">,</span></span>
+<span id="cb13-99"><a href="#cb13-99"></a>        <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"USGS SensorThings API"</span><span class="fu">,</span></span>
+<span id="cb13-100"><a href="#cb13-100"></a>        <span class="dt">"contentUrl"</span><span class="fu">:</span> <span class="st">"https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations"</span><span class="fu">,</span></span>
 <span id="cb13-101"><a href="#cb13-101"></a>        <span class="dt">"encodingFormat"</span><span class="fu">:</span> <span class="ot">[</span></span>
 <span id="cb13-102"><a href="#cb13-102"></a>          <span class="st">"application/json"</span></span>
 <span id="cb13-103"><a href="#cb13-103"></a>        <span class="ot">]</span><span class="fu">,</span></span>
@@ -2000,7 +2000,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-487"><a href="#cb15-487"></a>      }<span class="op">,</span></span>
 <span id="cb15-488"><a href="#cb15-488"></a>      {</span>
 <span id="cb15-489"><a href="#cb15-489"></a>      <span class="st">"@type"</span><span class="op">:</span> <span class="st">"DataDownload"</span><span class="op">,</span>                                              <span class="co">// &lt;18&gt;</span></span>
-<span id="cb15-490"><a href="#cb15-490"></a>      <span class="st">"name"</span><span class="op">:</span> <span class="st">"USGS SensorThings API"</span><span class="op">.</span> <span class="co">// &lt;18&gt;</span></span>
+<span id="cb15-490"><a href="#cb15-490"></a>      <span class="st">"name"</span><span class="op">:</span> <span class="st">"USGS SensorThings API"</span><span class="op">,</span> <span class="co">// &lt;18&gt;</span></span>
 <span id="cb15-491"><a href="#cb15-491"></a>      <span class="st">"contentUrl"</span><span class="op">:</span> <span class="st">"https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations"</span><span class="op">,</span> <span class="co">// &lt;18&gt;</span></span>
 <span id="cb15-492"><a href="#cb15-492"></a>      <span class="st">"encodingFormat"</span><span class="op">:</span> [<span class="st">"application/json"</span>]<span class="op">,</span>                                                                 <span class="co">// &lt;18&gt;</span></span>
 <span id="cb15-493"><a href="#cb15-493"></a>      <span class="st">"dc:conformsTo"</span><span class="op">:</span> <span class="st">"https://labs.waterdata.usgs.gov/docs/sensorthings/index.html"</span>                          <span class="co">// &lt;18&gt;</span></span>
@@ -2402,7 +2402,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-889"><a href="#cb15-889"></a>      }<span class="op">,</span></span>
 <span id="cb15-890"><a href="#cb15-890"></a>      {</span>
 <span id="cb15-891"><a href="#cb15-891"></a>        <span class="st">"@type"</span><span class="op">:</span> <span class="st">"DataDownload"</span><span class="op">,</span></span>
-<span id="cb15-892"><a href="#cb15-892"></a>        <span class="st">"name"</span><span class="op">:</span> <span class="st">"USGS SensorThings API"</span></span>
+<span id="cb15-892"><a href="#cb15-892"></a>        <span class="st">"name"</span><span class="op">:</span> <span class="st">"USGS SensorThings API"</span><span class="op">,</span></span>
 <span id="cb15-893"><a href="#cb15-893"></a>        <span class="st">"contentUrl"</span><span class="op">:</span> <span class="st">"https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations"</span><span class="op">,</span></span>
 <span id="cb15-894"><a href="#cb15-894"></a>        <span class="st">"encodingFormat"</span><span class="op">:</span> [</span>
 <span id="cb15-895"><a href="#cb15-895"></a>          <span class="st">"application/json"</span></span>

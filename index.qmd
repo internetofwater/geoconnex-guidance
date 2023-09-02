@@ -487,7 +487,7 @@ However, to enable data users (and search engines) to filter for your data using
       },
       {
       "@type": "DataDownload",                                              // <18>
-      "name": "USGS SensorThings API". // <18>
+      "name": "USGS SensorThings API", // <18>
       "contentUrl": "https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations", // <18>
       "encodingFormat": ["application/json"],                                                                 // <18>
       "dc:conformsTo": "https://labs.waterdata.usgs.gov/docs/sensorthings/index.html"                          // <18>
@@ -889,7 +889,7 @@ They are viewable together below, or available for download:
       },
       {
         "@type": "DataDownload",
-        "name": "USGS SensorThings API"
+        "name": "USGS SensorThings API",
         "contentUrl": "https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('0adb31f7852e4e1c9a778a85076ac0cf')?$expand=Thing,Observations",
         "encodingFormat": [
           "application/json"
