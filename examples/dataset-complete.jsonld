@@ -21,6 +21,21 @@
   "name": "Geoconnex Dataset Example: Data for Triangle Water Supply Dashboard",
   "description": "This is a dataset meant as an example of dataset-level schema.org markup for https://geoconnex.us. It uses as an example data from the NC Triangle Water Supply Dashboard, which collects and visualizes finished water deliveries by water utilities to their service areas in the North Carolina Research Triangle area",
   "url": "https://www.hydroshare.org/resource/4cf2a4298eca418f980201c1c5505299",
+  "provider": {
+    "url": "https://hydroshare.org",
+    "@type": "ResearchOrganization",
+    "name": "HydroShare"
+  },
+    "creator": {
+    "@type": "Person",
+    "affiliation": {
+                    "@type": "Organization",
+                    "name": "Internet of Water;Center for Geospatial Solutions;Lincoln Institute of Land Policy"
+                  },
+                  "email": "konda@lincolninst.edu",
+                  "name": "Kyle Onda",
+                  "url": "https://www.hydroshare.org/user/4850/"
+            },
   "keywords": [
     "water demand",
     "water supply",

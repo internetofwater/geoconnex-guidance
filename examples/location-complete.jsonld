@@ -63,6 +63,13 @@
     "@type": "Dataset",
     "name": "Discharge data from USGS Monitoring Location 08282300",
     "description": "Discharge data from USGS Streamgage at Rio Brazos at Fishtail Road NR Tierra Amarilla, NM",
+    "url": "https://waterdata.usgs.gov/monitoring-location/08282300/#parameterCode=00060",
+    "provider": {
+      "url": "https://waterdata.usgs.gov",
+      "@type": "GovernmentOrganization",
+      "name": "U.S. Geological Survey Water Data for the Nation"
+    },
+    "url": ,
     "variableMeasured": {
       "@type": "PropertyValue",
       "name": "discharge",

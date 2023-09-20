@@ -871,11 +871,12 @@ They are viewable together below, or available for download:
     "@type": "Dataset",
     "name": "Discharge data from USGS Monitoring Location 08282300",
     "description": "Discharge data from USGS Streamgage at Rio Brazos at Fishtail Road NR Tierra Amarilla, NM",
-     "provider": {
-    "url": "https://hydroshare.org",
-    "@type": "ResearchOrganization",
-    "name": "HydroShare"
+      "provider": {
+    "url": "https://waterdata.usgs.gov",
+    "@type": "GovernmentOrganization",
+    "name": "U.S. Geological Survey Water Data for the Nation"
   },
+  "url": "https://waterdata.usgs.gov/monitoring-location/08282300/#parameterCode=00060",
     "variableMeasured": {
       "@type": "PropertyValue",
       "name": "discharge",
@@ -943,6 +944,7 @@ They are viewable together below, or available for download:
   },
   "@type": "Dataset",
   "@id": "https://doi.org/10.4211/hs.4cf2a4298eca418f980201c1c5505299",
+  "url": "https://doi.org/10.4211/hs.4cf2a4298eca418f980201c1c5505299",
   "identifier": "doi:hs.4cf2a4298eca418f980201c1c5505299",
   "name": "Geoconnex Dataset Example: Data for Triangle Water Supply Dashboard",
   "description": "This is a dataset meant as an example of dataset-level schema.org markup for https://geoconnex.us. It uses as an example data from the NC Triangle Water Supply Dashboard, which collects and visualizes finished water deliveries by water utilities to their service areas in the North Carolina Research Triangle area",
