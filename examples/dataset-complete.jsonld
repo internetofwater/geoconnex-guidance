@@ -91,7 +91,7 @@
     }
   ],
   "temporalCoverage": "2002-01-01/2020-12-31",
-  "dcterms:accrualPeriodicity": "freq:daily",                                                               
+  "dc:accrualPeriodicity": "freq:daily",                                                               
   "dcat:temporalResolution": {"@value":PT15M","@type":"xsd:duration"}, 
   "about": [
     {

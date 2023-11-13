@@ -89,7 +89,7 @@
       }
     },
     "temporalCoverage": "2014-06-30/..",
-    "dcterms:accrualPeriodicity": "freq:daily",                                                               
+    "dc:accrualPeriodicity": "freq:daily",                                                               
     "dcat:temporalResolution": {"@value":"PT15M","@type":"xsd:duration"},  
     "distribution": [
       {
