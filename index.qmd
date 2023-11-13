@@ -135,8 +135,11 @@ Geoconnex JSON-LD documents can have varying contexts. However, there are severa
 ``` json
   "@context": {
     "@vocab": "https://schema.org/", 
+    "xsd": "https://www.w3.org/TR/xmlschema-2/#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dc": "http://purl.org/dc/terms/",
+    "dcat": "https://www.w3.org/ns/dcat#",
+    "freq": "http://purl.org/cld/freq/",
     "qudt": "http://qudt.org/schema/qudt/",
     "qudt-units": "http://qudt.org/vocab/unit/",
     "qudt-quantkinds": "http://qudt.org/vocab/quantitykind/",
@@ -151,9 +154,17 @@ Geoconnex JSON-LD documents can have varying contexts. However, there are severa
   }
 ```
 
+-   `@vocab` specifies [`schema`](https://schema.org/) as the default vocabulary from https://schema.org
+
+-   [`xsd`](https://www.w3.org/TR/xmlschema-2/) is a general web-enabled data types vocabulary (e.g., text vs number vs. datetime)
+
 -   [`rdfs`](https://www.w3.org/TR/rdf12-schema/) is a general vocabulary for basic relationships
 
 -   [`dc`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#) is the [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) vocabulary for general information metadata attributes
+
+-   [`dcat`](https://www.w3.org/ns/dcat#) is the [Data Catalog (DCAT) Vocabulary](https://www.w3.org/TR/vocab-dcat-3), a vocabulary for dataset metadata attributes
+
+-   [`freq`](http://purl.org/cld/freq/) is the [Dublin Core Collection Frequency Vocabulary](https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/), a vocabulary for dataset temporal resolution and update frequency
 
 -   [`qudt-units`](https://www.qudt.org/doc/DOC_VOCAB-UNITS.html) provides standard identifiers for units (e.g. [cubic feet per second](https://qudt.org/vocab/unit/FT3-PER-SEC))
 
@@ -473,10 +484,8 @@ However, to enable data users (and search engines) to filter for your data using
      }                                                                                                        // <14>
     },                                                                                                        // <14>
    "temporalCoverage": "2014-06-30/..",                                                                       // <15>
-   "ssn-system:frequency": {                                                                                  // <16>
-     "value": "15",                                                                                           // <16>
-     "unitCode": "qudt-units:Minute"                                                                          // <16>
-   },
+   "dcterms:accrualPeriodicity": "freq:daily",                                                                // <16>
+   "dcat:temporalResolution": {"@value":"PT15M","@type":"xsd:duration"},                                                                        // <16>
    "distribution": [                                                                                          // <17>
      {
       "@type": "DataDownload", // <17>
@@ -512,7 +521,7 @@ However, to enable data users (and search engines) to filter for your data using
 13. `measurementTechnique` is meant to be a highly general account of the data generating procedure, and primarily to distinguish between observed and modeled data. It is highly recommended for this to be `model` or `observation`, or if more specificity is required, to restrict these values to the ODM2 [methodType](http://vocabulary.odm2.org/methodtype/) vocabulary.
 14. `measurementMethod` specifies the method used to generate the data to as great a degree of specificity as possible. Ideally it could a persistent identifier that directs to a machine-readable web resource that unambiguously describes that method. This would look something like this: `"measurementMethod": {"@id": "https://www.nemi.gov/methods/method_summary/4680/"}` In lieu of that, a name, description and URL to human-readable web resource like an explanatory webpage, technical report, standards document, or academic article would be appropriate, as in this example for USGS discharge measurement.
 15. `temporal coverage` refers to the first and last time for which data is available. It can be specified using [ISO 8061 interval format](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) (`YYYY-MM-DD/YYYY-MM-DD`, with the start date first and the end date after the `/` . It can also include time like so `YYYY-MM-DDTHH:MM:SS/YYYY-MM-DDTHH:MM:SS` . If the dataset has no end date, as there is an active monitoring program, then this can be indicated like so `YYYY-MM-DD/..` .
-16. `ssn-system:frequency` refers to the minimum intended time spacing between observations in the case of regular time series data. Irregular time series or discrete sample data should omit this block. The `value` should be an integer and the `unitCode` a time unit from `qudt-units`.
+16. `dcterms:accrualPeriodicty` refers to the update schedule of the published dataset. The value of this can be from the [Dublin Core frequency vocabulary](https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/) (here in @context as `freq:`). `dcat:temporalResolution`  refers to the minimum intended time spacing between observations in the case of regular time series data. The value should be an [xsd duration encoded string](http://www.datypic.com/sc/xsd/t-xsd_duration.html) e.g. "PT15M" for 15-minute, "P1D" for Daily, "PT1H" for Hourly, "P7D" for Weekly, "P1M" for Monthly, "P1Y" for Annual. [`freq:`](https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/) or be specified using ISO duration code.
 17. `distribution` provides a way to structure information about data access points. This can range in complexity from a specification of a URL and format to specifications for how to interact with an API. In this example, a URL, format (`encodingFormat` populated by [MIME type](https://www.iana.org/assignments/media-types/media-types.xhtml)). `conformsTo` is optional and should be a document that helps interpret the data structure. This could be a link to a data dictionary in the case of simple tabular data, documentation of a data model for a complex database, or an API specification document for an API endpoint.
 18. Multiple `distributions` can be specified using nested JSON arrays.
 
@@ -525,6 +534,8 @@ This translates roughly to
         -   It has values between `June 6, 2014` to the `present`
 
         -   at a `15` `minute` time resolution
+        
+        -   updated/ published daily
 
         -   in units of `cubic feet per second`
 
@@ -809,8 +820,11 @@ They are viewable together below, or available for download:
 {
   "@context": {
     "@vocab": "https://schema.org/", 
+    "xsd": "https://www.w3.org/TR/xmlschema-2/#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dc": "http://purl.org/dc/terms/",
+    "dcat": "https://www.w3.org/ns/dcat#",
+    "freq": "http://purl.org/cld/freq/",
     "qudt": "http://qudt.org/schema/qudt/",
     "qudt-units": "http://qudt.org/vocab/unit/",
     "qudt-quantkinds": "http://qudt.org/vocab/quantitykind/",
@@ -894,14 +908,12 @@ They are viewable together below, or available for download:
       }
     },
     "temporalCoverage": "2014-06-30/..",
-    "ssn-system:frequency": {
-      "value": "15",
-      "unitCode": "qudt-units:Minute"
-    },
+    "dcterms:accrualPeriodicity": "freq:daily",                                                               
+    "dcat:temporalResolution": {"@value":"PT15M","@type":"xsd:duration"},  
     "distribution": [
       {
         "@type": "DataDownload",
-        "name": "USGS Instantaneous Values Service"
+        "name": "USGS Instantaneous Values Service",
         "contentUrl": "https://waterservices.usgs.gov/nwis/iv/?sites=08282300&parameterCd=00060&format=rdb",
         "encodingFormat": [
           "text/tab-separated-values"
@@ -927,20 +939,23 @@ They are viewable together below, or available for download:
 ``` json
 {
   "@context": {
-    "@vocab": "https://schema.org/",
+    "@vocab": "https://schema.org/", 
+    "xsd": "https://www.w3.org/TR/xmlschema-2/#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dc": "http://purl.org/dc/terms/",
+    "dcat": "https://www.w3.org/ns/dcat#",
+    "freq": "http://purl.org/cld/freq/",
     "qudt": "http://qudt.org/schema/qudt/",
     "qudt-units": "http://qudt.org/vocab/unit/",
     "qudt-quantkinds": "http://qudt.org/vocab/quantitykind/",
     "gsp": "http://www.opengis.net/ont/geosparql#",
     "locType": "http://vocabulary.odm2.org/sitetype",
-    "odm2var": "http://vocabulary.odm2.org/variablename/",
+    "odm2var":"http://vocabulary.odm2.org/variablename/",
     "odm2varType": "http://vocabulary.odm2.org/variabletype/",
     "hyf": "https://www.opengis.net/def/schema/hy_features/hyf/",
     "skos": "https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType",
     "ssn": "http://www.w3.org/ns/ssn/",
-    "ssn-system": "http://www.w3.org/ns/ssn/systems/"
+    "ssn-system":  "http://www.w3.org/ns/ssn/systems/"
   },
   "@type": "Dataset",
   "@id": "https://doi.org/10.4211/hs.4cf2a4298eca418f980201c1c5505299",
@@ -1015,10 +1030,8 @@ They are viewable together below, or available for download:
     }
   ],
   "temporalCoverage": "2002-01-01/2020-12-31",
-  "ssn-system:frequency": {
-    "value": "1",
-    "unitCode": "qudt-units:Month"
-  },
+  "dcterms:accrualPeriodicity": "freq:daily",                                                               
+  "dcat:temporalResolution": {"@value":"PT15M","@type":"xsd:duration"}, 
   "about": [
     {
       "@id": "https://geoconnex.us/ref/pws/NC0332010",

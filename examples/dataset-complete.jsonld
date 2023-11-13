@@ -1,27 +1,31 @@
 {
   "@context": {
-    "@vocab": "https://schema.org/",
+    "@vocab": "https://schema.org/", 
+    "xsd": "https://www.w3.org/TR/xmlschema-2/#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dc": "http://purl.org/dc/terms/",
+    "dcat": "https://www.w3.org/ns/dcat#",
+    "freq": "http://purl.org/cld/freq/",
     "qudt": "http://qudt.org/schema/qudt/",
     "qudt-units": "http://qudt.org/vocab/unit/",
     "qudt-quantkinds": "http://qudt.org/vocab/quantitykind/",
     "gsp": "http://www.opengis.net/ont/geosparql#",
     "locType": "http://vocabulary.odm2.org/sitetype",
-    "odm2var": "http://vocabulary.odm2.org/variablename/",
+    "odm2var":"http://vocabulary.odm2.org/variablename/",
     "odm2varType": "http://vocabulary.odm2.org/variabletype/",
     "hyf": "https://www.opengis.net/def/schema/hy_features/hyf/",
     "skos": "https://www.opengis.net/def/schema/hy_features/hyf/HY_HydroLocationType",
     "ssn": "http://www.w3.org/ns/ssn/",
-    "ssn-system": "http://www.w3.org/ns/ssn/systems/"
+    "ssn-system":  "http://www.w3.org/ns/ssn/systems/"
   },
   "@type": "Dataset",
   "@id": "https://doi.org/10.4211/hs.4cf2a4298eca418f980201c1c5505299",
+  "url": "https://doi.org/10.4211/hs.4cf2a4298eca418f980201c1c5505299",
   "identifier": "doi:hs.4cf2a4298eca418f980201c1c5505299",
   "name": "Geoconnex Dataset Example: Data for Triangle Water Supply Dashboard",
   "description": "This is a dataset meant as an example of dataset-level schema.org markup for https://geoconnex.us. It uses as an example data from the NC Triangle Water Supply Dashboard, which collects and visualizes finished water deliveries by water utilities to their service areas in the North Carolina Research Triangle area",
   "url": "https://www.hydroshare.org/resource/4cf2a4298eca418f980201c1c5505299",
-  "provider": {
+   "provider": {
     "url": "https://hydroshare.org",
     "@type": "ResearchOrganization",
     "name": "HydroShare"
@@ -87,10 +91,8 @@
     }
   ],
   "temporalCoverage": "2002-01-01/2020-12-31",
-  "ssn-system:frequency": {
-    "value": "1",
-    "unitCode": "qudt-units:Month"
-  },
+  "dcterms:accrualPeriodicity": "freq:daily",                                                               
+  "dcat:temporalResolution": {"@value":PT15M","@type":"xsd:duration"}, 
   "about": [
     {
       "@id": "https://geoconnex.us/ref/pws/NC0332010",
