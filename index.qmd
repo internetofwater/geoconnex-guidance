@@ -20,8 +20,9 @@ format:
     anchor-sections: true
     link-external-newwindow: true
     comments:
-      utterances:
-        repo: internetofwater/geoconnex-guidance
+#      utterances:
+#        repo: internetofwater/geoconnex-guidance
+       hypothesis: true
 editor: visual
 ---
 
@@ -671,7 +672,7 @@ For basic identifying and descriptive information, [science-on-schema.org has ap
      "distribution": [                                                                                       
      {
       "@type": "DataDownload", 
-      "name": "HydroShare file URL" 
+      "name": "HydroShare file URL", 
       "contentUrl": "https://www.hydroshare.org/resource/4cf2a4298eca418f980201c1c5505299/data/contents/demand_over_time.csv",    
       "encodingFormat": ["text/csv"],                                                        
       "dc:conformsTo": "https://www.hydroshare.org/resource/4cf2a4298eca418f980201c1c5505299/data/contents/dataDictionary.xlsx"   
